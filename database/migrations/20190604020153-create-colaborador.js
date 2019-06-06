@@ -1,0 +1,167 @@
+'use strict';
+
+module.exports = {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.createTable('Colaborador', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
+      },
+      foto: {
+        type: Sequelize.STRING,
+      },
+      nome: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      email: {
+        type: Sequelize.STRING,
+      },
+
+      gestor: {
+        type: Sequelize.INTEGER,
+      },
+      matricula: {
+        type: Sequelize.STRING,
+      },
+      primeiroEmprego: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
+      },
+      pagouContribSindicalAnoAdmissao: {
+        type: Sequelize.BOOLEAN,
+      },
+      dataExameAdmissional: {
+        type: Sequelize.DATE,
+      },
+      dataAdmissao: {
+        type: Sequelize.DATE,
+      },
+      vinculo: {
+        type: Sequelize.STRING
+      },
+      formaPagamento: {
+        type: Sequelize.STRING,
+      },
+      salario: {
+        type: Sequelize.DOUBLE
+      },
+      //periodoExperiencia: {},
+      //jornadaTrabalho: {},
+      //contratos: {},
+      preenchimentoPeloColaborador: {
+        allowNull: false,
+        defaultValue: false,
+        type: Sequelize.BOOLEAN,
+      },
+      dataNascimento: {
+        type: Sequelize.DATE,
+      },
+      nacionalidade: {
+        type: Sequelize.STRING,
+      },
+      corRaca: {
+        type: Sequelize.STRING,
+      },
+      naturalEstado: {
+        type: Sequelize.STRING,
+      },
+      naturalCidade: {
+        type: Sequelize.STRING,
+      },
+      sexo: {
+        type: Sequelize.STRING,
+      },
+      estadoCivil: {
+        type: Sequelize.STRING,
+      },
+      nomeMae: {
+        type: Sequelize.STRING,
+      },
+      nomePai: {
+        type: Sequelize.STRING,
+      },
+      telefone: {
+        type: Sequelize.STRING,
+      },
+      celular: {
+        type: Sequelize.STRING,
+      },
+      escolaridade: {
+        type: Sequelize.STRING,
+      },
+      curso: {
+        type: Sequelize.STRING,
+      },
+      instituicao: {
+        type: Sequelize.STRING,
+      },
+      anoConclusao: {
+        type: Sequelize.DATE,
+      },
+      //contatos: [],
+      //dependentes: [],
+      cpf: {
+        type: Sequelize.STRING,
+      },
+      rg: {
+        type: Sequelize.STRING,
+      },
+      dataExpedicaoRg: {
+        type: Sequelize.DATE,
+      },
+      orgaoEmissorRg: {
+        type: Sequelize.STRING,
+      },
+      ufEmissorRg: {
+        type: Sequelize.STRING,
+      },
+      cnh: {
+        type: Sequelize.STRING,
+      },
+      categoriaCnh: {
+        type: Sequelize.STRING,
+      },
+      dataExpedicaoCnh: {
+        type: Sequelize.DATE,
+      },
+      dataValidadeCnh: {
+        type: Sequelize.DATE,
+      },
+      carteiraTrabalho: {
+        type: Sequelize.STRING,
+      },
+      nSerieCtps: {
+        type: Sequelize.STRING,
+      },
+      pis: {
+        type: Sequelize.STRING,
+      },
+      tituloEleitor: {
+        type: Sequelize.STRING,
+      },
+      zonaEleitoral: {
+        type: Sequelize.STRING,
+      },
+      secaoEleitoral: {
+        type: Sequelize.STRING,
+      },
+      estrangeiro: {
+        type: Sequelize.BOOLEAN,
+      },
+      //copiaDocumentos: [],
+      //beneficios: [],
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      updatedAt: Sequelize.DATE,
+    });
+  },
+
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.dropTable('Colaborador');
+  }
+};
