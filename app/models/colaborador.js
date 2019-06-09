@@ -87,18 +87,6 @@ module.exports = (sequelize, DataTypes) => {
         celular: {
             type: DataTypes.STRING,
         },
-        escolaridade: {
-            type: DataTypes.STRING,
-        },
-        curso: {
-            type: DataTypes.STRING,
-        },
-        instituicao: {
-            type: DataTypes.STRING,
-        },
-        anoConclusao: {
-            type: DataTypes.DATE,
-        },
         //contatos: [],
         //dependentes: [],
         cpf: {
@@ -160,7 +148,8 @@ module.exports = (sequelize, DataTypes) => {
         Colaborador.belongsTo(models.Departamento, {as: 'departamento', foreignKey: 'DepartamentoId'})
         Colaborador.belongsTo(models.CentroDeCusto, {as: 'centroDeCusto', foreignKey: 'CentroDeCustoId'})
         Colaborador.belongsTo(models.Sindicato, {as: 'sindicato', foreignKey: 'SindicatoId'})
-        Colaborador.belongsTo(models.Endereco, {as: 'endereco', foreignKey: 'EnderecoId'})
+        Colaborador.hasMany(models.Endereco, {as: 'endereco', foreignKey: 'EnderecoId'})
+        Colaborador.belongsTo(models.Escolaridade, {as: 'escolaridade', foreignKey: 'EscolaridadeId'})
     }
 
     return Colaborador

@@ -32,5 +32,9 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         tableName: 'Endereco'
     })
+
+    Endereco.associate = models => {
+        Endereco.hasOne(models.Colaborador, {as: 'colaborador', foreignKey: 'EnderecoId'})
+    }
     return Endereco
 }

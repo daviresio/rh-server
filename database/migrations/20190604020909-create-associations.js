@@ -53,6 +53,17 @@ module.exports = {
                 onUpdate: 'CASCADE',
                 onDelete: 'SET NULL'
               })
+        }).then(() => {
+          return queryInterface.addColumn('Colaborador', 'EscolaridadeId',
+              {
+                type: Sequelize.INTEGER,
+                references: {
+                  model: 'Escolaridade',
+                  key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL'
+              })
         })
       })
     })

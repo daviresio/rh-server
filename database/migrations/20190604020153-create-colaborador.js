@@ -89,18 +89,6 @@ module.exports = {
       celular: {
         type: Sequelize.STRING,
       },
-      escolaridade: {
-        type: Sequelize.STRING,
-      },
-      curso: {
-        type: Sequelize.STRING,
-      },
-      instituicao: {
-        type: Sequelize.STRING,
-      },
-      anoConclusao: {
-        type: Sequelize.DATE,
-      },
       //contatos: [],
       //dependentes: [],
       cpf: {
