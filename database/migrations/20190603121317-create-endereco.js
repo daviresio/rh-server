@@ -31,12 +31,11 @@ module.exports = {
       type: Sequelize.STRING,
     },
     createdAt: {
-      type: Sequelize.DATE,
-      allowNull: false
+      allowNull: false,
+      type: Sequelize.DATE
     },
     updatedAt: Sequelize.DATE,
   });
-
   },
 
   down: (queryInterface, Sequelize) => {

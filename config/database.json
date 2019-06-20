@@ -1,23 +1,32 @@
 {
   "development": {
     "username": "root",
-    "password": "000285",
+    "password": "root",
     "database": "rh",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "host": "db",
+    "port": "3306",
+    "dialect": "mysql",
+    "freezeTableName": true,
+    "seederStorage": "sequelize"
   },
   "test": {
     "username": "root",
-    "password": "000285",
+    "password": "root",
     "database": "rh",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "host": "db",
+    "port": "3306",
+    "dialect": "mysql",
+    "freezeTableName": true,
+    "seederStorage": "sequelize"
   },
   "production": {
     "username": "root",
-    "password": "000285",
+    "password": "root",
     "database": "rh",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "host": "db",
+    "port": "3306",
+    "dialect": "mysql",
+    "freezeTableName": true,
+    "seederStorage": "sequelize"
   }
 }

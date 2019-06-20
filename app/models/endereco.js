@@ -29,6 +29,10 @@ module.exports = (sequelize, DataTypes) => {
         cidade: {
             type: DataTypes.STRING,
         },
+        createdAt: {
+            defaultValue: new Date(),
+            type: DataTypes.DATE,
+        }
     }, {
         tableName: 'Endereco'
     })

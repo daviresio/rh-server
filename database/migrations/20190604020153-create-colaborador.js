@@ -139,6 +139,11 @@ module.exports = {
       estrangeiro: {
         type: Sequelize.BOOLEAN,
       },
+      status: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: "PENDENTE"
+      },
       //copiaDocumentos: [],
       //beneficios: [],
       createdAt: {

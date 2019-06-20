@@ -17,8 +17,10 @@ module.exports = (sequelize, DataTypes) => {
         instituicao: DataTypes.STRING,
         anoConclusao: DataTypes.STRING,
     }, {
-        tableName: 'Endereco'
+        tableName: 'Escolaridade'
     })
-
+    Escolaridade.associate = models => {
+        Escolaridade.hasOne(models.Colaborador, {as: 'colaborador', foreignKey: 'EscolaridadeId'})
+    }
     return Escolaridade
 }

@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
         },
         primeiroEmprego: {
-            allowNull: false,
+            ...message.notNull('primeiro emprego'),
             type: DataTypes.BOOLEAN,
         },
         pagouContribSindicalAnoAdmissao: {
@@ -137,6 +137,9 @@ module.exports = (sequelize, DataTypes) => {
         estrangeiro: {
             type: DataTypes.BOOLEAN,
         },
+        status: {
+            type: DataTypes.STRING,
+        }
         //copiaDocumentos: [],
         //beneficios: [],
     }, {
@@ -148,8 +151,9 @@ module.exports = (sequelize, DataTypes) => {
         Colaborador.belongsTo(models.Departamento, {as: 'departamento', foreignKey: 'DepartamentoId'})
         Colaborador.belongsTo(models.CentroDeCusto, {as: 'centroDeCusto', foreignKey: 'CentroDeCustoId'})
         Colaborador.belongsTo(models.Sindicato, {as: 'sindicato', foreignKey: 'SindicatoId'})
-        Colaborador.hasMany(models.Endereco, {as: 'endereco', foreignKey: 'EnderecoId'})
+        Colaborador.belongsTo(models.Endereco, {as: 'endereco', foreignKey: 'EnderecoId'})
         Colaborador.belongsTo(models.Escolaridade, {as: 'escolaridade', foreignKey: 'EscolaridadeId'})
+        Colaborador.hasMany(models.CheckListColaborador, {as: 'checklist', foreignKey: 'CheckListId'})
     }
 
     return Colaborador

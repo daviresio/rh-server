@@ -5,7 +5,7 @@ module.exports.notNull = campo => ({
             msg: `O campo ${campo} e obrigatorio`
         },
         notEmpty: {
-            msg: `O campo ${campo} e obrigatorio`
+            msg: `O campo ${campo} nao pode ser vazio`
         }
     }
 })
