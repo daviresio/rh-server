@@ -26,5 +26,8 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         tableName: 'Banco'
     })
+    Banco.associate = models => {
+        Banco.hasOne(models.Colaborador, {as: 'colaborador', foreignKey: 'BancoId'})
+    }
     return Banco
 }

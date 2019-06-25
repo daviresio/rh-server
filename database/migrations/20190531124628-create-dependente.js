@@ -13,10 +13,6 @@ module.exports = {
           allowNull: false,
           type: Sequelize.STRING
         },
-        sobrenome: {
-          allowNull: false,
-          type: Sequelize.STRING
-        },
         dataNascimento: {
           allowNull: false,
           type: Sequelize.DATE

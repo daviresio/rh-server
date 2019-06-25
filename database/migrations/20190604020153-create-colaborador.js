@@ -39,18 +39,9 @@ module.exports = {
       dataAdmissao: {
         type: Sequelize.DATE,
       },
-      vinculo: {
-        type: Sequelize.STRING
-      },
-      formaPagamento: {
-        type: Sequelize.STRING,
-      },
       salario: {
         type: Sequelize.DOUBLE
       },
-      //periodoExperiencia: {},
-      //jornadaTrabalho: {},
-      //contratos: {},
       preenchimentoPeloColaborador: {
         allowNull: false,
         defaultValue: false,

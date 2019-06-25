@@ -8,6 +8,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             autoIncrement: true,
         },
+        nome: {
+            allowNull: false,
+            type: DataTypes.STRING,
+        },
         quantidadePeriodos: {
             allowNull: false,
             defaultValue: 0,
@@ -24,8 +28,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
         },
     }, {
-        tableName: 'PeriodoExperiencia'
+        tableName: 'PeriodoExperiencia',
     })
-
+    PeriodoExperiencia.associate = models => {
+        PeriodoExperiencia.hasMany(models.Colaborador, {as: 'colaboradores', foreignKey: 'PeriodoExperienciaId'})
+    }
     return PeriodoExperiencia
 }

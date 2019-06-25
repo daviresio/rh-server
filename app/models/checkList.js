@@ -20,8 +20,8 @@ module.exports = (sequelize, DataTypes) => {
         tableName: 'CheckList'
     })
 
-    CheckList.associate = models => {
-        CheckList.belongsTo(models.Colaborador, {as: 'colaborador'})
+   CheckList.associate = models => {
+        CheckList.belongsTo(models.Colaborador, {as: 'colaborador', foreignKey: 'CheckListId'})
     }
     return CheckList
 }

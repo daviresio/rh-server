@@ -2,7 +2,7 @@ const message = require('../util/validationMessage')
 
 module.exports = (sequelize, DataTypes) => {
 
-    const Contador = sequelize.define('Contador', {
+    const CopiaDocumento = sequelize.define('CopiaDocumento', {
         id: {
             primaryKey: true,
             type: DataTypes.INTEGER,
@@ -12,15 +12,16 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             ...message.notNull('nome'),
         },
-        telefone: DataTypes.STRING,
-        email: {
+        url: {
             type: DataTypes.STRING,
-            ...message.notNull('email')
+            ...message.notNull('url'),
         },
-        softwareContabil: DataTypes.STRING,
-        acessoAoSistemaDeContador: DataTypes.BOOLEAN,
-        responsavelPor: DataTypes.STRING,
+    },{
+        tableName: 'CopiaDocumento'
     })
 
-    return Contador
+    CopiaDocumento.associate = models => {
+        CopiaDocumento.belongsTo(models.Colaborador, {as: 'colaborador', foreignKey: 'CopiaDocumentoId'})
+    }
+    return CopiaDocumento
 }

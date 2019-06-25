@@ -2,40 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="faac65a8-d861-4f85-997a-496b8fb6643b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/Beneficio.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/checklistColaborador.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/evento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/fechamentoFolha.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/lembrete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/periodoExperiencia.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/recado.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/beneficio.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/endereco.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/evento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/fechamentoFolha.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/lembrete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/periodoExperiencia.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/recado.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entrypoint.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/contato.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/copiaDocumento.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/dependente.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/formaPagamento.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/jornadaTrabalho.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/vinculo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/checkList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/contato.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/copiaDocumento.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/dependente.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/formaPagamento.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/jornadaTrabalho.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routes/vinculo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sequelizerc" beforeDir="false" afterPath="$PROJECT_DIR$/.sequelizerc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Beneficio.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Beneficio.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/banco.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/banco.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/checklistColaborador.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/checkList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/colaborador.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/colaborador.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/endereco.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/endereco.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/escolaridade.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/escolaridade.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/contador.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/contador.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/periodoExperiencia.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/periodoExperiencia.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/cargo.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/cargo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/colaborador.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/colaborador.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/util/validationMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/util/validationMessage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/20190603121317-create-endereco.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/20190603121317-create-endereco.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/util/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/util/query.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/20190531124628-create-dependente.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/20190531124628-create-dependente.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/20190604020153-create-colaborador.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/20190604020153-create-colaborador.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/20190604020909-create-associations.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/z1-create-associations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/20190608113638-escolaridade.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/20190608113638-create-escolaridade.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/20190612180703-create-periodoExperiencia.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/20190612180703-create-periodoExperiencia.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/20190615200852-teste.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/z1-create-associations.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/z1-create-associations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/20190612180647-periodoExperiencia.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/20190612180647-periodoExperiencia.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,37 +45,82 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/colaborador.js">
+        <entry file="file://$PROJECT_DIR$/app/routes/colaborador.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2325">
-              <caret line="155" column="97" selection-start-line="155" selection-start-column="88" selection-end-line="155" selection-end-column="97" />
+            <state relative-caret-position="15">
+              <caret line="1" column="104" selection-start-line="1" selection-start-column="104" selection-end-line="1" selection-end-column="104" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/routes/contato.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/migrations/z1-create-associations.js">
+        <entry file="file://$PROJECT_DIR$/app/models/colaborador.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="69" column="64" selection-start-line="69" selection-start-column="64" selection-end-line="69" selection-end-column="64" />
+            <state relative-caret-position="2025">
+              <caret line="135" column="39" lean-forward="true" selection-start-line="135" selection-start-column="39" selection-end-line="135" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/20190609214015-create-checkList.js">
+        <entry file="file://$PROJECT_DIR$/app/models/copiaDocumento.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+            <state relative-caret-position="210">
+              <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/checklistColaborador.js">
+        <entry file="file://$PROJECT_DIR$/app/models/Beneficio.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="33" lean-forward="true" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+            <state relative-caret-position="478">
+              <caret line="75" column="1" lean-forward="true" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/routes/copiaDocumento.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/routes/checkList.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="448">
+              <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/routes/dependente.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -103,10 +144,17 @@
       <find>EventoFolhaPagamento</find>
       <find>type: Sequelize.</find>
       <find>Beneficio</find>
-      <find>Sequelize</find>
-      <find>Cargo</find>
-      <find>console</find>
       <find>primei</find>
+      <find>CheckList</find>
+      <find>CheckListId</find>
+      <find>colaboradorId</find>
+      <find>colaboradorParams</find>
+      <find>console</find>
+      <find>Departamento</find>
+      <find>Sequelize</find>
+      <find>banco</find>
+      <find>Cargo</find>
+      <find>Contato</find>
     </findStrings>
     <replaceStrings>
       <replace>CentroDeCusto</replace>
@@ -125,8 +173,15 @@
       <replace>type: DataTypes.</replace>
       <replace>Recado</replace>
       <replace>Lembrete</replace>
-      <replace>DataTypes</replace>
       <replace>Endereco</replace>
+      <replace>JornadaTrabalho</replace>
+      <replace>Vinculo</replace>
+      <replace>FormaPagamento</replace>
+      <replace>DataTypes</replace>
+      <replace>Dependente</replace>
+      <replace>CheckList</replace>
+      <replace>Contato</replace>
+      <replace>CopiaDocumento</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -135,38 +190,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/20190604015731-create-associations.js" />
-        <option value="$PROJECT_DIR$/database/migrations/20190604020153-create-colaborador.js" />
-        <option value="$PROJECT_DIR$/app/routes/cargo.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/database/migrations/20190608113638-escolaridade.js" />
-        <option value="$PROJECT_DIR$/database/migrations/20190604020909-create-associations.js" />
-        <option value="$PROJECT_DIR$/index.js" />
-        <option value="$PROJECT_DIR$/.dockerignore" />
-        <option value="$PROJECT_DIR$/database/migrations/20190609214015-create-checklistColaborador.js" />
-        <option value="$PROJECT_DIR$/app/models/tipoExperiencia.js" />
-        <option value="$PROJECT_DIR$/app/models/eventoFolhaPagamento.js" />
-        <option value="$PROJECT_DIR$/database/migrations/20190612180703-periodoExperiencia.js" />
-        <option value="$PROJECT_DIR$/app/routes/periodoExperiencia.js" />
-        <option value="$PROJECT_DIR$/app/util/validationMessage.js" />
-        <option value="$PROJECT_DIR$/.sequelizerc" />
-        <option value="$PROJECT_DIR$/database/migrations/20190612213637-fechamentoFolha.js" />
-        <option value="$PROJECT_DIR$/database/migrations/20190612165619-eventoFolhaPagamento.js" />
-        <option value="$PROJECT_DIR$/database/seeders/20190612170357-eventoFolhaPagamento.js" />
-        <option value="$PROJECT_DIR$/app/models/fechamentoFolha.js" />
-        <option value="$PROJECT_DIR$/app/routes/fechamentoFolha.js" />
-        <option value="$PROJECT_DIR$/database/migrations/20190612215959-beneficio.js" />
-        <option value="$PROJECT_DIR$/app/routes/beneficio.js" />
-        <option value="$PROJECT_DIR$/app/models/periodoExperiencia.js" />
-        <option value="$PROJECT_DIR$/app/models/Beneficio.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/Dockerfile" />
-        <option value="$PROJECT_DIR$/app/routes/eventoFolhaPagamento.js" />
-        <option value="$PROJECT_DIR$/app/models/evento.js" />
-        <option value="$PROJECT_DIR$/database/migrations/20190612165619-evento.js" />
-        <option value="$PROJECT_DIR$/database/seeders/20190612170357-evento.js" />
-        <option value="$PROJECT_DIR$/database/seeders/20190612180647-periodoExperiencia.js" />
-        <option value="$PROJECT_DIR$/entrypoint.sh" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/config/database.json" />
         <option value="$PROJECT_DIR$/database/migrations/20190614115019-create-recado.js" />
@@ -178,14 +201,46 @@
         <option value="$PROJECT_DIR$/database/migrations/20190615200852-teste.js" />
         <option value="$PROJECT_DIR$/database/migrations/20190603121317-create-endereco.js" />
         <option value="$PROJECT_DIR$/app/routes/endereco.js" />
-        <option value="$PROJECT_DIR$/app/routes/index.js" />
         <option value="$PROJECT_DIR$/app/models/escolaridade.js" />
         <option value="$PROJECT_DIR$/app/models/endereco.js" />
-        <option value="$PROJECT_DIR$/app/routes/colaborador.js" />
-        <option value="$PROJECT_DIR$/app/models/colaborador.js" />
-        <option value="$PROJECT_DIR$/database/migrations/z1-create-associations.js" />
         <option value="$PROJECT_DIR$/app/models/checklistColaborador.js" />
         <option value="$PROJECT_DIR$/database/migrations/20190609214015-create-checkList.js" />
+        <option value="$PROJECT_DIR$/database/migrations/20190620131821-jornadaTrabalho.js" />
+        <option value="$PROJECT_DIR$/app/models/contador.js" />
+        <option value="$PROJECT_DIR$/database/seeders/20190620133929-tipoJornada.js" />
+        <option value="$PROJECT_DIR$/app/routes/jornadaTrabalho.js" />
+        <option value="$PROJECT_DIR$/database/migrations/20190612180703-create-periodoExperiencia.js" />
+        <option value="$PROJECT_DIR$/database/seeders/20190620133929-JornadaTrabalho.js" />
+        <option value="$PROJECT_DIR$/app/models/jornadaTrabalho.js" />
+        <option value="$PROJECT_DIR$/app/routes/cargo.js" />
+        <option value="$PROJECT_DIR$/database/seeders/20190612180647-periodoExperiencia.js" />
+        <option value="$PROJECT_DIR$/database/migrations/20190620175049-create-formaPagamento.js" />
+        <option value="$PROJECT_DIR$/database/migrations/20190620175029-create-vinculo.js" />
+        <option value="$PROJECT_DIR$/app/models/formaPagamento.js" />
+        <option value="$PROJECT_DIR$/app/models/vinculo.js" />
+        <option value="$PROJECT_DIR$/database/seeders/20190620175102-vinculo.js" />
+        <option value="$PROJECT_DIR$/database/seeders/20190620175108-formaPagamento.js" />
+        <option value="$PROJECT_DIR$/app/routes/vinculo.js" />
+        <option value="$PROJECT_DIR$/app/routes/formaPagamento.js" />
+        <option value="$PROJECT_DIR$/database/migrations/20190604020153-create-colaborador.js" />
+        <option value="$PROJECT_DIR$/app/util/query.js" />
+        <option value="$PROJECT_DIR$/app/models/periodoExperiencia.js" />
+        <option value="$PROJECT_DIR$/app/models/checkList.js" />
+        <option value="$PROJECT_DIR$/database/seeders/20190621164736-checkList.js" />
+        <option value="$PROJECT_DIR$/app/models/contato.js" />
+        <option value="$PROJECT_DIR$/app/models/dependentes.js" />
+        <option value="$PROJECT_DIR$/app/models/banco.js" />
+        <option value="$PROJECT_DIR$/database/migrations/20190623212521-create-copiaDocumentos.js" />
+        <option value="$PROJECT_DIR$/database/migrations/z1-create-associations.js" />
+        <option value="$PROJECT_DIR$/app/routes/contato.js" />
+        <option value="$PROJECT_DIR$/app/routes/copiaDocumento.js" />
+        <option value="$PROJECT_DIR$/app/routes/checkList.js" />
+        <option value="$PROJECT_DIR$/app/routes/dependente.js" />
+        <option value="$PROJECT_DIR$/app/routes/index.js" />
+        <option value="$PROJECT_DIR$/app/models/copiaDocumento.js" />
+        <option value="$PROJECT_DIR$/app/models/Beneficio.js" />
+        <option value="$PROJECT_DIR$/app/routes/colaborador.js" />
+        <option value="$PROJECT_DIR$/app/models/colaborador.js" />
       </list>
     </option>
   </component>
@@ -203,7 +258,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -225,6 +279,12 @@
             <path>
               <item name="rh-server" type="b2602c69:ProjectViewProjectNode" />
               <item name="rh-server" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rh-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rh-server" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -233,10 +293,17 @@
               <item name="database" type="462c0819:PsiDirectoryNode" />
               <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="rh-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rh-server" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="seeders" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -251,16 +318,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/models" />
+      <recent name="$PROJECT_DIR$/app/routes" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/database/migrations" />
       <recent name="$PROJECT_DIR$/database" />
       <recent name="$PROJECT_DIR$/config" />
       <recent name="$PROJECT_DIR$/database/d" />
       <recent name="$PROJECT_DIR$/database/seeders" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/models" />
-      <recent name="$PROJECT_DIR$/app/routes" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -364,12 +431,21 @@
       <workItem from="1560777405449" duration="262000" />
       <workItem from="1560788891183" duration="5000" />
       <workItem from="1561001207631" duration="2973000" />
-      <workItem from="1561035537614" duration="599000" />
+      <workItem from="1561035537614" duration="22506000" />
+      <workItem from="1561120598703" duration="3000" />
+      <workItem from="1561135064661" duration="928000" />
+      <workItem from="1561144560577" duration="96000" />
+      <workItem from="1561148059703" duration="149000" />
+      <workItem from="1561155774755" duration="15000" />
+      <workItem from="1561159363902" duration="847000" />
+      <workItem from="1561228656964" duration="2920000" />
+      <workItem from="1561294667376" duration="1249000" />
+      <workItem from="1561320375775" duration="5249000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113729000" />
+    <option name="totallyTimeSpent" value="147092000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -384,20 +460,20 @@
     <frame x="-1" y="0" width="2562" height="1027" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15632458" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16706444" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32988358" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30499324" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30449438" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32858837" />
-      <window_info anchor="bottom" id="Docker" order="7" visible="true" weight="0.30674157" />
+      <window_info anchor="bottom" id="Docker" order="7" weight="0.30639732" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.36308807" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.28539327" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -410,163 +486,10 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/sindicato.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/20190603121259-create-banco.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/periodoExperiencia.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="9" lean-forward="true" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/banco.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/fechamentoFolha.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="41" column="26" lean-forward="true" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/20190612213637-create-fechamentoFolha.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="52" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/contador.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/cargo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/20190612215959-create-beneficio.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="52" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/beneficio.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/periodoExperiencia.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="59" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entrypoint.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sequelize-data.json" />
     <entry file="file://$PROJECT_DIR$/app/models/evento.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
+        <state relative-caret-position="424">
           <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeders/20190612180647-periodoExperiencia.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/20190608113638-create-escolaridade.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Beneficio.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="61" column="10" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/20190530170500-create-cargo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="48" lean-forward="true" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeders/20190612170357-evento.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/20190612165619-create-evento.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="61" column="21" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -577,173 +500,324 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/evento.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/recado.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/20190614115019-create-recado.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="25" selection-start-line="5" selection-start-column="6" selection-end-line="40" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/20190614113642-create-lembrete.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="55" column="9" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/lembrete.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/lembrete.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/recado.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/centroDeCusto.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.sequelizerc">
+    <entry file="file://$PROJECT_DIR$/app/models/contador.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+          <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/jornadaTrabalho.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="158" column="6" lean-forward="true" selection-start-line="158" selection-start-column="6" selection-end-line="158" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/20190615200852-teste.js" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/20190620131821-create-jornadaTrabalho.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/20190530170500-create-cargo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/20190620175029-create-vinculo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="50" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/endereco.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="33" column="33" lean-forward="true" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeders/20190612170357-evento.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeders/20190620175102-vinculo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/formaPagamento.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="36" selection-start-column="36" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/vinculo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="45" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/vinculo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/20190620175049-create-formaPagamento.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="57" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/cargo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/formaPagamento.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/cargo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeders/20190612180647-periodoExperiencia.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="68" column="15" lean-forward="true" selection-start-line="68" selection-start-column="15" selection-end-line="68" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/database.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+        <state relative-caret-position="300">
+          <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/20190603121317-create-endereco.js">
+    <entry file="file://$PROJECT_DIR$/app/models/periodoExperiencia.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/20190615200852-teste.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="41" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="41" />
+        <state relative-caret-position="485">
+          <caret line="33" column="110" selection-start-line="33" selection-start-column="110" selection-end-line="33" selection-end-column="110" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/util/query.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/endereco.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/escolaridade.js">
+    <entry file="file://$PROJECT_DIR$/database/seeders/20190620175108-formaPagamento.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        <state relative-caret-position="165">
+          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+    <entry file="file://$PROJECT_DIR$/database/seeders/20190621164736-checkList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="74" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="74" />
+        <state relative-caret-position="105">
+          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/20190612180703-create-periodoExperiencia.js">
+    <entry file="file://$PROJECT_DIR$/app/models/departamento.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="21" column="30" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="30" />
+        <state relative-caret-position="225">
+          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/20190530170511-create-departamento.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="51" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/util/validationMessage.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/endereco.js">
+    <entry file="file://$PROJECT_DIR$/database/migrations/20190604020153-create-colaborador.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="85" selection-start-line="40" selection-start-column="85" selection-end-line="40" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/cargo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/colaborador.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/colaborador.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2325">
-          <caret line="155" column="97" selection-start-line="155" selection-start-column="88" selection-end-line="155" selection-end-column="97" />
+        <state relative-caret-position="15">
+          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/20190609214015-create-checkList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+        <state relative-caret-position="60">
+          <caret line="4" column="48" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/checklistColaborador.js">
+    <entry file="file://$PROJECT_DIR$/database/migrations/20190531124628-create-dependente.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="33" lean-forward="true" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+        <state relative-caret-position="420">
+          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/escolaridade.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/banco.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="6" lean-forward="true" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/20190531124619-create-contato.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/20190623212531-create-beneficio.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/20190612215959-create-beneficio.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="55" selection-start-line="4" selection-start-column="55" selection-end-line="74" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/20190623221032-create-beneficio.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/beneficio.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/z1-create-associations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="69" column="64" selection-start-line="69" selection-start-column="64" selection-end-line="69" selection-end-column="64" />
+        <state relative-caret-position="748">
+          <caret line="196" column="67" selection-start-line="196" selection-start-column="53" selection-end-line="196" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/dependente.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/contato.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="39" lean-forward="true" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/contato.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/checkList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/dependente.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/20190623212521-create-copiaDocumento.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="38" lean-forward="true" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/checkList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/colaborador.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="104" selection-start-line="1" selection-start-column="104" selection-end-line="1" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/copiaDocumento.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Beneficio.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="75" column="1" lean-forward="true" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/copiaDocumento.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/colaborador.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2025">
+          <caret line="135" column="39" lean-forward="true" selection-start-line="135" selection-start-column="39" selection-end-line="135" selection-end-column="39" />
         </state>
       </provider>
     </entry>

@@ -1,14 +1,12 @@
-const {Colaborador, Cargo, Departamento, CentroDeCusto, Sindicato, Endereco, Escolaridade} = require('../models')
-const query = require('../util/query')
+const {Colaborador, Cargo, Departamento, CentroDeCusto, Sindicato, Endereco, Escolaridade, JornadaTrabalho, Vinculo,
+    FormaPagamento, PeriodoExperiencia, CheckList, Contato, Dependente, Banco, Beneficio, CopiaDocumento} = require('../models')
 
 module.exports.list = async (req, res) => {
-    res.send(await Colaborador.findAll({
-        ...query.removeTimestamp(), ...colaboradorParams
-    }))
+    res.send(await Colaborador.findAll({...colaboradorParams}))
 }
 
 module.exports.findById = async (req, res) => {
-    const result = await Colaborador.findByPk(req.params.id, {...query.removeTimestamp(), ...colaboradorParams})
+    const result = await Colaborador.findByPk(req.params.id, {...colaboradorParams})
     if (result) {
         res.send(result)
     } else {
@@ -18,13 +16,18 @@ module.exports.findById = async (req, res) => {
 
 module.exports.save = async (req, res) => {
     try {
-        const {cargo, departamento, centroDeCusto, sindicato, ...data} = req.body
-        console.log(req.body)
-        const colaborador = await Colaborador.create({...data})
-        colaborador.setCargo(cargo)
-        colaborador.setDepartamento(departamento)
-        colaborador.setCentroDeCusto(centroDeCusto)
-        colaborador.setSindicato(sindicato)
+        const {cargo, departamento, centroDeCusto, sindicato, checkList, jornadaTrabalho, vinculo, formaPagamento, periodoExperiencia, ...data} = req.body
+        colaborador = await Colaborador.create({...data})
+        await colaborador.setCargo(cargo)
+        await colaborador.setDepartamento(departamento)
+        await colaborador.setCentroDeCusto(centroDeCusto)
+        await colaborador.setSindicato(sindicato)
+        await colaborador.setCheckList(checkList)
+        await colaborador.setJornadaTrabalho(jornadaTrabalho)
+        await colaborador.setVinculo(vinculo)
+        await colaborador.setFormaPagamento(formaPagamento)
+        await colaborador.setPeriodoExperiencia(periodoExperiencia)
+        await colaborador.setCheckList([1,2,3,4,5])
         res.send(colaborador)
     } catch (e) {
         console.log(e)
@@ -35,7 +38,10 @@ module.exports.save = async (req, res) => {
 
 module.exports.update = async (req, res) => {
     try {
-        const {endereco, cargo, departamento, centroDeCusto, sindicato, escolaridade, banco, ...colaborador} = req.body
+        const {
+            cargo, departamento, centroDeCusto, sindicato, checkList, jornadaTrabalho, vinculo, formaPagamento,
+            endereco, escolaridade, banco, periodoExperiencia, contatos, dependentes, ...colaborador
+        } = req.body
 
         await Colaborador.update({...colaborador}, {
             where: {
@@ -43,15 +49,18 @@ module.exports.update = async (req, res) => {
             },
         })
 
-        let colaboradorSaved = await Colaborador.findByPk(req.body.id, {
-            ...query.removeTimestamp(),
-            ...colaboradorParams,
-        })
+        let colaboradorSaved = await Colaborador.findByPk(req.body.id,
+            {...colaboradorParams},
+        )
 
         if (cargo) await colaboradorSaved.setCargo(cargo)
-        if (departamento) await colaboradorSaved.setDepartamento(departamento)
-        if (centroDeCusto) await colaboradorSaved.setCentroDeCusto(centroDeCusto)
-        if (sindicato) await colaboradorSaved.setSindicato(sindicato)
+        if (departamento) await colaboradorSaved.setDepartamento(typeof departamento === 'object' ? departamento.id : departamento)
+        if (centroDeCusto) await colaboradorSaved.setCentroDeCusto(typeof centroDeCusto === 'object' ? centroDeCusto.id : centroDeCusto)
+        if (checkList) await colaboradorSaved.setCheckList(checkList)
+        if (jornadaTrabalho) await colaboradorSaved.setJornadaTrabalho(typeof jornadaTrabalho === 'object' ? jornadaTrabalho.id : jornadaTrabalho)
+        if (vinculo) await colaboradorSaved.setVinculo(typeof vinculo === 'object' ? vinculo.id : vinculo)
+        if (formaPagamento) await colaboradorSaved.setFormaPagamento(typeof formaPagamento === 'object' ? formaPagamento.id : formaPagamento)
+        if (periodoExperiencia) await colaboradorSaved.setPeriodoExperiencia(periodoExperiencia)
 
         if (endereco) {
             if (endereco.id) {
@@ -79,20 +88,46 @@ module.exports.update = async (req, res) => {
 
         if (banco) {
             if (banco.id) {
-                await banco.update({...banco}, {where: {id: banco.id}})
+                await Banco.update({...banco}, {where: {id: banco.id}})
                 await colaboradorSaved.setBanco(banco.id)
             } else if (typeof banco === 'number') {
                 await colaboradorSaved.setBanco(banco)
             } else {
-                const bancoSaved = await Escolaridade.create({...banco})
+                const bancoSaved = await Banco.create({...banco})
                 await bancoSaved.setColaborador(colaboradorSaved.id)
             }
         }
 
-        colaboradorSaved = await Colaborador.findByPk(req.body.id, {
-            ...query.removeTimestamp(),
-            ...colaboradorParams,
-        })
+        if (contatos && contatos.length) {
+            await contatos.forEach( async c => {
+                if (c.id) {
+                    await Contato.update({...c}, {where: {id: c.id}})
+                    await colaboradorSaved.addContato(c.id)
+                } else if (typeof c === 'number') {
+                    await colaboradorSaved.addContato(c)
+                } else {
+                    const contatoSaved = await Escolaridade.create({...c})
+                    await contatoSaved.setColaborador(colaboradorSaved.id)
+                }
+            })
+
+        }
+
+        if (dependentes && dependentes.length) {
+            await dependentes.forEach( async d => {
+                if (d.id) {
+                    await Dependente.update({...d}, {where: {id: d.id}})
+                    await colaboradorSaved.addDependente(d.id)
+                } else if (typeof d === 'number') {
+                    await colaboradorSaved.addDependente(d)
+                } else {
+                    const dependenteSaved = await Dependente.create({...d})
+                    await dependenteSaved.setColaborador(colaboradorSaved.id)
+                }
+            })
+        }
+
+        colaboradorSaved = await Colaborador.findByPk(req.body.id, {...colaboradorParams})
 
         res.send(colaboradorSaved)
     } catch (e) {
@@ -137,8 +172,46 @@ const colaboradorParams = {
         {
             model: Endereco,
             as: 'endereco',
-            attributes: {exclude: ['createdAt', 'updatedAt', 'ColaboradorId']}
-        }
+            attributes: {exclude: ['createdAt', 'updatedAt']}
+        }, {
+            model: JornadaTrabalho,
+            as: 'jornadaTrabalho',
+            attributes: {exclude: ['createdAt', 'updatedAt']}
+        }, {
+            model: Vinculo,
+            as: 'vinculo',
+            attributes: {exclude: ['createdAt', 'updatedAt']}
+        }, {
+            model: FormaPagamento,
+            as: 'formaPagamento',
+            attributes: {exclude: ['createdAt', 'updatedAt']}
+        },{
+            model: PeriodoExperiencia,
+            as: 'periodoExperiencia',
+            attributes: {exclude: ['createdAt', 'updatedAt']}
+        },{
+            model: CheckList,
+            as: 'checkList',
+            attributes: {exclude: ['createdAt', 'updatedAt', 'CheckListId']}
+        },{
+            model: Contato,
+            as: 'contatos',
+            attributes: {exclude: ['createdAt', 'updatedAt', 'ContatoId']}
+        },{
+            model: Dependente,
+            as: 'dependentes',
+            attributes: {exclude: ['createdAt', 'updatedAt', 'DependenteId']}
+        },{
+            model: Beneficio,
+            as: 'beneficios',
+            attributes: {exclude: ['createdAt', 'updatedAt', 'BeneficioId']}
+        },{
+            model: CopiaDocumento,
+            as: 'copiaDocumentos',
+            attributes: {exclude: ['createdAt', 'updatedAt', 'CopiaDocumentoId']}
+        },
     ],
-    exclude: ['createdAt', 'updatedAt', 'CargoId', 'DepartamentoId', 'EnderecoId', 'CentroDeCustoId', 'SindicatoId', 'EscolaridadeId']
+    attributes: {
+        exclude: ['createdAt', 'updatedAt', 'CargoId', 'DepartamentoId', 'EnderecoId', 'CentroDeCustoId', 'SindicatoId', 'EscolaridadeId', 'JornadaTrabalhoId', 'VinculoId', 'FormaPagamentoId', 'PeriodoExperienciaId']
+    }
 }

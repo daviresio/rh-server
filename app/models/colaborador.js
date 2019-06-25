@@ -37,18 +37,9 @@ module.exports = (sequelize, DataTypes) => {
         dataAdmissao: {
             type: DataTypes.DATE,
         },
-        vinculo: {
-            type: DataTypes.STRING,
-        },
-        formaPagamento: {
-            type: DataTypes.STRING,
-        },
         salario: {
             type: DataTypes.DOUBLE,
         },
-        //periodoExperiencia: {},
-        //jornadaTrabalho: {},
-        //contratos: [],
         preenchimentoPeloColaborador: {
             allowNull: false,
             defaultValue: false,
@@ -87,8 +78,6 @@ module.exports = (sequelize, DataTypes) => {
         celular: {
             type: DataTypes.STRING,
         },
-        //contatos: [],
-        //dependentes: [],
         cpf: {
             type: DataTypes.STRING,
         },
@@ -139,9 +128,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         status: {
             type: DataTypes.STRING,
-        }
-        //copiaDocumentos: [],
-        //beneficios: [],
+        },
     }, {
         tableName: 'Colaborador'
     })
@@ -153,7 +140,15 @@ module.exports = (sequelize, DataTypes) => {
         Colaborador.belongsTo(models.Sindicato, {as: 'sindicato', foreignKey: 'SindicatoId'})
         Colaborador.belongsTo(models.Endereco, {as: 'endereco', foreignKey: 'EnderecoId'})
         Colaborador.belongsTo(models.Escolaridade, {as: 'escolaridade', foreignKey: 'EscolaridadeId'})
-        Colaborador.hasMany(models.CheckListColaborador, {as: 'checklist', foreignKey: 'CheckListId'})
+        Colaborador.hasMany(models.CheckList, {as: 'checkList', foreignKey: 'CheckListId'})
+        Colaborador.belongsTo(models.JornadaTrabalho, {as: 'jornadaTrabalho', foreignKey: 'JornadaTrabalhoId'})
+        Colaborador.belongsTo(models.Vinculo, {as: 'vinculo', foreignKey: 'VinculoId'})
+        Colaborador.belongsTo(models.FormaPagamento, {as: 'formaPagamento', foreignKey: 'FormaPagamentoId'})
+        Colaborador.belongsTo(models.PeriodoExperiencia, {as: 'periodoExperiencia', foreignKey: 'PeriodoExperienciaId'})
+        Colaborador.hasMany(models.Contato, {as: 'contatos', foreignKey: 'ContatoId'})
+        Colaborador.hasMany(models.Dependente, {as: 'dependentes', foreignKey: 'DependenteId'})
+        Colaborador.hasMany(models.Beneficio, {as: 'beneficios', foreignKey: 'BeneficioId'})
+        Colaborador.hasMany(models.CopiaDocumento, {as: 'copiaDocumentos', foreignKey: 'CopiaDocumentoId'})
     }
 
     return Colaborador

@@ -69,6 +69,8 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         tableName: 'Beneficio'
     })
-
+    Beneficio.associate = models => {
+        Beneficio.belongsTo(models.Colaborador, {as: 'colaborador', foreignKey: 'BeneficioId'})
+    }
     return Beneficio
 }
