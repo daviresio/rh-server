@@ -19,7 +19,7 @@ module.exports.save = async (req, res) => {
         const result = await Beneficio.create(req.body)
         res.send(result)
     } catch (e) {
-        res.send({erro: e.errors[0].message})
+        res.status(500).send({erro: e.errors[0].message})
     }
 }
 

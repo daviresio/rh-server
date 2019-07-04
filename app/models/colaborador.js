@@ -111,6 +111,12 @@ module.exports = (sequelize, DataTypes) => {
         nSerieCtps: {
             type: DataTypes.STRING,
         },
+        dataEmissaoCtps: {
+            type: DataTypes.DATE,
+        },
+        ufCtps: {
+            type: DataTypes.STRING,
+        },
         pis: {
             type: DataTypes.STRING,
         },
@@ -128,6 +134,13 @@ module.exports = (sequelize, DataTypes) => {
         },
         status: {
             type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: "PENDENTE",
+        },
+        ativo: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
         },
     }, {
         tableName: 'Colaborador'
@@ -135,6 +148,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Colaborador.associate = models => {
         Colaborador.belongsTo(models.Cargo, {as: 'cargo', foreignKey: 'CargoId'})
+        Colaborador.belongsTo(models.Banco, {as: 'banco', foreignKey: 'BancoId'})
         Colaborador.belongsTo(models.Departamento, {as: 'departamento', foreignKey: 'DepartamentoId'})
         Colaborador.belongsTo(models.CentroDeCusto, {as: 'centroDeCusto', foreignKey: 'CentroDeCustoId'})
         Colaborador.belongsTo(models.Sindicato, {as: 'sindicato', foreignKey: 'SindicatoId'})

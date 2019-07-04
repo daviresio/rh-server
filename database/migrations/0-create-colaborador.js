@@ -115,6 +115,12 @@ module.exports = {
       nSerieCtps: {
         type: Sequelize.STRING,
       },
+      dataEmissaoCtps: {
+        type: Sequelize.DATE,
+      },
+      ufCtps: {
+        type: Sequelize.STRING,
+      },
       pis: {
         type: Sequelize.STRING,
       },
@@ -135,8 +141,11 @@ module.exports = {
         allowNull: false,
         defaultValue: "PENDENTE"
       },
-      //copiaDocumentos: [],
-      //beneficios: [],
+      ativo: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
       createdAt: {
         type: Sequelize.DATE,
         allowNull: false

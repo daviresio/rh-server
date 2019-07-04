@@ -1,1 +1,1 @@
-module.exports.removeTimestamp = () => ({attributes: {exclude:['createdAt', 'updatedAt']}})
+module.exports.removeTimestamp = (arr = []) => ({attributes: {exclude:['createdAt', 'updatedAt'].concat(arr)}})

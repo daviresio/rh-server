@@ -16,7 +16,9 @@ module.exports.findById = async (req, res) => {
 
 module.exports.save = async (req, res) => {
     try {
-        const result = await CopiaDocumento.create(req.body)
+        const {colaborador, ...data} = req.body
+        const result = await CopiaDocumento.create(data)
+        await result.setColaborador(colaborador)
         res.send(result)
     } catch (e) {
         console.log(e)

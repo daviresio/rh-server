@@ -2,7 +2,7 @@ const {CheckList, Colaborador} = require('../models')
 const query = require('../util/query')
 
 module.exports.list = async (req, res) => {
-    res.send(await CheckList.findAll({...query.removeTimestamp(), include: [{model: Colaborador, as: 'colaboradores'}]}))
+    res.send(await CheckList.findAll({...query.removeTimestamp(), include: [{model: Colaborador, as: 'colaborador'}]}))
 }
 
 module.exports.findById = async (req, res) => {
@@ -41,4 +41,8 @@ module.exports.update = async (req, res) => {
 module.exports.delete = async (req, res) => {
     await CheckList.destroy({where: {id: req.params.id}})
     res.status(200).send()
+}
+
+module.exports.listByColaborador = async (req, res) => {
+    res.send(await CheckList.findAll({where: {CheckListId: req.params.id}, attributes: {exclude:['createdAt', 'updatedAt']}}))
 }

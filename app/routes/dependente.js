@@ -2,7 +2,7 @@ const {Dependente, Colaborador} = require('../models')
 const query = require('../util/query')
 
 module.exports.list = async (req, res) => {
-    res.send(await Dependente.findAll({...query.removeTimestamp(), include: [{model: Colaborador, as: 'colaboradores'}]}))
+    res.send(await Dependente.findAll({...query.removeTimestamp(), include: [{model: Colaborador, as: 'colaborador'}]}))
 }
 
 module.exports.findById = async (req, res) => {
@@ -16,7 +16,9 @@ module.exports.findById = async (req, res) => {
 
 module.exports.save = async (req, res) => {
     try {
-        const result = await Dependente.create(req.body)
+        const {colaborador, ...data} = req.body
+        const result = await Dependente.create(data)
+        await result.setColaborador(colaborador)
         res.send(result)
     } catch (e) {
         console.log(e)
@@ -41,4 +43,9 @@ module.exports.update = async (req, res) => {
 module.exports.delete = async (req, res) => {
     await Dependente.destroy({where: {id: req.params.id}})
     res.status(200).send()
+}
+
+
+module.exports.listByColaborador = async (req, res) => {
+    res.send(await Dependente.findAll({where: {DependenteId: req.params.id}, attributes: {exclude: ['DependenteId', 'createdAt', 'updatedAt']}}))
 }
