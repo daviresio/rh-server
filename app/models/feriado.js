@@ -2,7 +2,7 @@ const message = require('../util/validationMessage')
 
 module.exports = (sequelize, DataTypes) => {
 
-    const Cargo = sequelize.define('Cargo', {
+    const Feriado = sequelize.define('Feriado', {
         id: {
             primaryKey: true,
             type: DataTypes.INTEGER,
@@ -12,19 +12,18 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             ...message.notNull('nome')
         },
-        cbo: {
-            type: DataTypes.STRING,
-            ...message.notNull('cbo')
+        data: {
+            type: DataTypes.DATE,
+            ...message.notNull('data')
         },
-        descricao: {
-            type: DataTypes.STRING,
+        dsr: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false,
         },
-    }, {
-        tableName: 'Cargo'
+    },{
+        tableName: 'Feriado'
     })
 
-    Cargo.associate = models => {
-        Cargo.hasMany(models.Colaborador, {as: 'colaboradores'})
-    }
-    return Cargo
+    return Feriado
 }

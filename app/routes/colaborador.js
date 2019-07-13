@@ -24,17 +24,16 @@ module.exports.save = async (req, res) => {
         const {cargo, departamento, centroDeCusto, sindicato, checkList, jornadaTrabalho, vinculo, formaPagamento, periodoExperiencia, ...data} = req.body
         colaborador = await Colaborador.create({...data, status: "ADMISSAO_PENDENTE"})
         console.log(cargo)
-        await colaborador.setCargo(cargo)
-        await colaborador.setDepartamento(departamento)
-        await colaborador.setCentroDeCusto(centroDeCusto)
-        await colaborador.setSindicato(sindicato)
-        await colaborador.setCheckList(checkList)
-        await colaborador.setJornadaTrabalho(jornadaTrabalho)
-        await colaborador.setVinculo(vinculo)
-        await colaborador.setFormaPagamento(formaPagamento)
-        await colaborador.setPeriodoExperiencia(periodoExperiencia)
-        /* await ConfiguracaoCheckList.findAll({where: {ativo: true}}).then(async result =>
-         await CheckList.create({nome: result.nome, concluido: false, CheckListId: colaborador.id})) */
+        if(cargo) await colaborador.setCargo(cargo)
+        if(departamento) await colaborador.setDepartamento(departamento)
+        if(centroDeCusto) await colaborador.setCentroDeCusto(centroDeCusto)
+        if(sindicato) await colaborador.setSindicato(sindicato)
+        if(jornadaTrabalho) await colaborador.setJornadaTrabalho(jornadaTrabalho)
+        if(vinculo) await colaborador.setVinculo(vinculo)
+        if(formaPagamento) await colaborador.setFormaPagamento(formaPagamento)
+        if(periodoExperiencia) await colaborador.setPeriodoExperiencia(periodoExperiencia)
+        await ConfiguracaoCheckList.findAll({where: {ativo: true}}).then(async result =>
+         result.forEach(async v => await CheckList.create({nome: v.nome, concluido: false, CheckListId: colaborador.id})))
 
         res.send(colaborador)
     } catch (e) {

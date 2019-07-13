@@ -28,7 +28,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.BOOLEAN,
             ...message.notNull('enviaParaTodosColaboradores')
         },
-        //TODO enviar para lista de departamentos e colaboradores
         lembreteRecorrente: {
             allowNull: false,
             defaultValue: false,

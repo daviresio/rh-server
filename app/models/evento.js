@@ -53,6 +53,11 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: false,
             type: DataTypes.BOOLEAN,
         },
+        campoAtivo: {
+            allowNull: false,
+            defaultValue: false,
+            type: DataTypes.BOOLEAN,
+        },
 
     }, {
         tableName: 'Evento'

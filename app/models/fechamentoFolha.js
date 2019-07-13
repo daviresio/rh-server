@@ -8,8 +8,13 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             autoIncrement: true,
         },
-        data: {
+        dataReferencia: {
             type: DataTypes.DATE,
+            ...message.notNull('dataReferencia')
+        },
+        dataInicio: {
+            type: DataTypes.DATE,
+            ...message.notNull('dataInicio')
         },
     }, {
         tableName: 'FechamentoFolha'

@@ -15,11 +15,13 @@ module.exports.findById = async (req, res) => {
 }
 
 module.exports.save = async (req, res) => {
+
     try {
-        const result = await Lembrete.create(req.body)
+        const result = await Lembrete.create({...req.body, termino: req.body.termino || req.body.inicio})
         res.send(result)
     } catch (e) {
-        res.send({erro: e.errors[0].message})
+        console.log(e)
+        res.status(500).send({erro: e.errors[0].message})
     }
 }
 

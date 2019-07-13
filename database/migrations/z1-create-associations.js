@@ -155,47 +155,90 @@ module.exports = {
                     onDelete: 'SET NULL'
                 })
         }).then(() => {
-                return queryInterface.addColumn('CopiaDocumento', 'CopiaDocumentoId',
-                    {
-                        type: Sequelize.INTEGER,
-                        references: {
-                            model: 'Colaborador',
-                            key: 'id'
-                        },
-                        onUpdate: 'CASCADE',
-                        onDelete: 'SET NULL'
-                    })
-            }).then(() => {
-                return queryInterface.addColumn('Beneficio', 'BeneficioId',
-                    {
-                        type: Sequelize.INTEGER,
-                        references: {
-                            model: 'Colaborador',
-                            key: 'id'
-                        },
-                        onUpdate: 'CASCADE',
-                        onDelete: 'SET NULL'
-                    })
+            return queryInterface.addColumn('CopiaDocumento', 'CopiaDocumentoId',
+                {
+                    type: Sequelize.INTEGER,
+                    references: {
+                        model: 'Colaborador',
+                        key: 'id'
+                    },
+                    onUpdate: 'CASCADE',
+                    onDelete: 'SET NULL'
+                })
+        }).then(() => {
+            return queryInterface.addColumn('Beneficio', 'BeneficioId',
+                {
+                    type: Sequelize.INTEGER,
+                    references: {
+                        model: 'Colaborador',
+                        key: 'id'
+                    },
+                    onUpdate: 'CASCADE',
+                    onDelete: 'SET NULL'
+                })
+        }).then(() => {
+            return queryInterface.addColumn('Empresa', 'ConfiguracaoId', {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'Configuracao',
+                    key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL',
             })
+        }).then(()=> {
+            return queryInterface.addColumn('Configuracao', 'ConfiguracaoFolhaId', {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'ConfiguracaoFolha',
+                    key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL'
+            })
+        }).then(()=> {
+            return queryInterface.addColumn('Configuracao', 'ConfiguracaoDecimoTerceiroId', {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'ConfiguracaoFolha',
+                    key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL'
+            })
+        }).then(()=> {
+            return queryInterface.addColumn('Feriado', 'FeriadoId', {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'Configuracao',
+                    key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL',
+            })
+        })
     },
 
     down: (queryInterface, Sequelize) => {
-        return queryInterface.removeColumn('Colaborador, CargoId')
-            .then(() => queryInterface.removeColumn('Colaborador, DepartamentoId'))
-            .then(() => queryInterface.removeColumn('Colaborador, CentroDeCustoId'))
-            .then(() => queryInterface.removeColumn('Colaborador, SindicatoId'))
-            .then(() => queryInterface.removeColumn('Colaborador, EscolaridadeId'))
-            .then(() => queryInterface.removeColumn('Endereco, EnderecoId'))
-            .then(() => queryInterface.removeColumn('Colaborador, JornadaTrabalhoId'))
-            .then(() => queryInterface.removeColumn('CheckList, CheckListId'))
-            .then(() => queryInterface.removeColumn('Colaborador, VinculoId'))
-            .then(() => queryInterface.removeColumn('Colaborador, FormaPagamentoId'))
-            .then(() => queryInterface.removeColumn('Colaborador, PeriodoExperienciaId'))
-            .then(() => queryInterface.removeColumn('Contato, ContatoId'))
-            .then(() => queryInterface.removeColumn('Dependente, DependenteId'))
-            .then(() => queryInterface.removeColumn('Colaborador, BancoId'))
-            .then(() => queryInterface.removeColumn('CopiaDocumento, CopiaDocumentoId'))
-            .then(() => queryInterface.removeColumn('Beneficio, BeneficioId'))
+        return queryInterface.removeColumn('Colaborador', 'CargoId')
+            .then(() => queryInterface.removeColumn('Colaborador', 'DepartamentoId'))
+            .then(() => queryInterface.removeColumn('Colaborador', 'CentroDeCustoId'))
+            .then(() => queryInterface.removeColumn('Colaborador', 'SindicatoId'))
+            .then(() => queryInterface.removeColumn('Colaborador', 'EscolaridadeId'))
+            .then(() => queryInterface.removeColumn('Endereco', 'EnderecoId'))
+            .then(() => queryInterface.removeColumn('Colaborador', 'JornadaTrabalhoId'))
+            .then(() => queryInterface.removeColumn('CheckList', 'CheckListId'))
+            .then(() => queryInterface.removeColumn('Colaborador', 'VinculoId'))
+            .then(() => queryInterface.removeColumn('Colaborador', 'FormaPagamentoId'))
+            .then(() => queryInterface.removeColumn('Colaborador', 'PeriodoExperienciaId'))
+            .then(() => queryInterface.removeColumn('Contato', 'ContatoId'))
+            .then(() => queryInterface.removeColumn('Dependente', 'DependenteId'))
+            .then(() => queryInterface.removeColumn('Colaborador', 'BancoId'))
+            .then(() => queryInterface.removeColumn('CopiaDocumento', 'CopiaDocumentoId'))
+            .then(() => queryInterface.removeColumn('Beneficio', 'BeneficioId'))
+            .then(() => queryInterface.removeColumn('Empresa', 'ConfiguracaoId'))
+            .then(() => queryInterface.removeColumn('Configuracao', 'ConfiguracaoFolhaId'))
+            .then(() => queryInterface.removeColumn('Configuracao', 'ConfiguracaoDecimoTerceiroId'))
 
     }
 };
