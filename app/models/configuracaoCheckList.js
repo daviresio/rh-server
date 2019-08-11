@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.BOOLEAN,
             ...message.notNull('ativo')
         },
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
     }, {
         tableName: 'ConfiguracaoCheckList'
     })

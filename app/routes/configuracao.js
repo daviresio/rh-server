@@ -1,8 +1,9 @@
 const {Configuracao, ConfiguracaoFolha, ConfiguracaoDecimoTerceiro} = require('../models')
 const query = require('../util/query')
+const addIdEmpresa = require('../util/util').addIdEmpresa
 
 module.exports.list = async (req, res) => {
-    res.send(await Configuracao.findAll({...query.removeTimestamp()}))
+    res.send(await Configuracao.findAll({...query.removeTimestamp(), where: {idEmpresa: req.authData.empresa}}))
 }
 
 module.exports.findById = async (req, res) => {
@@ -17,7 +18,7 @@ module.exports.findById = async (req, res) => {
 module.exports.save = async (req, res) => {
     try {
         const {folha, decimoTerceiro, ...data} = req.body
-        const result = await Configuracao.create(data)
+        const result = await Configuracao.create(addIdEmpresa(data, req.authData.empresa))
         await result.setConfiguracaoFolha(folha)
         await result.setConfiguracaoDecimoTerceiro(decimoTerceiro)
         res.send(result)
@@ -39,7 +40,7 @@ module.exports.update = async (req, res) => {
             if (folha.id) {
                 await ConfiguracaoFolha.update(folha, {where: {id: folha.id}})
             } else {
-                const folhaCreated = await ConfiguracaoFolha.create(folha)
+                const folhaCreated = await ConfiguracaoFolha.create(addIdEmpresa(folha, req.authData.empresa))
                 await result.setConfiguracaoFolha(folhaCreated.id)
             }
         }
@@ -47,7 +48,7 @@ module.exports.update = async (req, res) => {
             if (decimoTerceiro.id) {
                 await ConfiguracaoDecimoTerceiro.update(decimoTerceiro, {where: {id: decimoTerceiro.id}})
             } else {
-                const decimoTerceiroCreated = await ConfiguracaoDecimoTerceiro.create(decimoTerceiro)
+                const decimoTerceiroCreated = await ConfiguracaoDecimoTerceiro.create(addIdEmpresa(decimoTerceiro, req.authData.empresa))
                 await result.setConfiguracaoFolha(decimoTerceiroCreated.id)
             }
         }

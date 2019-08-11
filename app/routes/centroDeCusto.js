@@ -1,8 +1,9 @@
 const {CentroDeCusto} = require('../models')
 const query = require('../util/query')
+const addIdEmpresa = require('../util/util').addIdEmpresa
 
 module.exports.list = async (req, res) => {
-    res.send(await CentroDeCusto.findAll(query.removeTimestamp()))
+    res.send(await CentroDeCusto.findAll({...query.removeTimestamp(), where: {idEmpresa: req.authData.empresa}}))
 }
 
 module.exports.findById = async (req, res) => {
@@ -16,7 +17,7 @@ module.exports.findById = async (req, res) => {
 
 module.exports.save = async (req, res) => {
     try {
-        const result = await CentroDeCusto.create(req.body)
+        const result = await CentroDeCusto.create(addIdEmpresa(req.body, req.authData.empresa))
         res.send(result)
     } catch (e) {
         res.send({erro: e.errors[0].message})

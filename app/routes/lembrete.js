@@ -1,8 +1,9 @@
 const {Lembrete} = require('../models')
 const query = require('../util/query')
+const addIdEmpresa = require('../util/util').addIdEmpresa
 
 module.exports.list = async (req, res) => {
-    res.send(await Lembrete.findAll({...query.removeTimestamp()}))
+    res.send(await Lembrete.findAll({...query.removeTimestamp(), where: {idEmpresa: req.authData.empresa}}))
 }
 
 module.exports.findById = async (req, res) => {
@@ -17,7 +18,7 @@ module.exports.findById = async (req, res) => {
 module.exports.save = async (req, res) => {
 
     try {
-        const result = await Lembrete.create({...req.body, termino: req.body.termino || req.body.inicio})
+        const result = await Lembrete.create({...addIdEmpresa(req.body, req.authData.empresa), termino: req.body.termino || req.body.inicio})
         res.send(result)
     } catch (e) {
         console.log(e)

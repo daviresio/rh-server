@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
         },
         instituicao: DataTypes.STRING,
         anoConclusao: DataTypes.STRING,
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
     }, {
         tableName: 'Escolaridade'
     })

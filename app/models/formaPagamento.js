@@ -11,7 +11,10 @@ module.exports = (sequelize, DataTypes) => {
         nome: {
             type: DataTypes.STRING,
             ...message.notNull('nome'),
-        }
+        },
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
     },{
         tableName: 'FormaPagamento'
     })

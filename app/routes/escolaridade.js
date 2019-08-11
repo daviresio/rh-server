@@ -1,8 +1,9 @@
 const {Escolaridade, Colaborador} = require('../models')
 const query = require('../util/query')
+const addIdEmpresa = require('../util/util').addIdEmpresa
 
 module.exports.list = async (req, res) => {
-    res.send(await Escolaridade.findAll({...query.removeTimestamp(), include: [{model: Colaborador, as: 'colaborador'}]}))
+    res.send(await Escolaridade.findAll({...query.removeTimestamp(), include: [{model: Colaborador, as: 'colaborador'}], where: {idEmpresa: req.authData.empresa}}))
 }
 
 module.exports.findById = async (req, res) => {
@@ -17,7 +18,7 @@ module.exports.findById = async (req, res) => {
 module.exports.save = async (req, res) => {
     try {
         const {colaborador, ...data} = req.body
-        const result = await Escolaridade.create(data)
+        const result = await Escolaridade.create(addIdEmpresa(data, req.authData.empresa))
         await result.setColaborador(colaborador)
         res.send(result)
     } catch (e) {

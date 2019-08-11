@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
         mesPrimeiraParcela: {
             type: DataTypes.STRING,
         },
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
     }, {
         tableName: 'ConfiguracaoDecimoTerceiro'
     })

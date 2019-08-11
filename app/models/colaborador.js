@@ -142,6 +142,9 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             defaultValue: false,
         },
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
     }, {
         tableName: 'Colaborador'
     })

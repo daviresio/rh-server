@@ -13,6 +13,24 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      razaoSocial: {
+        type: Sequelize.STRING,
+      },
+      cnpj: {
+        type: Sequelize.STRING,
+      },
+      telefone: {
+        type: Sequelize.STRING,
+      },
+      email: {
+        type: Sequelize.STRING,
+      },
+      site: {
+        type: Sequelize.STRING,
+      },
+      logo: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         type: Sequelize.DATE,
         allowNull: false

@@ -20,6 +20,9 @@ module.exports = (sequelize, DataTypes) => {
         softwareContabil: DataTypes.STRING,
         acessoAoSistemaDeContador: DataTypes.BOOLEAN,
         responsavelPor: DataTypes.STRING,
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
     })
 
     return Contador

@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             ...message.notNull('url'),
         },
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
     },{
         tableName: 'CopiaDocumento'
     })

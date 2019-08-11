@@ -23,6 +23,9 @@ module.exports = (sequelize, DataTypes) => {
         comprovante: {
             type: DataTypes.STRING,
         },
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
     }, {
         tableName: 'Banco'
     })

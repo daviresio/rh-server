@@ -71,6 +71,9 @@ module.exports = {
                 type: Sequelize.DATE,
                 allowNull: false
             },
+            idEmpresa: {
+                type: Sequelize.INTEGER,
+            },
             updatedAt: Sequelize.DATE,
         });
 

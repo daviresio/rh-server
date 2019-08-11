@@ -16,6 +16,9 @@ module.exports = {
             tipo: {
                 type: Sequelize.STRING,
             },
+            idEmpresa: {
+                type: Sequelize.INTEGER,
+            },
             createdAt: {
                 type: Sequelize.DATE,
                 allowNull: false

@@ -16,9 +16,14 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
         },
         descricao: DataTypes.STRING,
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
     }, {
         tableName: 'Holerite'
     })
-
+    Holerite.associate = models => {
+        Holerite.belongsTo(models.MesHolerite, {as: 'mes', foreignKey: 'HoleriteId'})
+    }
     return Holerite
 }

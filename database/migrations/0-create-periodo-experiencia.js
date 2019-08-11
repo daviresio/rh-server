@@ -28,6 +28,9 @@ module.exports = {
                 defaultValue: 0,
                 type: Sequelize.INTEGER
             },
+            idEmpresa: {
+                type: Sequelize.INTEGER,
+            },
             createdAt: {
                 type: Sequelize.DATE,
                 allowNull: false

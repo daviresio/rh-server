@@ -30,6 +30,9 @@ module.exports = {
     cidade: {
       type: Sequelize.STRING,
     },
+    idEmpresa: {
+      type: Sequelize.INTEGER,
+    },
     createdAt: {
       allowNull: false,
       type: Sequelize.DATE

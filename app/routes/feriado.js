@@ -1,8 +1,9 @@
 const {Feriado} = require('../models')
 const query = require('../util/query')
+const addIdEmpresa = require('../util/util').addIdEmpresa
 
 module.exports.list = async (req, res) => {
-    res.send(await Feriado.findAll({...query.removeTimestamp()}))
+    res.send(await Feriado.findAll({...query.removeTimestamp(), where: {idEmpresa: req.authData.empresa}}))
 }
 
 module.exports.findById = async (req, res) => {
@@ -16,7 +17,7 @@ module.exports.findById = async (req, res) => {
 
 module.exports.save = async (req, res) => {
     try {
-        const result = await Feriado.create({...req.body})
+        const result = await Feriado.create(addIdEmpresa(req.body, req.authData.empresa))
         res.send(result)
     } catch (e) {
         console.log(e)

@@ -14,11 +14,15 @@ module.exports = (sequelize, DataTypes) => {
         },
         telefone: DataTypes.STRING,
         site: DataTypes.STRING,
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
     }, {
         tableName: 'Sindicato'
     })
     Sindicato.associate = models => {
-        Sindicato.hasMany(models.Colaborador, {as: 'colaboradores'})
+        Sindicato.hasMany(models.Colaborador, {as: 'colaboradores', foreignKey: 'SindicatoId'})
+      //  Sindicato.belongsTo(models.Empresa, {as: 'empresa', foreignKey: 'SindicatoId'})
     }
     return Sindicato
 }

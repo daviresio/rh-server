@@ -186,7 +186,7 @@ module.exports = {
                 onUpdate: 'CASCADE',
                 onDelete: 'SET NULL',
             })
-        }).then(()=> {
+        }).then(() => {
             return queryInterface.addColumn('Configuracao', 'ConfiguracaoFolhaId', {
                 type: Sequelize.INTEGER,
                 references: {
@@ -196,7 +196,7 @@ module.exports = {
                 onUpdate: 'CASCADE',
                 onDelete: 'SET NULL'
             })
-        }).then(()=> {
+        }).then(() => {
             return queryInterface.addColumn('Configuracao', 'ConfiguracaoDecimoTerceiroId', {
                 type: Sequelize.INTEGER,
                 references: {
@@ -206,11 +206,73 @@ module.exports = {
                 onUpdate: 'CASCADE',
                 onDelete: 'SET NULL'
             })
-        }).then(()=> {
+        }).then(() => {
+            return queryInterface.addColumn('Configuracao', 'PermissaoId', {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'Permissao',
+                    key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL',
+            })
+        }).then(() => {
             return queryInterface.addColumn('Feriado', 'FeriadoId', {
                 type: Sequelize.INTEGER,
                 references: {
                     model: 'Configuracao',
+                    key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL',
+            })
+        }).then(() => {
+            return queryInterface.addColumn('Holerite', 'HoleriteId', {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'MesHolerite',
+                    key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL',
+            })
+        }).then(() => {
+            return queryInterface.addColumn('Empresa', 'CobrancaId', {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'Cobranca',
+                    key: 'id',
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL'
+            })
+        })
+        //FIXME colunas duplicadas, mas preciso delas
+        /*.then(() => {
+            return queryInterface.addColumn('Empresa', 'ConfiguracaoId', {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'Cobranca',
+                    key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL',
+            })
+        })*/.then(() => {
+            return queryInterface.addColumn('Empresa', 'EmpresaId', {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'Companhia',
+                    key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'SET NULL',
+            })
+        }).then(() => {
+            return queryInterface.addColumn('Usuario', 'UsuarioId', {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'Companhia',
                     key: 'id'
                 },
                 onUpdate: 'CASCADE',
@@ -239,6 +301,12 @@ module.exports = {
             .then(() => queryInterface.removeColumn('Empresa', 'ConfiguracaoId'))
             .then(() => queryInterface.removeColumn('Configuracao', 'ConfiguracaoFolhaId'))
             .then(() => queryInterface.removeColumn('Configuracao', 'ConfiguracaoDecimoTerceiroId'))
+            .then(() => queryInterface.removeColumn('Configuracao', 'PermissaoId'))
+            .then(() => queryInterface.removeColumn('Feriado', 'FeriadoId'))
+            .then(() => queryInterface.removeColumn('Holerite', 'HoleriteId'))
+            .then(() => queryInterface.removeColumn('Empresa', 'CobrancaId'))
+            //.then(() => queryInterface.removeColumn('Empresa', 'ConfiguracaoId'))
+            .then(() => queryInterface.removeColumn('Usuario', 'UsuarioId'))
 
     }
 };

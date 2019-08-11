@@ -35,6 +35,9 @@ module.exports = (sequelize, DataTypes) => {
         tipoCalculoHoraExtra: {
             type: DataTypes.STRING,
         },
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
     }, {
         tableName: 'ConfiguracaoFolha'
     })

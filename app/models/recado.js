@@ -45,6 +45,9 @@ module.exports = (sequelize, DataTypes) => {
         arquivo: {
             type: DataTypes.STRING,
         },
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
     }, {
         tableName: 'Recado'
     })

@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
             ...message.notNull('dataInicio')
         },
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
     }, {
         tableName: 'FechamentoFolha'
     })

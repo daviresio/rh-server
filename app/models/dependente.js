@@ -35,6 +35,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.BOOLEAN,
             ...message.notNull('incluirParaFinsDeImpostoRenda'),
         },
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
     },{
         tableName: 'Dependente'
     })

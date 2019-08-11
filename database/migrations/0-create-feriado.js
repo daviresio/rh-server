@@ -21,6 +21,9 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.BOOLEAN,
             },
+            idEmpresa: {
+                type: Sequelize.INTEGER,
+            },
             createdAt: {
                 type: Sequelize.DATE,
                 allowNull: false

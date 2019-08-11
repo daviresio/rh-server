@@ -51,6 +51,9 @@ module.exports = {
       defaultValue: false,
       type: Sequelize.BOOLEAN
     },
+    idEmpresa: {
+      type: Sequelize.INTEGER,
+    },
    /* diasDaSemana: {
       type: Sequelize.ARRAY(Sequelize.STRING)
     }, */

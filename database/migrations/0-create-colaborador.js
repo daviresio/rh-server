@@ -80,8 +80,6 @@ module.exports = {
       celular: {
         type: Sequelize.STRING,
       },
-      //contatos: [],
-      //dependentes: [],
       cpf: {
         type: Sequelize.STRING,
       },
@@ -145,6 +143,9 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false,
+      },
+      idEmpresa: {
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         type: Sequelize.DATE,

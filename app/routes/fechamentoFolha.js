@@ -1,8 +1,9 @@
 const {FechamentoFolha} = require('../models')
 const query = require('../util/query')
+const addIdEmpresa = require('../util/util').addIdEmpresa
 
 module.exports.list = async (req, res) => {
-    res.send(await FechamentoFolha.findAll({...query.removeTimestamp()}))
+    res.send(await FechamentoFolha.findAll({...query.removeTimestamp(), where: {idEmpresa: req.authData.empresa}}))
 }
 
 module.exports.findById = async (req, res) => {
@@ -16,7 +17,7 @@ module.exports.findById = async (req, res) => {
 
 module.exports.save = async (req, res) => {
     try {
-        const result = await FechamentoFolha.create({...req.body, dataInicio: Date.now()})
+        const result = await FechamentoFolha.create({...addIdEmpresa(req.body, req.authData.empresa), dataInicio: Date.now()})
         res.send(result)
     } catch (e) {
         res.send({erro: e.errors[0].message})

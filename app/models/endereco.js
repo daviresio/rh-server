@@ -29,6 +29,9 @@ module.exports = (sequelize, DataTypes) => {
         cidade: {
             type: DataTypes.STRING,
         },
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
         createdAt: {
             defaultValue: new Date(),
             type: DataTypes.DATE,

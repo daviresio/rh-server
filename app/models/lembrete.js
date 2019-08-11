@@ -58,6 +58,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.BOOLEAN,
             ...message.notNull('lembreteSemValidade')
         },
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
       /*  diasDaSemana: {
             type: DataTypes.ARRAY(Sequelize.STRING)
         }, */

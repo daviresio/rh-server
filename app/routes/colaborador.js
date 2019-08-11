@@ -4,9 +4,11 @@ const {
     ConfiguracaoCheckList
 } = require('../models')
 
+const addIdEmpresa = require('../util/util').addIdEmpresa
+
 module.exports.list = async (req, res) => {
-    let params = {}
-    if (req.query.status) params = {where: req.query}
+    let params = {where: {idEmpresa: req.authData.empresa}}
+    if (req.query.status) params = {...params.where, ...req.query}
     res.send(await Colaborador.findAll({...params, ...colaboradorParams}))
 }
 
@@ -21,9 +23,9 @@ module.exports.findById = async (req, res) => {
 
 module.exports.save = async (req, res) => {
     try {
+        const idEmpresa = req.authData.empresa
         const {cargo, departamento, centroDeCusto, sindicato, checkList, jornadaTrabalho, vinculo, formaPagamento, periodoExperiencia, ...data} = req.body
-        colaborador = await Colaborador.create({...data, status: "ADMISSAO_PENDENTE"})
-        console.log(cargo)
+        colaborador = await Colaborador.create({...data, status: "ADMISSAO_PENDENTE", idEmpresa})
         if(cargo) await colaborador.setCargo(cargo)
         if(departamento) await colaborador.setDepartamento(departamento)
         if(centroDeCusto) await colaborador.setCentroDeCusto(centroDeCusto)
@@ -33,7 +35,7 @@ module.exports.save = async (req, res) => {
         if(formaPagamento) await colaborador.setFormaPagamento(formaPagamento)
         if(periodoExperiencia) await colaborador.setPeriodoExperiencia(periodoExperiencia)
         await ConfiguracaoCheckList.findAll({where: {ativo: true}}).then(async result =>
-         result.forEach(async v => await CheckList.create({nome: v.nome, concluido: false, CheckListId: colaborador.id})))
+         result.forEach(async v => await CheckList.create({nome: v.nome, concluido: false, CheckListId: colaborador.id, idEmpresa})))
 
         res.send(colaborador)
     } catch (e) {
@@ -49,6 +51,8 @@ module.exports.update = async (req, res) => {
             cargo, departamento, centroDeCusto, sindicato, checkList, jornadaTrabalho, vinculo, formaPagamento,
             endereco, escolaridade, banco, periodoExperiencia, contatos, dependentes, copiaDocumentos, ...colaborador
         } = req.body
+
+        const idEmpresa = req.authData.empresa
 
         await Colaborador.update({...colaborador}, {
             where: {
@@ -75,7 +79,7 @@ module.exports.update = async (req, res) => {
             } else if (typeof endereco === 'number') {
                 await colaboradorSaved.setEndereco(endereco)
             } else {
-                const enderecoSaved = await Endereco.create({...endereco})
+                const enderecoSaved = await Endereco.create(addIdEmpresa(endereco, idEmpresa))
                 await enderecoSaved.setColaborador(colaboradorSaved.id)
             }
         }
@@ -87,7 +91,7 @@ module.exports.update = async (req, res) => {
             } else if (typeof escolaridade === 'number') {
                 await colaboradorSaved.setEscolaridade(escolaridade)
             } else {
-                const escolaridadeSaved = await Escolaridade.create({...escolaridade})
+                const escolaridadeSaved = await Escolaridade.create(addIdEmpresa(escolaridade, idEmpresa))
                 await escolaridadeSaved.setColaborador(colaboradorSaved.id)
             }
         }
@@ -99,7 +103,7 @@ module.exports.update = async (req, res) => {
             } else if (typeof banco === 'number') {
                 await colaboradorSaved.setBanco(banco)
             } else {
-                const bancoSaved = await Banco.create({...banco})
+                const bancoSaved = await Banco.create(addIdEmpresa(banco, idEmpresa))
                 await bancoSaved.setColaborador(colaboradorSaved.id)
             }
         }
@@ -112,7 +116,7 @@ module.exports.update = async (req, res) => {
                 } else if (typeof c === 'number') {
                     await colaboradorSaved.addContato(c)
                 } else {
-                    const contatoSaved = await Escolaridade.create({...c})
+                    const contatoSaved = await Contato.create(addIdEmpresa(c, idEmpresa))
                     await contatoSaved.setColaborador(colaboradorSaved.id)
                 }
             })
@@ -127,7 +131,7 @@ module.exports.update = async (req, res) => {
                 } else if (typeof d === 'number') {
                     await colaboradorSaved.addDependente(d)
                 } else {
-                    const dependenteSaved = await Dependente.create({...d})
+                    const dependenteSaved = await Dependente.create(addIdEmpresa(d, idEmpresa))
                     await dependenteSaved.setColaborador(colaboradorSaved.id)
                 }
             })
@@ -149,7 +153,7 @@ module.exports.update = async (req, res) => {
 
             await copiaDocumentos.forEach(async v => {
                 if (!v.id) {
-                    const copiaDocumentoSaved = await CopiaDocumento.create({...v})
+                    const copiaDocumentoSaved = await CopiaDocumento.create(addIdEmpresa(v, idEmpresa))
                     await copiaDocumentoSaved.setColaborador(colaboradorSaved.id)
                 }
             })
@@ -171,10 +175,11 @@ module.exports.delete = async (req, res) => {
 
 module.exports.qtdColaboradores = async (req, res) => {
     try {
-        const ativo = await Colaborador.findAll({where: {status: "ATIVO"}})
-        const admissaoPendente = await Colaborador.findAll({where: {status: "ADMISSAO_PENDENTE"}})
-        const desligamentoPendente = await Colaborador.findAll({where: {status: "DESLIGAMENTO_PENDENTE"}})
-        const desligado = await Colaborador.findAll({where: {status: "DESLIGADO"}})
+        const idEmpresa = req.authData.empresa
+        const ativo = await Colaborador.findAll({where: {status: "ATIVO", idEmpresa}})
+        const admissaoPendente = await Colaborador.findAll({where: {status: "ADMISSAO_PENDENTE", idEmpresa}})
+        const desligamentoPendente = await Colaborador.findAll({where: {status: "DESLIGAMENTO_PENDENTE", idEmpresa}})
+        const desligado = await Colaborador.findAll({where: {status: "DESLIGADO", idEmpresa}})
         res.send({ativo: ativo.length, admissaoPendente: admissaoPendente.length, desligamentoPendente: desligamentoPendente.length, desligado: desligado.length})
     } catch (e) {
         console.log(e)

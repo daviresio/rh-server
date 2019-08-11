@@ -28,6 +28,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             ...message.notNull('relacao'),
         },
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
     },{
         tableName: 'Contato'
     })

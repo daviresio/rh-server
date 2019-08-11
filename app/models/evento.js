@@ -58,7 +58,9 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: false,
             type: DataTypes.BOOLEAN,
         },
-
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
     }, {
         tableName: 'Evento'
     })
