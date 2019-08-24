@@ -20,6 +20,7 @@ module.exports.save = async (req, res) => {
         const result = await Contador.create(addIdEmpresa(req.body, req.authData.empresa))
         res.send(result)
     } catch (e) {
+        console.log(e)
         res.send({erro: e.errors[0].message})
     }
 }

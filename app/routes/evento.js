@@ -3,7 +3,7 @@ const query = require('../util/query')
 const addIdEmpresa = require('../util/util').addIdEmpresa
 
 module.exports.list = async (req, res) => {
-    res.send(await Evento.findAll({...query.removeTimestamp(), where: {idEmpresa: req.authData.empresa}}))
+    res.send(await Evento.findAll({...query.removeTimestamp()}))
 }
 
 module.exports.findById = async (req, res) => {

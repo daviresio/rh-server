@@ -278,6 +278,17 @@ module.exports = {
                 onUpdate: 'CASCADE',
                 onDelete: 'SET NULL',
             })
+        }).then(() => {
+            return queryInterface.addColumn('Anotacao', 'AnotacaoId',
+                {
+                    type: Sequelize.INTEGER,
+                    references: {
+                        model: 'Colaborador',
+                        key: 'id'
+                    },
+                    onUpdate: 'CASCADE',
+                    onDelete: 'SET NULL'
+                })
         })
     },
 
@@ -297,7 +308,7 @@ module.exports = {
             .then(() => queryInterface.removeColumn('Dependente', 'DependenteId'))
             .then(() => queryInterface.removeColumn('Colaborador', 'BancoId'))
             .then(() => queryInterface.removeColumn('CopiaDocumento', 'CopiaDocumentoId'))
-            .then(() => queryInterface.removeColumn('Beneficio', 'BeneficioId'))
+            //.then(() => queryInterface.removeColumn('Beneficio', 'BeneficioId'))
             .then(() => queryInterface.removeColumn('Empresa', 'ConfiguracaoId'))
             .then(() => queryInterface.removeColumn('Configuracao', 'ConfiguracaoFolhaId'))
             .then(() => queryInterface.removeColumn('Configuracao', 'ConfiguracaoDecimoTerceiroId'))
@@ -307,6 +318,8 @@ module.exports = {
             .then(() => queryInterface.removeColumn('Empresa', 'CobrancaId'))
             //.then(() => queryInterface.removeColumn('Empresa', 'ConfiguracaoId'))
             .then(() => queryInterface.removeColumn('Usuario', 'UsuarioId'))
+            .then(() => queryInterface.removeColumn('Anotacao', 'AnotacaoId'))
 
     }
 };
+//criar relacionamento de ferias com contador, a ferias devera ser enviada a um contador

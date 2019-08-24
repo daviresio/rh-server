@@ -3,6 +3,8 @@ const morgan = require('morgan')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const routes = require('./app/routes')
+const amqp = require('amqplib/callback_api')
+//const mqService = require('./config/mqService')
 
 const PORT = 4000
 const HOST = '0.0.0.0'
@@ -11,6 +13,24 @@ app.use(cors())
 app.use(morgan('tiny'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.use('/', routes)
 
-app.listen(PORT, HOST,()=> console.log('server on'))
+app.listen(PORT, HOST, () => console.log('server on'))

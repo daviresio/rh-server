@@ -166,6 +166,7 @@ module.exports = (sequelize, DataTypes) => {
         Colaborador.hasMany(models.Dependente, {as: 'dependentes', foreignKey: 'DependenteId'})
         Colaborador.hasMany(models.Beneficio, {as: 'beneficios', foreignKey: 'BeneficioId'})
         Colaborador.hasMany(models.CopiaDocumento, {as: 'copiaDocumentos', foreignKey: 'CopiaDocumentoId'})
+        Colaborador.hasMany(models.Anotacao, {as: 'anotacoes', foreignKey: 'AnotacaoId'})
     }
 
     return Colaborador

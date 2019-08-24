@@ -1,13 +1,13 @@
-const {Contato, Colaborador} = require('../models')
+const {Anotacao} = require('../models')
 const query = require('../util/query')
 const addIdEmpresa = require('../util/util').addIdEmpresa
 
 module.exports.list = async (req, res) => {
-    res.send(await Contato.findAll({...query.removeTimestamp(), include: [{model: Colaborador, as: 'colaborador'}], where: {idEmpresa: req.authData.empresa}}))
+    res.send(await Anotacao.findAll({...query.removeTimestamp(), where: {idEmpresa: req.authData.empresa}}))
 }
 
 module.exports.findById = async (req, res) => {
-    const result = await Contato.findByPk(req.params.id, query.removeTimestamp())
+    const result = await Anotacao.findByPk(req.params.id, query.removeTimestamp())
     if (result) {
         res.send(result)
     } else {
@@ -18,7 +18,7 @@ module.exports.findById = async (req, res) => {
 module.exports.save = async (req, res) => {
     try {
         const {colaborador, ...data} = req.body
-        const result = await Contato.create(addIdEmpresa(data, req.authData.empresa))
+        const result = await Anotacao.create(addIdEmpresa(data, req.authData.empresa))
         await result.setColaborador(colaborador)
         res.send(result)
     } catch (e) {
@@ -28,14 +28,13 @@ module.exports.save = async (req, res) => {
 }
 
 module.exports.update = async (req, res) => {
-    console.log(req.body)
     try {
-        await Contato.update({...req.body}, {
+        await Anotacao.update({...req.body}, {
             where: {
                 id: req.body.id
             }
         })
-        const result = await Contato.findByPk(req.body.id)
+        const result = await Anotacao.findByPk(req.body.id)
         res.send(result)
     } catch (e) {
         res.send(e)
@@ -43,10 +42,6 @@ module.exports.update = async (req, res) => {
 }
 
 module.exports.delete = async (req, res) => {
-    await Contato.destroy({where: {id: req.params.id}})
+    await Anotacao.destroy({where: {id: req.params.id}})
     res.status(200).send()
-}
-
-module.exports.listByColaborador = async (req, res) => {
-    res.send(await Contato.findAll({where: {ContatoId: req.params.id}, attributes: {exclude: ['ContatoId', 'createdAt', 'updatedAt']}}))
 }

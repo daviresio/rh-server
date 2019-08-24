@@ -56,7 +56,7 @@ module.exports.userLogged = async (req, res) => {
         console.log(result)
         const {empresas, companhia, ...usuario} = result
         const index = empresas.findIndex(v => v.id === usuario.empresaLogada)
-        const empresaLogada = empresas.splice(index, 1)[0]
+        const empresaLogada = empresas[index]
         res.json({usuario, empresaLogada, empresas, companhia})
     } catch (e) {
         console.log(e)

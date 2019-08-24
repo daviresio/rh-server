@@ -1,5 +1,6 @@
-const {Empresa, Usuario} = require('../models')
+const {Empresa, Usuario, Evento} = require('../models')
 const query = require('../util/query')
+const eventosPreDefinidos = require('../models/evento').eventosPreDefinidos
 
 module.exports.list = async (req, res) => {
     res.send(await Empresa.findAll({...query.removeTimestamp()}))
@@ -17,6 +18,9 @@ module.exports.findById = async (req, res) => {
 module.exports.save = async (req, res) => {
     try {
         const result = await Empresa.create(req.body)
+
+        eventosPreDefinidos.forEach(async v => await Evento.create({...v, idEmpresa: result.id}))
+
         res.send(result)
     } catch (e) {
         res.send({erro: e.errors[0].message})

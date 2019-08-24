@@ -1,6 +1,7 @@
 const getToken = require("./auth").getToken;
+const eventosPreDefinidos = require('../models/evento').eventosPreDefinidos
 
-const {Companhia, Usuario, Empresa} = require('../models')
+const {Companhia, Usuario, Empresa, Evento} = require('../models')
 const query = require('../util/query')
 
 module.exports.list = async (req, res) => {
@@ -23,6 +24,9 @@ module.exports.save = async (req, res) => {
         console.log(usuario)
         const result = await Companhia.create({})
         const empresaSaved = await Empresa.create({...empresa})
+
+        eventosPreDefinidos.forEach(async v => await Evento.create({...v, idEmpresa: empresaSaved.id}))
+
         const usuarioSaved = await Usuario.create({...usuario, empresaLogada: empresaSaved.id})
         await usuarioSaved.addEmpresa(empresaSaved.id)
         await usuarioSaved.setCompanhia(result.id)
