@@ -73,7 +73,7 @@ module.exports = (sequelize, DataTypes) => {
         tableName: 'Beneficio'
     })
     Beneficio.associate = models => {
-        Beneficio.belongsTo(models.Colaborador, {as: 'colaborador', foreignKey: 'BeneficioId'})
+        Beneficio.belongsToMany(models.Colaborador, {through: 'ColaboradorBeneficio', as: 'colaboradores', foreignKey: 'BeneficioId', otherKey: 'ColaboradorId'})
     }
     return Beneficio
 }

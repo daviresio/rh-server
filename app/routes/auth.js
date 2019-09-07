@@ -17,14 +17,20 @@ module.exports.login = async (req, res) => {
 
     const senhaCorreta = await usuario.compararSenha(req.body.senha)
 
-    if(senhaCorreta) {
+    if (senhaCorreta) {
         res.json({token: getToken(usuario.id, usuario.empresaLogada)})
     } else {
         res.status(401).send({erro: 'Senha incorreta'})
     }
 }
 
-module.exports.verifyToken = (req, res, next) => {
+module.exports.verifyToken = exclude => (req, res, next) => {
+
+    if (exclude.some(v => v.route === req.originalUrl && v.method === req.method)) {
+        next()
+        return
+    }
+
     const bearerHeader = req.headers['authorization']
     if (typeof bearerHeader !== "undefined") {
         req.token = bearerHeader.split(' ')[1]

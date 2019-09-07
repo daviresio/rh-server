@@ -16,6 +16,14 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             ...message.notNull('url'),
         },
+        necessitaAssinatura: {
+            defaultValue: false,
+            type: DataTypes.BOOLEAN,
+        },
+        assinado: {
+            defaultValue: false,
+            type: DataTypes.BOOLEAN,
+        },
         idEmpresa: {
             type: DataTypes.INTEGER,
         },
@@ -25,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
 
     CopiaDocumento.associate = models => {
         CopiaDocumento.belongsTo(models.Colaborador, {as: 'colaborador', foreignKey: 'CopiaDocumentoId'})
+        CopiaDocumento.belongsTo(models.Ferias, {as: 'ferias', foreignKey: 'CopiaDocumentoFeriasId'})
     }
     return CopiaDocumento
 }

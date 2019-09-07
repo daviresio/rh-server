@@ -17,6 +17,12 @@ module.exports = {
       allowNull: false,
       type: Sequelize.STRING
     },
+    necessitaAssinatura: {
+      type: Sequelize.BOOLEAN,
+    },
+    assinado: {
+      type: Sequelize.BOOLEAN,
+    },
     idEmpresa: {
       type: Sequelize.INTEGER,
     },

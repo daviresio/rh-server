@@ -1,14 +1,15 @@
 const {
     Colaborador, Cargo, Departamento, CentroDeCusto, Sindicato, Endereco, Escolaridade, JornadaTrabalho, Vinculo,
     FormaPagamento, PeriodoExperiencia, CheckList, Contato, Dependente, Banco, Beneficio, CopiaDocumento,
-    ConfiguracaoCheckList
+    ConfiguracaoCheckList, ColaboradorBeneficio, Falta, Ferias, Salario, Anotacao, ValorRecorrente
 } = require('../models')
 
 const addIdEmpresa = require('../util/util').addIdEmpresa
 
 module.exports.list = async (req, res) => {
     let params = {where: {idEmpresa: req.authData.empresa}}
-    if (req.query.status) params = {...params.where, ...req.query}
+    if (req.query.status) params = {where: {...params.where, ...req.query}}
+    console.log(params)
     res.send(await Colaborador.findAll({...params, ...colaboradorParams}))
 }
 
@@ -21,31 +22,29 @@ module.exports.findById = async (req, res) => {
     }
 }
 
-module.exports.save = async (req, res) => {
+module.exports.save = async (req, res, next) => {
     try {
         const idEmpresa = req.authData.empresa
         const {cargo, departamento, centroDeCusto, sindicato, checkList, jornadaTrabalho, vinculo, formaPagamento, periodoExperiencia, ...data} = req.body
         colaborador = await Colaborador.create({...data, status: "ADMISSAO_PENDENTE", idEmpresa})
-        if(cargo) await colaborador.setCargo(cargo)
-        if(departamento) await colaborador.setDepartamento(departamento)
-        if(centroDeCusto) await colaborador.setCentroDeCusto(centroDeCusto)
-        if(sindicato) await colaborador.setSindicato(sindicato)
-        if(jornadaTrabalho) await colaborador.setJornadaTrabalho(jornadaTrabalho)
-        if(vinculo) await colaborador.setVinculo(vinculo)
-        if(formaPagamento) await colaborador.setFormaPagamento(formaPagamento)
-        if(periodoExperiencia) await colaborador.setPeriodoExperiencia(periodoExperiencia)
+        if (cargo) await colaborador.setCargo(cargo)
+        if (departamento) await colaborador.setDepartamento(departamento)
+        if (centroDeCusto) await colaborador.setCentroDeCusto(centroDeCusto)
+        if (sindicato) await colaborador.setSindicato(sindicato)
+        if (jornadaTrabalho) await colaborador.setJornadaTrabalho(jornadaTrabalho)
+        if (vinculo) await colaborador.setVinculo(vinculo)
+        if (formaPagamento) await colaborador.setFormaPagamento(formaPagamento)
+        if (periodoExperiencia) await colaborador.setPeriodoExperiencia(periodoExperiencia)
         await ConfiguracaoCheckList.findAll({where: {ativo: true}}).then(async result =>
-         result.forEach(async v => await CheckList.create({nome: v.nome, concluido: false, CheckListId: colaborador.id, idEmpresa})))
+            result.forEach(async v => await CheckList.create({nome: v.nome, concluido: false, CheckListId: colaborador.id, idEmpresa})))
 
         res.send(colaborador)
     } catch (e) {
-        console.log(e)
-        const erro = e.errors ? e.errors[0].message : e
-        res.status(500).send({erro})
+        next(e)
     }
 }
 
-module.exports.update = async (req, res) => {
+module.exports.update = async (req, res, next) => {
     try {
         const {
             cargo, departamento, centroDeCusto, sindicato, checkList, jornadaTrabalho, vinculo, formaPagamento,
@@ -163,8 +162,7 @@ module.exports.update = async (req, res) => {
 
         res.send(colaboradorSaved)
     } catch (e) {
-        console.log(e)
-        res.status(500).send(e)
+        next(e)
     }
 }
 
@@ -184,6 +182,29 @@ module.exports.qtdColaboradores = async (req, res) => {
     } catch (e) {
         console.log(e)
         res.send(e)
+    }
+}
+
+
+module.exports.adicionarBeneficio = async (req, res) => {
+    try {
+        const data = req.body.map(v => {
+            return {
+                ColaboradorId: v.colaborador,
+                BeneficioId: v.beneficio,
+                idEmpresa: req.authData.empresa,
+                custoEmpresa: v.custoEmpresa,
+                custoColaborador: v.custoColaborador,
+            }
+        })
+        data.forEach(async v => {
+            const result = await ColaboradorBeneficio.create(v)
+            console.log(Object.assign({}, result))
+        })
+        res.send(await Colaborador.findByPk(data[0].colaborador))
+    } catch (e) {
+        console.log(e)
+        res.status(500).send(e)
     }
 }
 
@@ -260,6 +281,26 @@ const colaboradorParams = {
             model: CopiaDocumento,
             as: 'copiaDocumentos',
             attributes: {exclude: ['createdAt', 'updatedAt', 'CopiaDocumentoId']}
+        }, {
+            model: Falta,
+            as: 'faltas',
+            attributes: {exclude: ['createdAt', 'updatedAt', 'FaltaId']}
+        }, {
+            model: Ferias,
+            as: 'ferias',
+            attributes: {exclude: ['createdAt', 'updatedAt', 'FeriasId']}
+        }, {
+            model: Salario,
+            as: 'salarios',
+            attributes: {exclude: ['createdAt', 'updatedAt', 'SalarioId']}
+        }, {
+            model: Anotacao,
+            as: 'anotacoes',
+            attributes: {exclude: ['createdAt', 'updatedAt', 'AnotacaoId']}
+        }, {
+            model: ValorRecorrente,
+            as: 'valoresRecorrentes',
+            attributes: {exclude: ['createdAt', 'updatedAt', 'ValorRecorrenteId']}
         },
     ],
     attributes: {

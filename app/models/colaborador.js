@@ -164,9 +164,13 @@ module.exports = (sequelize, DataTypes) => {
         Colaborador.belongsTo(models.PeriodoExperiencia, {as: 'periodoExperiencia', foreignKey: 'PeriodoExperienciaId'})
         Colaborador.hasMany(models.Contato, {as: 'contatos', foreignKey: 'ContatoId'})
         Colaborador.hasMany(models.Dependente, {as: 'dependentes', foreignKey: 'DependenteId'})
-        Colaborador.hasMany(models.Beneficio, {as: 'beneficios', foreignKey: 'BeneficioId'})
         Colaborador.hasMany(models.CopiaDocumento, {as: 'copiaDocumentos', foreignKey: 'CopiaDocumentoId'})
+        Colaborador.hasMany(models.Ferias, {as: 'ferias', foreignKey: 'FeriasId'})
+        Colaborador.hasMany(models.Salario, {as: 'salarios', foreignKey: 'SalarioId'})
         Colaborador.hasMany(models.Anotacao, {as: 'anotacoes', foreignKey: 'AnotacaoId'})
+        Colaborador.hasMany(models.Falta, {as: 'faltas', foreignKey: 'FaltaId'})
+        Colaborador.hasMany(models.ValorRecorrente, {as: 'valoresRecorrentes', foreignKey: 'ValorRecorrenteId'})
+        Colaborador.belongsToMany(models.Beneficio, {through: 'ColaboradorBeneficio', as: 'beneficios', foreignKey: 'ColaboradorId', otherKey: 'BeneficioId'})
     }
 
     return Colaborador

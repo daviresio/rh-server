@@ -166,11 +166,11 @@ module.exports = {
                     onDelete: 'SET NULL'
                 })
         }).then(() => {
-            return queryInterface.addColumn('Beneficio', 'BeneficioId',
+            return queryInterface.addColumn('CopiaDocumento', 'CopiaDocumentoFeriasId',
                 {
                     type: Sequelize.INTEGER,
                     references: {
-                        model: 'Colaborador',
+                        model: 'Ferias',
                         key: 'id'
                     },
                     onUpdate: 'CASCADE',
@@ -279,7 +279,62 @@ module.exports = {
                 onDelete: 'SET NULL',
             })
         }).then(() => {
+            return queryInterface.addColumn('Ferias', 'FeriasId',
+                {
+                    type: Sequelize.INTEGER,
+                    references: {
+                        model: 'Colaborador',
+                        key: 'id'
+                    },
+                    onUpdate: 'CASCADE',
+                    onDelete: 'SET NULL'
+                })
+        }).then(() => {
+            return queryInterface.addColumn('Ferias', 'FeriasContadorId',
+                {
+                    type: Sequelize.INTEGER,
+                    references: {
+                        model: 'Contador',
+                        key: 'id'
+                    },
+                    onUpdate: 'CASCADE',
+                    onDelete: 'SET NULL'
+                })
+        }).then(() => {
+            return queryInterface.addColumn('Salario', 'SalarioId',
+                {
+                    type: Sequelize.INTEGER,
+                    references: {
+                        model: 'Colaborador',
+                        key: 'id'
+                    },
+                    onUpdate: 'CASCADE',
+                    onDelete: 'SET NULL'
+                })
+        }).then(() => {
             return queryInterface.addColumn('Anotacao', 'AnotacaoId',
+                {
+                    type: Sequelize.INTEGER,
+                    references: {
+                        model: 'Colaborador',
+                        key: 'id'
+                    },
+                    onUpdate: 'CASCADE',
+                    onDelete: 'SET NULL'
+                })
+        }).then(() => {
+            return queryInterface.addColumn('Falta', 'FaltaId',
+                {
+                    type: Sequelize.INTEGER,
+                    references: {
+                        model: 'Colaborador',
+                        key: 'id'
+                    },
+                    onUpdate: 'CASCADE',
+                    onDelete: 'SET NULL'
+                })
+        }).then(() => {
+            return queryInterface.addColumn('ValorRecorrente', 'ValorRecorrenteId',
                 {
                     type: Sequelize.INTEGER,
                     references: {
@@ -308,6 +363,7 @@ module.exports = {
             .then(() => queryInterface.removeColumn('Dependente', 'DependenteId'))
             .then(() => queryInterface.removeColumn('Colaborador', 'BancoId'))
             .then(() => queryInterface.removeColumn('CopiaDocumento', 'CopiaDocumentoId'))
+            .then(() => queryInterface.removeColumn('CopiaDocumento', 'CopiaDocumentoFeriasId'))
             //.then(() => queryInterface.removeColumn('Beneficio', 'BeneficioId'))
             .then(() => queryInterface.removeColumn('Empresa', 'ConfiguracaoId'))
             .then(() => queryInterface.removeColumn('Configuracao', 'ConfiguracaoFolhaId'))
@@ -318,7 +374,12 @@ module.exports = {
             .then(() => queryInterface.removeColumn('Empresa', 'CobrancaId'))
             //.then(() => queryInterface.removeColumn('Empresa', 'ConfiguracaoId'))
             .then(() => queryInterface.removeColumn('Usuario', 'UsuarioId'))
+            .then(() => queryInterface.removeColumn('Ferias', 'FeriasId'))
+            .then(() => queryInterface.removeColumn('Salario', 'SalarioId'))
             .then(() => queryInterface.removeColumn('Anotacao', 'AnotacaoId'))
+            .then(() => queryInterface.removeColumn('Falta', 'FaltaId'))
+            .then(() => queryInterface.removeColumn('ValorRecorrente', 'ValorRecorrenteId'))
+            .then(() => queryInterface.removeColumn('Ferias', 'FeriasContadorId'))
 
     }
 };

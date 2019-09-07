@@ -9,14 +9,26 @@ module.exports = {
           primaryKey: true,
           type: Sequelize.INTEGER
         },
-        inicio: {
+        inicioPeriodoAquisitivo: {
           allowNull: false,
           type: Sequelize.DATE
         },
-        fim: {
+        finalPeriodoAquisitivo: {
+          type: Sequelize.DATE
+        },
+        vencimento: {
+          type: Sequelize.DATE
+        },
+        segundoVencimento: {
           type: Sequelize.DATE
         },
         diasDeAbono: {
+          type: Sequelize.INTEGER
+        },
+        diasDeFerias: {
+          type: Sequelize.INTEGER
+        },
+        totalDias: {
           type: Sequelize.INTEGER
         },
         anteciparParcelaDecimoTerceiro: {
@@ -26,7 +38,6 @@ module.exports = {
           type: Sequelize.STRING
         },
         feriasColetivas: {
-          allowNull: false,
           defaultValue: false,
           type: Sequelize.BOOLEAN
         },
@@ -37,28 +48,22 @@ module.exports = {
           type: Sequelize.STRING,
         },
         documentosAssinadosPeloRh: {
-          allowNull: false,
           defaultValue: false,
           type: Sequelize.BOOLEAN,
         },
         aprovadoPeloGestorConcluido: {
-          allowNull: false,
           type: Sequelize.STRING,
         },
         aprovadoPeloRhConcluido: {
-          allowNull: false,
           type: Sequelize.STRING,
         },
         enviadoParaContabilidadeConcluido: {
-          allowNull: false,
           type: Sequelize.STRING,
         },
         calculosContabilidadeConcluido: {
-          allowNull: false,
           type: Sequelize.STRING,
         },
         conclusoesConcluido: {
-          allowNull: false,
           type: Sequelize.STRING,
         },
         idEmpresa: {

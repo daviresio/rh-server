@@ -29,7 +29,7 @@ module.exports.save = async (req, res) => {
 
 module.exports.update = async (req, res) => {
     const {senha, ...data} = req.body
-    if(senha) {
+    if (senha) {
         res.status(500).json({erro: 'senha nao pode ser alterada por aqui'})
     }
     try {
@@ -52,7 +52,13 @@ module.exports.delete = async (req, res) => {
 
 module.exports.userLogged = async (req, res) => {
     try {
-        const result = await Usuario.findByPk(req.authData.usuario, {...query.removeTimestamp(), ...params}).then(v => v.get({plain: true}))
+        const result = await Usuario.findByPk(req.authData.usuario, {...query.removeTimestamp(), ...params}).then(v => {
+            if (v === null) {
+                res.status(403).send(e)
+                return
+            }
+            return v.get({plain: true})
+        })
         console.log(result)
         const {empresas, companhia, ...usuario} = result
         const index = empresas.findIndex(v => v.id === usuario.empresaLogada)
@@ -75,7 +81,7 @@ module.exports.updatePassword = async (req, res) => {
         const usuario = await Usuario.findByPk(req.body.id)
         const senhaCorreta = await usuario.compararSenha(senhaAtual)
         console.log(senhaCorreta)
-        if(!senhaCorreta) {
+        if (!senhaCorreta) {
             res.status(400).json({erro: 'senha incorreta'})
             return
         }

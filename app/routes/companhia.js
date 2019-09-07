@@ -4,6 +4,11 @@ const eventosPreDefinidos = require('../models/evento').eventosPreDefinidos
 const {Companhia, Usuario, Empresa, Evento} = require('../models')
 const query = require('../util/query')
 
+const fila = require('../../config/mqService')
+
+
+
+
 module.exports.list = async (req, res) => {
     res.send(await Companhia.findAll({...query.removeTimestamp(), ...params}))
 }
@@ -32,7 +37,7 @@ module.exports.save = async (req, res) => {
         await usuarioSaved.setCompanhia(result.id)
         await empresaSaved.setCompanhia(result.id)
         const token = getToken(usuarioSaved.id, empresaSaved.id)
-        //const response = await Companhia.findByPk(result.id, {include: [{model: Usuario, as: 'usuarios'}, {model: Empresa, as: 'empresas'}]})
+        fila.send(fila.queue.MAIL_QUEUE, usuario.email, fila.type.MAIL_MARKETING_BOAS_VINDAS, {nome: usuario.nome})
         res.json({token})
     } catch (e) {
         console.log(e)
