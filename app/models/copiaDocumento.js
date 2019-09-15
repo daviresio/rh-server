@@ -1,4 +1,4 @@
-const message = require('../util/validationMessage')
+const message = require('../util/validationMessage');
 
 module.exports = (sequelize, DataTypes) => {
 
@@ -8,6 +8,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             autoIncrement: true,
         },
+        /*tipo: {
+            type: DataTypes.STRING,
+        },*/
         nome: {
             type: DataTypes.STRING,
             ...message.notNull('nome'),
@@ -29,11 +32,12 @@ module.exports = (sequelize, DataTypes) => {
         },
     },{
         tableName: 'CopiaDocumento'
-    })
+    });
 
     CopiaDocumento.associate = models => {
-        CopiaDocumento.belongsTo(models.Colaborador, {as: 'colaborador', foreignKey: 'CopiaDocumentoId'})
-        CopiaDocumento.belongsTo(models.Ferias, {as: 'ferias', foreignKey: 'CopiaDocumentoFeriasId'})
-    }
+        CopiaDocumento.belongsTo(models.Colaborador, {as: 'colaborador', foreignKey: 'CopiaDocumentoId'});
+        CopiaDocumento.belongsTo(models.Ferias, {as: 'ferias', foreignKey: 'CopiaDocumentoFeriasId'});
+        CopiaDocumento.belongsTo(models.Desligamento, {as: 'desligamento', foreignKey: 'CopiaDocumentoDesligamentoId'})
+    };
     return CopiaDocumento
-}
+};

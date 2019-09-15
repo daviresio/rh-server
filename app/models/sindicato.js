@@ -1,4 +1,4 @@
-const message = require('../util/validationMessage')
+const message = require('../util/validationMessage');
 
 module.exports = (sequelize, DataTypes) => {
 
@@ -19,10 +19,10 @@ module.exports = (sequelize, DataTypes) => {
         },
     }, {
         tableName: 'Sindicato'
-    })
+    });
     Sindicato.associate = models => {
-        Sindicato.hasMany(models.Colaborador, {as: 'colaboradores', foreignKey: 'SindicatoId'})
-      //  Sindicato.belongsTo(models.Empresa, {as: 'empresa', foreignKey: 'SindicatoId'})
-    }
+        Sindicato.hasMany(models.Colaborador, {as: 'colaboradores', foreignKey: 'SindicatoId'});
+        Sindicato.hasMany(models.ConfiguracaoSindicato, {as: 'configuracoes', foreignKey: 'ConfiguracaoSindicatoId'})
+    };
     return Sindicato
-}
+};

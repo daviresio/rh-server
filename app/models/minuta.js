@@ -2,32 +2,29 @@ const message = require('../util/validationMessage');
 
 module.exports = (sequelize, DataTypes) => {
 
-    const Cobranca = sequelize.define('Cobranca', {
+    const Minuta = sequelize.define('Minuta', {
         id: {
             primaryKey: true,
             type: DataTypes.INTEGER,
             autoIncrement: true,
         },
-        razaoSocial: {
+        /*nome: {
             type: DataTypes.STRING,
-        },
-        cnpj: {
+            ...message.notNull('nome'),
+        },*/
+        conteudo: {
             type: DataTypes.STRING,
-        },
-        telefone: {
-            type: DataTypes.STRING,
-        },
-        email: {
-            type: DataTypes.STRING,
+            ...message.notNull('conteudo'),
         },
         idEmpresa: {
             type: DataTypes.INTEGER,
         },
     }, {
-        tableName: 'Cobranca'
+        tableName: 'Minuta'
     });
-    Cobranca.associate = models => {
-        Cobranca.hasOne(models.Empresa, {as: 'empresa', foreignKey: 'CobrancaId'})
+
+    Minuta.associate = models => {
+        Minuta.belongsTo(models.Empresa, {as: 'empresa', foreignKey: 'MinutaId'})
     };
-    return Cobranca
+    return Minuta
 };

@@ -1,4 +1,4 @@
-const message = require('../util/validationMessage')
+const message = require('../util/validationMessage');
 
 module.exports = (sequelize, DataTypes) => {
 
@@ -147,31 +147,32 @@ module.exports = (sequelize, DataTypes) => {
         },
     }, {
         tableName: 'Colaborador'
-    })
+    });
 
     Colaborador.associate = models => {
-        Colaborador.belongsTo(models.Cargo, {as: 'cargo', foreignKey: 'CargoId'})
-        Colaborador.belongsTo(models.Banco, {as: 'banco', foreignKey: 'BancoId'})
-        Colaborador.belongsTo(models.Departamento, {as: 'departamento', foreignKey: 'DepartamentoId'})
-        Colaborador.belongsTo(models.CentroDeCusto, {as: 'centroDeCusto', foreignKey: 'CentroDeCustoId'})
-        Colaborador.belongsTo(models.Sindicato, {as: 'sindicato', foreignKey: 'SindicatoId'})
-        Colaborador.belongsTo(models.Endereco, {as: 'endereco', foreignKey: 'EnderecoId'})
-        Colaborador.belongsTo(models.Escolaridade, {as: 'escolaridade', foreignKey: 'EscolaridadeId'})
-        Colaborador.hasMany(models.CheckList, {as: 'checkList', foreignKey: 'CheckListId'})
-        Colaborador.belongsTo(models.JornadaTrabalho, {as: 'jornadaTrabalho', foreignKey: 'JornadaTrabalhoId'})
-        Colaborador.belongsTo(models.Vinculo, {as: 'vinculo', foreignKey: 'VinculoId'})
-        Colaborador.belongsTo(models.FormaPagamento, {as: 'formaPagamento', foreignKey: 'FormaPagamentoId'})
-        Colaborador.belongsTo(models.PeriodoExperiencia, {as: 'periodoExperiencia', foreignKey: 'PeriodoExperienciaId'})
-        Colaborador.hasMany(models.Contato, {as: 'contatos', foreignKey: 'ContatoId'})
-        Colaborador.hasMany(models.Dependente, {as: 'dependentes', foreignKey: 'DependenteId'})
-        Colaborador.hasMany(models.CopiaDocumento, {as: 'copiaDocumentos', foreignKey: 'CopiaDocumentoId'})
-        Colaborador.hasMany(models.Ferias, {as: 'ferias', foreignKey: 'FeriasId'})
-        Colaborador.hasMany(models.Salario, {as: 'salarios', foreignKey: 'SalarioId'})
-        Colaborador.hasMany(models.Anotacao, {as: 'anotacoes', foreignKey: 'AnotacaoId'})
-        Colaborador.hasMany(models.Falta, {as: 'faltas', foreignKey: 'FaltaId'})
-        Colaborador.hasMany(models.ValorRecorrente, {as: 'valoresRecorrentes', foreignKey: 'ValorRecorrenteId'})
-        Colaborador.belongsToMany(models.Beneficio, {through: 'ColaboradorBeneficio', as: 'beneficios', foreignKey: 'ColaboradorId', otherKey: 'BeneficioId'})
-    }
+        Colaborador.belongsTo(models.Cargo, {as: 'cargo', foreignKey: 'CargoId'});
+        Colaborador.belongsTo(models.Banco, {as: 'banco', foreignKey: 'BancoId'});
+        Colaborador.belongsTo(models.Departamento, {as: 'departamento', foreignKey: 'DepartamentoId'});
+        Colaborador.belongsTo(models.CentroDeCusto, {as: 'centroDeCusto', foreignKey: 'CentroDeCustoId'});
+        Colaborador.belongsTo(models.Sindicato, {as: 'sindicato', foreignKey: 'SindicatoId'});
+        Colaborador.belongsTo(models.Endereco, {as: 'endereco', foreignKey: 'EnderecoId'});
+        Colaborador.belongsTo(models.Escolaridade, {as: 'escolaridade', foreignKey: 'EscolaridadeId'});
+        Colaborador.hasMany(models.CheckList, {as: 'checkList', foreignKey: 'CheckListId'});
+        Colaborador.belongsTo(models.JornadaTrabalho, {as: 'jornadaTrabalho', foreignKey: 'JornadaTrabalhoId'});
+        Colaborador.belongsTo(models.Vinculo, {as: 'vinculo', foreignKey: 'VinculoId'});
+        Colaborador.belongsTo(models.FormaPagamento, {as: 'formaPagamento', foreignKey: 'FormaPagamentoId'});
+        Colaborador.belongsTo(models.PeriodoExperiencia, {as: 'periodoExperiencia', foreignKey: 'PeriodoExperienciaId'});
+        Colaborador.hasMany(models.Contato, {as: 'contatos', foreignKey: 'ContatoId'});
+        Colaborador.hasMany(models.Dependente, {as: 'dependentes', foreignKey: 'DependenteId'});
+        Colaborador.hasMany(models.CopiaDocumento, {as: 'copiaDocumentos', foreignKey: 'CopiaDocumentoId'});
+        Colaborador.hasMany(models.Ferias, {as: 'ferias', foreignKey: 'FeriasId'});
+        Colaborador.hasMany(models.Salario, {as: 'salarios', foreignKey: 'SalarioId'});
+        Colaborador.hasMany(models.Anotacao, {as: 'anotacoes', foreignKey: 'AnotacaoId'});
+        Colaborador.hasMany(models.Falta, {as: 'faltas', foreignKey: 'FaltaId'});
+        Colaborador.hasMany(models.ValorRecorrente, {as: 'valoresRecorrentes', foreignKey: 'ValorRecorrenteId'});
+        Colaborador.belongsToMany(models.Beneficio, {through: 'ColaboradorBeneficio', as: 'beneficios', foreignKey: 'ColaboradorId', otherKey: 'BeneficioId'});
+        Colaborador.hasOne(models.Desligamento, {as: 'desligamento', foreignKey: 'DesligamentoId'})
+    };
 
     return Colaborador
-}
+};

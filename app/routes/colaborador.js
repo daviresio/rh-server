@@ -1,108 +1,108 @@
 const {
     Colaborador, Cargo, Departamento, CentroDeCusto, Sindicato, Endereco, Escolaridade, JornadaTrabalho, Vinculo,
     FormaPagamento, PeriodoExperiencia, CheckList, Contato, Dependente, Banco, Beneficio, CopiaDocumento,
-    ConfiguracaoCheckList, ColaboradorBeneficio, Falta, Ferias, Salario, Anotacao, ValorRecorrente
-} = require('../models')
+    ConfiguracaoCheckList, ColaboradorBeneficio, Falta, Ferias, Salario, Anotacao, ValorRecorrente, Desligamento, DesligamentoContador, Contador,
+} = require('../models');
 
-const addIdEmpresa = require('../util/util').addIdEmpresa
+const addIdEmpresa = require('../util/util').addIdEmpresa;
 
 module.exports.list = async (req, res) => {
-    let params = {where: {idEmpresa: req.authData.empresa}}
-    if (req.query.status) params = {where: {...params.where, ...req.query}}
-    console.log(params)
+    let params = {where: {idEmpresa: req.authData.empresa}};
+    if (req.query.status) params = {where: {...params.where, ...req.query}};
+    console.log(params);
     res.send(await Colaborador.findAll({...params, ...colaboradorParams}))
-}
+};
 
 module.exports.findById = async (req, res) => {
-    const result = await Colaborador.findByPk(req.params.id, {...colaboradorParams})
+    const result = await Colaborador.findByPk(req.params.id, {...colaboradorParams});
     if (result) {
         res.send(result)
     } else {
         res.status(404).send()
     }
-}
+};
 
 module.exports.save = async (req, res, next) => {
     try {
-        const idEmpresa = req.authData.empresa
-        const {cargo, departamento, centroDeCusto, sindicato, checkList, jornadaTrabalho, vinculo, formaPagamento, periodoExperiencia, ...data} = req.body
-        colaborador = await Colaborador.create({...data, status: "ADMISSAO_PENDENTE", idEmpresa})
-        if (cargo) await colaborador.setCargo(cargo)
-        if (departamento) await colaborador.setDepartamento(departamento)
-        if (centroDeCusto) await colaborador.setCentroDeCusto(centroDeCusto)
-        if (sindicato) await colaborador.setSindicato(sindicato)
-        if (jornadaTrabalho) await colaborador.setJornadaTrabalho(jornadaTrabalho)
-        if (vinculo) await colaborador.setVinculo(vinculo)
-        if (formaPagamento) await colaborador.setFormaPagamento(formaPagamento)
-        if (periodoExperiencia) await colaborador.setPeriodoExperiencia(periodoExperiencia)
+        const idEmpresa = req.authData.empresa;
+        const {cargo, departamento, centroDeCusto, sindicato, checkList, jornadaTrabalho, vinculo, formaPagamento, periodoExperiencia, ...data} = req.body;
+        colaborador = await Colaborador.create({...data, status: "ADMISSAO_PENDENTE", idEmpresa});
+        if (cargo) await colaborador.setCargo(cargo);
+        if (departamento) await colaborador.setDepartamento(departamento);
+        if (centroDeCusto) await colaborador.setCentroDeCusto(centroDeCusto);
+        if (sindicato) await colaborador.setSindicato(sindicato);
+        if (jornadaTrabalho) await colaborador.setJornadaTrabalho(jornadaTrabalho);
+        if (vinculo) await colaborador.setVinculo(vinculo);
+        if (formaPagamento) await colaborador.setFormaPagamento(formaPagamento);
+        if (periodoExperiencia) await colaborador.setPeriodoExperiencia(periodoExperiencia);
         await ConfiguracaoCheckList.findAll({where: {ativo: true}}).then(async result =>
-            result.forEach(async v => await CheckList.create({nome: v.nome, concluido: false, CheckListId: colaborador.id, idEmpresa})))
+            result.forEach(async v => await CheckList.create({nome: v.nome, concluido: false, CheckListId: colaborador.id, idEmpresa})));
 
         res.send(colaborador)
     } catch (e) {
         next(e)
     }
-}
+};
 
 module.exports.update = async (req, res, next) => {
     try {
         const {
             cargo, departamento, centroDeCusto, sindicato, checkList, jornadaTrabalho, vinculo, formaPagamento,
             endereco, escolaridade, banco, periodoExperiencia, contatos, dependentes, copiaDocumentos, ...colaborador
-        } = req.body
+        } = req.body;
 
-        const idEmpresa = req.authData.empresa
+        const idEmpresa = req.authData.empresa;
 
         await Colaborador.update({...colaborador}, {
             where: {
                 id: req.body.id
             },
-        })
+        });
 
         let colaboradorSaved = await Colaborador.findByPk(req.body.id,
             {...colaboradorParams},
-        )
+        );
 
-        if (cargo && typeof cargo === 'number') await colaboradorSaved.setCargo(cargo)
-        if (departamento) await colaboradorSaved.setDepartamento(typeof departamento === 'object' ? departamento.id : departamento)
-        if (centroDeCusto) await colaboradorSaved.setCentroDeCusto(typeof centroDeCusto === 'object' ? centroDeCusto.id : centroDeCusto)
-        if (jornadaTrabalho) await colaboradorSaved.setJornadaTrabalho(typeof jornadaTrabalho === 'object' ? jornadaTrabalho.id : jornadaTrabalho)
-        if (vinculo) await colaboradorSaved.setVinculo(typeof vinculo === 'object' ? vinculo.id : vinculo)
-        if (formaPagamento) await colaboradorSaved.setFormaPagamento(typeof formaPagamento === 'object' ? formaPagamento.id : formaPagamento)
-        if (periodoExperiencia) await colaboradorSaved.setPeriodoExperiencia(typeof periodoExperiencia === 'object' ? periodoExperiencia.id : periodoExperiencia)
+        if (cargo && typeof cargo === 'number') await colaboradorSaved.setCargo(cargo);
+        if (departamento) await colaboradorSaved.setDepartamento(typeof departamento === 'object' ? departamento.id : departamento);
+        if (centroDeCusto) await colaboradorSaved.setCentroDeCusto(typeof centroDeCusto === 'object' ? centroDeCusto.id : centroDeCusto);
+        if (jornadaTrabalho) await colaboradorSaved.setJornadaTrabalho(typeof jornadaTrabalho === 'object' ? jornadaTrabalho.id : jornadaTrabalho);
+        if (vinculo) await colaboradorSaved.setVinculo(typeof vinculo === 'object' ? vinculo.id : vinculo);
+        if (formaPagamento) await colaboradorSaved.setFormaPagamento(typeof formaPagamento === 'object' ? formaPagamento.id : formaPagamento);
+        if (periodoExperiencia) await colaboradorSaved.setPeriodoExperiencia(typeof periodoExperiencia === 'object' ? periodoExperiencia.id : periodoExperiencia);
 
         if (endereco) {
             if (endereco.id) {
-                await Endereco.update({...endereco}, {where: {id: endereco.id}})
+                await Endereco.update({...endereco}, {where: {id: endereco.id}});
                 await colaboradorSaved.setEndereco(endereco.id)
             } else if (typeof endereco === 'number') {
                 await colaboradorSaved.setEndereco(endereco)
             } else {
-                const enderecoSaved = await Endereco.create(addIdEmpresa(endereco, idEmpresa))
+                const enderecoSaved = await Endereco.create(addIdEmpresa(endereco, idEmpresa));
                 await enderecoSaved.setColaborador(colaboradorSaved.id)
             }
         }
 
         if (escolaridade) {
             if (escolaridade.id) {
-                await Escolaridade.update({...escolaridade}, {where: {id: escolaridade.id}})
+                await Escolaridade.update({...escolaridade}, {where: {id: escolaridade.id}});
                 await colaboradorSaved.setEscolaridade(escolaridade.id)
             } else if (typeof escolaridade === 'number') {
                 await colaboradorSaved.setEscolaridade(escolaridade)
             } else {
-                const escolaridadeSaved = await Escolaridade.create(addIdEmpresa(escolaridade, idEmpresa))
+                const escolaridadeSaved = await Escolaridade.create(addIdEmpresa(escolaridade, idEmpresa));
                 await escolaridadeSaved.setColaborador(colaboradorSaved.id)
             }
         }
 
         if (banco) {
             if (banco.id) {
-                await Banco.update({...banco}, {where: {id: banco.id}})
+                await Banco.update({...banco}, {where: {id: banco.id}});
                 await colaboradorSaved.setBanco(banco.id)
             } else if (typeof banco === 'number') {
                 await colaboradorSaved.setBanco(banco)
             } else {
-                const bancoSaved = await Banco.create(addIdEmpresa(banco, idEmpresa))
+                const bancoSaved = await Banco.create(addIdEmpresa(banco, idEmpresa));
                 await bancoSaved.setColaborador(colaboradorSaved.id)
             }
         }
@@ -110,12 +110,12 @@ module.exports.update = async (req, res, next) => {
         if (contatos && contatos.length) {
             await contatos.forEach(async c => {
                 if (c.id) {
-                    await Contato.update({...c}, {where: {id: c.id}})
+                    await Contato.update({...c}, {where: {id: c.id}});
                     await colaboradorSaved.addContato(c.id)
                 } else if (typeof c === 'number') {
                     await colaboradorSaved.addContato(c)
                 } else {
-                    const contatoSaved = await Contato.create(addIdEmpresa(c, idEmpresa))
+                    const contatoSaved = await Contato.create(addIdEmpresa(c, idEmpresa));
                     await contatoSaved.setColaborador(colaboradorSaved.id)
                 }
             })
@@ -125,12 +125,12 @@ module.exports.update = async (req, res, next) => {
         if (dependentes && dependentes.length) {
             await dependentes.forEach(async d => {
                 if (d.id) {
-                    await Dependente.update({...d}, {where: {id: d.id}})
+                    await Dependente.update({...d}, {where: {id: d.id}});
                     await colaboradorSaved.addDependente(d.id)
                 } else if (typeof d === 'number') {
                     await colaboradorSaved.addDependente(d)
                 } else {
-                    const dependenteSaved = await Dependente.create(addIdEmpresa(d, idEmpresa))
+                    const dependenteSaved = await Dependente.create(addIdEmpresa(d, idEmpresa));
                     await dependenteSaved.setColaborador(colaboradorSaved.id)
                 }
             })
@@ -139,74 +139,51 @@ module.exports.update = async (req, res, next) => {
         if (copiaDocumentos && copiaDocumentos.length) {
 
             await CopiaDocumento.findAll({where: {CopiaDocumentoId: colaboradorSaved.id}}).then(v => {
-                const finalArr = []
+                const finalArr = [];
                 v.forEach(el => {
                     if (copiaDocumentos.findIndex(x => x.id === el.id) === -1) {
                         finalArr.push(el)
                     }
-                })
+                });
                 if (finalArr.length > 0) {
                     finalArr.forEach(async x => await CopiaDocumento.destroy({where: {id: x.id}}))
                 }
-            })
+            });
 
             await copiaDocumentos.forEach(async v => {
                 if (!v.id) {
-                    const copiaDocumentoSaved = await CopiaDocumento.create(addIdEmpresa(v, idEmpresa))
+                    const copiaDocumentoSaved = await CopiaDocumento.create(addIdEmpresa(v, idEmpresa));
                     await copiaDocumentoSaved.setColaborador(colaboradorSaved.id)
                 }
             })
         }
 
-        colaboradorSaved = await Colaborador.findByPk(req.body.id, {...colaboradorParams})
+        colaboradorSaved = await Colaborador.findByPk(req.body.id, {...colaboradorParams});
 
         res.send(colaboradorSaved)
     } catch (e) {
         next(e)
     }
-}
+};
 
 module.exports.delete = async (req, res) => {
-    await Colaborador.destroy({where: {id: req.params.id}})
+    await Colaborador.destroy({where: {id: req.params.id}});
     res.status(200).send()
-}
+};
 
 module.exports.qtdColaboradores = async (req, res) => {
     try {
-        const idEmpresa = req.authData.empresa
-        const ativo = await Colaborador.findAll({where: {status: "ATIVO", idEmpresa}})
-        const admissaoPendente = await Colaborador.findAll({where: {status: "ADMISSAO_PENDENTE", idEmpresa}})
-        const desligamentoPendente = await Colaborador.findAll({where: {status: "DESLIGAMENTO_PENDENTE", idEmpresa}})
-        const desligado = await Colaborador.findAll({where: {status: "DESLIGADO", idEmpresa}})
+        const idEmpresa = req.authData.empresa;
+        const ativo = await Colaborador.findAll({where: {status: "ATIVO", idEmpresa}});
+        const admissaoPendente = await Colaborador.findAll({where: {status: "ADMISSAO_PENDENTE", idEmpresa}});
+        const desligamentoPendente = await Colaborador.findAll({where: {status: "DESLIGAMENTO_PENDENTE", idEmpresa}});
+        const desligado = await Colaborador.findAll({where: {status: "DESLIGADO", idEmpresa}});
         res.send({ativo: ativo.length, admissaoPendente: admissaoPendente.length, desligamentoPendente: desligamentoPendente.length, desligado: desligado.length})
     } catch (e) {
-        console.log(e)
+        console.log(e);
         res.send(e)
     }
-}
-
-
-module.exports.adicionarBeneficio = async (req, res) => {
-    try {
-        const data = req.body.map(v => {
-            return {
-                ColaboradorId: v.colaborador,
-                BeneficioId: v.beneficio,
-                idEmpresa: req.authData.empresa,
-                custoEmpresa: v.custoEmpresa,
-                custoColaborador: v.custoColaborador,
-            }
-        })
-        data.forEach(async v => {
-            const result = await ColaboradorBeneficio.create(v)
-            console.log(Object.assign({}, result))
-        })
-        res.send(await Colaborador.findByPk(data[0].colaborador))
-    } catch (e) {
-        console.log(e)
-        res.status(500).send(e)
-    }
-}
+};
 
 
 const colaboradorParams = {
@@ -262,6 +239,20 @@ const colaboradorParams = {
             as: 'periodoExperiencia',
             attributes: {exclude: ['createdAt', 'updatedAt']}
         }, {
+            model: Desligamento,
+            as: 'desligamento',
+            attributes: {exclude: ['createdAt', 'updatedAt', 'DesligamentoId']},
+            include: [
+                {
+                    model: Contador,
+                    as: 'contadores'
+                }, {
+                    model: CopiaDocumento,
+                    as: 'copiaDocumentos',
+                    attributes: {exclude: ['updatedAt', 'CopiaDocumentoDesligamentoId']}
+                },
+            ]
+        }, {
             model: CheckList,
             as: 'checkList',
             attributes: {exclude: ['createdAt', 'updatedAt', 'CheckListId']}
@@ -306,4 +297,4 @@ const colaboradorParams = {
     attributes: {
         exclude: ['createdAt', 'updatedAt', 'CargoId', 'DepartamentoId', 'EnderecoId', 'CentroDeCustoId', 'SindicatoId', 'EscolaridadeId', 'JornadaTrabalhoId', 'VinculoId', 'FormaPagamentoId', 'PeriodoExperienciaId', 'BancoId']
     }
-}
+};

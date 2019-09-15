@@ -177,6 +177,17 @@ module.exports = {
                     onDelete: 'SET NULL'
                 })
         }).then(() => {
+            return queryInterface.addColumn('CopiaDocumento', 'CopiaDocumentoDesligamentoId',
+                {
+                    type: Sequelize.INTEGER,
+                    references: {
+                        model: 'Desligamento',
+                        key: 'id'
+                    },
+                    onUpdate: 'CASCADE',
+                    onDelete: 'SET NULL'
+                })
+        }).then(() => {
             return queryInterface.addColumn('Empresa', 'ConfiguracaoId', {
                 type: Sequelize.INTEGER,
                 references: {
@@ -290,17 +301,6 @@ module.exports = {
                     onDelete: 'SET NULL'
                 })
         }).then(() => {
-            return queryInterface.addColumn('Ferias', 'FeriasContadorId',
-                {
-                    type: Sequelize.INTEGER,
-                    references: {
-                        model: 'Contador',
-                        key: 'id'
-                    },
-                    onUpdate: 'CASCADE',
-                    onDelete: 'SET NULL'
-                })
-        }).then(() => {
             return queryInterface.addColumn('Salario', 'SalarioId',
                 {
                     type: Sequelize.INTEGER,
@@ -344,6 +344,39 @@ module.exports = {
                     onUpdate: 'CASCADE',
                     onDelete: 'SET NULL'
                 })
+        }).then(() => {
+            return queryInterface.addColumn('ConfiguracaoSindicato', 'ConfiguracaoSindicatoId',
+                {
+                    type: Sequelize.INTEGER,
+                    references: {
+                        model: 'Sindicato',
+                        key: 'id'
+                    },
+                    onUpdate: 'CASCADE',
+                    onDelete: 'SET NULL'
+                })
+        }).then(() => {
+            return queryInterface.addColumn('Minuta', 'MinutaId',
+                {
+                    type: Sequelize.INTEGER,
+                    references: {
+                        model: 'Empresa',
+                        key: 'id'
+                    },
+                    onUpdate: 'CASCADE',
+                    onDelete: 'SET NULL'
+                })
+        }).then(() => {
+            return queryInterface.addColumn('Desligamento', 'DesligamentoId',
+                {
+                    type: Sequelize.INTEGER,
+                    references: {
+                        model: 'Colaborador',
+                        key: 'id'
+                    },
+                    onUpdate: 'CASCADE',
+                    onDelete: 'SET NULL'
+                })
         })
     },
 
@@ -364,7 +397,6 @@ module.exports = {
             .then(() => queryInterface.removeColumn('Colaborador', 'BancoId'))
             .then(() => queryInterface.removeColumn('CopiaDocumento', 'CopiaDocumentoId'))
             .then(() => queryInterface.removeColumn('CopiaDocumento', 'CopiaDocumentoFeriasId'))
-            //.then(() => queryInterface.removeColumn('Beneficio', 'BeneficioId'))
             .then(() => queryInterface.removeColumn('Empresa', 'ConfiguracaoId'))
             .then(() => queryInterface.removeColumn('Configuracao', 'ConfiguracaoFolhaId'))
             .then(() => queryInterface.removeColumn('Configuracao', 'ConfiguracaoDecimoTerceiroId'))
@@ -372,15 +404,14 @@ module.exports = {
             .then(() => queryInterface.removeColumn('Feriado', 'FeriadoId'))
             .then(() => queryInterface.removeColumn('Holerite', 'HoleriteId'))
             .then(() => queryInterface.removeColumn('Empresa', 'CobrancaId'))
-            //.then(() => queryInterface.removeColumn('Empresa', 'ConfiguracaoId'))
             .then(() => queryInterface.removeColumn('Usuario', 'UsuarioId'))
             .then(() => queryInterface.removeColumn('Ferias', 'FeriasId'))
             .then(() => queryInterface.removeColumn('Salario', 'SalarioId'))
             .then(() => queryInterface.removeColumn('Anotacao', 'AnotacaoId'))
             .then(() => queryInterface.removeColumn('Falta', 'FaltaId'))
             .then(() => queryInterface.removeColumn('ValorRecorrente', 'ValorRecorrenteId'))
-            .then(() => queryInterface.removeColumn('Ferias', 'FeriasContadorId'))
-
+            .then(() => queryInterface.removeColumn('ConfiguracaoSindicato', 'ConfiguracaoSindicatoId'))
+            .then(() => queryInterface.removeColumn('Minuta', 'MinutaId'))
+            .then(() => queryInterface.removeColumn('Desligamento', 'DesligamentoId'))
     }
 };
-//criar relacionamento de ferias com contador, a ferias devera ser enviada a um contador

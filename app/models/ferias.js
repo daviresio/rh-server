@@ -1,4 +1,4 @@
-const message = require('../util/validationMessage')
+const message = require('../util/validationMessage');
 
 module.exports = (sequelize, DataTypes) => {
 
@@ -77,13 +77,13 @@ module.exports = (sequelize, DataTypes) => {
         },
     },{
         tableName: 'Ferias'
-    })
+    });
 
     Ferias.associate = models => {
-        Ferias.belongsTo(models.Colaborador, {as: 'colaborador', foreignKey: 'FeriasId'})
-        Ferias.belongsTo(models.Contador, {as: 'contador', foreignKey: 'FeriasContadorId'})
-        Ferias.hasMany(models.CopiaDocumento, {as: 'copiaDocumentos', foreignKey: 'CopiaDocumentoFeriasId'})
-    }
+        Ferias.belongsTo(models.Colaborador, {as: 'colaborador', foreignKey: 'FeriasId'});
+        Ferias.hasMany(models.CopiaDocumento, {as: 'copiaDocumentos', foreignKey: 'CopiaDocumentoFeriasId'});
+        Ferias.belongsToMany(models.Contador, {through: 'FeriasContador', as: 'contadores', foreignKey: 'FeriasId', otherKey: 'ContadorId'})
+    };
 
     return Ferias
-}
+};

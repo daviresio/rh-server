@@ -1,30 +1,30 @@
-const {Beneficio, Colaborador} = require('../models')
-const query = require('../util/query')
-const addIdEmpresa = require('../util/util').addIdEmpresa
+const {Beneficio, Colaborador, Vinculo} = require('../models');
+const query = require('../util/query');
+const addIdEmpresa = require('../util/util').addIdEmpresa;
 
 module.exports.list = async (req, res) => {
-    res.send(await Beneficio.findAll({...beneficioParams, where: {idEmpresa: req.authData.empresa}}))
-}
+    res.send(await Beneficio.findAll({...beneficioParams, where: {idEmpresa: req.authData.empresa},}))
+};
 
 module.exports.findById = async (req, res) => {
-    const result = await Beneficio.findByPk(req.params.id, {...beneficioParams})
+    const result = await Beneficio.findByPk(req.params.id, {...beneficioParams});
     if (result) {
         res.send(result)
     } else {
         res.status(404).send()
     }
-}
+};
 
 module.exports.save = async (req, res) => {
     try {
-        console.log(addIdEmpresa(req.body, req.authData.empresa))
-        const result = await Beneficio.create(addIdEmpresa(req.body, req.authData.empresa))
+        console.log(addIdEmpresa(req.body, req.authData.empresa));
+        const result = await Beneficio.create(addIdEmpresa(req.body, req.authData.empresa));
         res.send(result)
     } catch (e) {
-        console.log(e)
+        console.log(e);
         res.status(500).send({erro: e.errors[0].message})
     }
-}
+};
 
 module.exports.update = async (req, res) => {
     try {
@@ -32,18 +32,18 @@ module.exports.update = async (req, res) => {
             where: {
                 id: req.body.id
             }
-        })
-        const result = await Beneficio.findByPk(req.body.id)
+        });
+        const result = await Beneficio.findByPk(req.body.id);
         res.send(result)
     } catch (e) {
         res.send(e)
     }
-}
+};
 
 module.exports.delete = async (req, res) => {
-    await Beneficio.destroy({where: {id: req.params.id}})
+    await Beneficio.destroy({where: {id: req.params.id}});
     res.status(200).send()
-}
+};
 
 
 const beneficioParams = {
@@ -51,10 +51,15 @@ const beneficioParams = {
         {
             model: Colaborador,
             as: 'colaboradores',
-            attributes: {exclude: ['createdAt', 'updatedAt']}
+            attributes: {
+                exclude: ['createdAt', 'updatedAt'],
+            },
+            include: [
+                {model: Vinculo, as: 'vinculo'}
+            ]
         },
     ],
     attributes: {
         exclude: ['createdAt', 'updatedAt']
     }
-}
+};

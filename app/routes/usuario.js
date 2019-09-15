@@ -1,34 +1,34 @@
-const {Usuario, Empresa, Companhia} = require('../models')
-const query = require('../util/query')
-const addIdEmpresa = require('../util/util').addIdEmpresa
+const {Usuario, Empresa, Companhia} = require('../models');
+const query = require('../util/query');
+const addIdEmpresa = require('../util/util').addIdEmpresa;
 
 module.exports.list = async (req, res) => {
     res.send(await Usuario.findAll({...query.removeTimestamp()}))
-}
+};
 
 module.exports.findById = async (req, res) => {
     const result = await Usuario.findByPk(req.params.id, {
         ...query.removeTimestamp(), ...params
-    })
+    });
     if (result) {
         res.send(result)
     } else {
         res.status(404).send()
     }
-}
+};
 
 module.exports.save = async (req, res) => {
     try {
-        const result = await Usuario.create(addIdEmpresa(req.body, req.authData.empresa))
+        const result = await Usuario.create(addIdEmpresa(req.body, req.authData.empresa));
         res.send(result)
     } catch (e) {
-        console.log(e)
+        console.log(e);
         res.send({erro: e.errors[0].message})
     }
-}
+};
 
 module.exports.update = async (req, res) => {
-    const {senha, ...data} = req.body
+    const {senha, ...data} = req.body;
     if (senha) {
         res.status(500).json({erro: 'senha nao pode ser alterada por aqui'})
     }
@@ -37,66 +37,65 @@ module.exports.update = async (req, res) => {
             where: {
                 id: req.body.id
             }, individualHooks: true
-        })
-        const result = await Usuario.findByPk(req.body.id)
+        });
+        const result = await Usuario.findByPk(req.body.id);
         res.send(result)
     } catch (e) {
         res.send(e)
     }
-}
+};
 
 module.exports.delete = async (req, res) => {
-    await Usuario.destroy({where: {id: req.params.id}})
+    await Usuario.destroy({where: {id: req.params.id}});
     res.status(200).send()
-}
+};
 
-module.exports.userLogged = async (req, res) => {
+module.exports.userLogged = async (req, res, next) => {
     try {
         const result = await Usuario.findByPk(req.authData.usuario, {...query.removeTimestamp(), ...params}).then(v => {
             if (v === null) {
-                res.status(403).send(e)
+                res.status(403).send(e);
                 return
             }
             return v.get({plain: true})
-        })
-        console.log(result)
-        const {empresas, companhia, ...usuario} = result
-        const index = empresas.findIndex(v => v.id === usuario.empresaLogada)
-        const empresaLogada = empresas[index]
+        });
+
+        const {empresas, companhia, ...usuario} = result;
+        const index = empresas.findIndex(v => v.id === usuario.empresaLogada);
+        const empresaLogada = empresas[index];
         res.json({usuario, empresaLogada, empresas, companhia})
     } catch (e) {
-        console.log(e)
-        res.status(500).send(e)
+        next(e)
     }
-}
+};
 
 
-module.exports.updatePassword = async (req, res) => {
+module.exports.updatePassword = async (req, res, next) => {
     try {
-        const {senhaAtual, ...data} = req.body
+        const {senhaAtual, ...data} = req.body;
         if (!senhaAtual) {
-            res.status(500).json({erro: 'senha atual origatoria'})
+            res.status(500).json({erro: 'senha atual origatoria'});
             return
         }
-        const usuario = await Usuario.findByPk(req.body.id)
-        const senhaCorreta = await usuario.compararSenha(senhaAtual)
-        console.log(senhaCorreta)
+        const usuario = await Usuario.findByPk(req.body.id);
+        const senhaCorreta = await usuario.compararSenha(senhaAtual);
+
         if (!senhaCorreta) {
-            res.status(400).json({erro: 'senha incorreta'})
+            res.status(400).json({erro: 'senha incorreta'});
             return
         }
-        console.log(data)
+
         await Usuario.update({...data}, {
             where: {
                 id: req.body.id
             }, individualHooks: true
-        })
-        const result = await Usuario.findByPk(req.body.id)
+        });
+        const result = await Usuario.findByPk(req.body.id);
         res.send(result)
     } catch (e) {
-        res.send(e)
+        next(e)
     }
-}
+};
 
 
 const params = {
@@ -112,4 +111,4 @@ const params = {
             attributes: {exclude: ['createdAt', 'updatedAt']}
         },
     ]
-}
+};
