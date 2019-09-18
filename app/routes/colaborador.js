@@ -9,7 +9,6 @@ const addIdEmpresa = require('../util/util').addIdEmpresa;
 module.exports.list = async (req, res) => {
     let params = {where: {idEmpresa: req.authData.empresa}};
     if (req.query.status) params = {where: {...params.where, ...req.query}};
-    console.log(params);
     res.send(await Colaborador.findAll({...params, ...colaboradorParams}))
 };
 

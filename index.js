@@ -14,7 +14,7 @@ const PORT = 4000
 const HOST = '0.0.0.0'
 
 app.use(cors())
-app.use(morgan('tiny'))
+//app.use(morgan('tiny'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(auth)

@@ -2,42 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="faac65a8-d861-4f85-997a-496b8fb6643b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/models/configuracaoSindicato.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/desligamento-contador.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/desligamento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/ferias-contador.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/minuta.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/configuracao-sindicato.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/desligamento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/minuta.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-configuracao-sindicato.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-desligamento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-minuta.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/1-create-desligamento-contador.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/1-create-ferias-contador.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/cobranca.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/cobranca.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/colaborador.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/colaborador.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/contador.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/contador.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/copiaDocumento.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/copiaDocumento.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/empresa.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/empresa.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ferias.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ferias.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/sindicato.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/sindicato.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/beneficio.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/beneficio.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/cobranca.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/cobranca.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/colaborador-beneficio.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/colaborador-beneficio.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/colaborador.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/colaborador.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/companhia.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/companhia.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/copiaDocumento.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/copiaDocumento.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/empresa.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/empresa.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/ferias.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/ferias.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/sindicato.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/sindicato.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/usuario.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/usuario.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/error-handler.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/error-handler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/0-create-copia-documento.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/0-create-copia-documento.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/10-create-associations.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/10-create-associations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/evento.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/evento.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,56 +18,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes/desligamento.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="124" column="34" lean-forward="true" selection-start-line="124" selection-start-column="34" selection-end-line="124" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/mqService.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
-              <caret line="42" column="76" selection-start-line="42" selection-start-column="76" selection-end-line="42" selection-end-column="76" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/routes/ferias.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="93" column="32" lean-forward="true" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/desligamento.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="49" column="73" selection-start-line="49" selection-start-column="58" selection-end-line="49" selection-end-column="73" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/evento.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="14" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/routes/evento.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes/colaborador.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="179" column="79" selection-start-line="179" selection-start-column="70" selection-end-line="179" selection-end-column="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/1-create-desligamento-contador.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="18" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="18" />
+            <state relative-caret-position="165">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -228,7 +178,6 @@
         <option value="$PROJECT_DIR$/app/routes/anotacao.js" />
         <option value="$PROJECT_DIR$/database/seeders/20190612170357-evento.js" />
         <option value="$PROJECT_DIR$/app/models/evento.js" />
-        <option value="$PROJECT_DIR$/app/routes/evento.js" />
         <option value="$PROJECT_DIR$/database/migrations/0-create-salario.js" />
         <option value="$PROJECT_DIR$/database/migrations/0-create-falta.js" />
         <option value="$PROJECT_DIR$/database/migrations/z1-create-associations.js" />
@@ -246,7 +195,6 @@
         <option value="$PROJECT_DIR$/app/models/valorRecorrente.js" />
         <option value="$PROJECT_DIR$/database/migrations/0-create-valor-recorrente.js" />
         <option value="$PROJECT_DIR$/database/migrations/0-create-ferias.js" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/config/mqService.js" />
         <option value="$PROJECT_DIR$/app/routes/beneficio.js" />
         <option value="$PROJECT_DIR$/app/models/cobranca.js" />
@@ -286,14 +234,16 @@
         <option value="$PROJECT_DIR$/database/migrations/1-create-desligamento-contador.js" />
         <option value="$PROJECT_DIR$/app/routes/desligamento.js" />
         <option value="$PROJECT_DIR$/app/routes/colaborador.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/app/routes/evento.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="4029" />
-    <option name="y" value="55" />
-    <option name="width" value="1600" />
-    <option name="height" value="900" />
+    <option name="x" value="4028" />
+    <option name="y" value="54" />
+    <option name="width" value="1602" />
+    <option name="height" value="902" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -303,6 +253,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -315,23 +266,10 @@
               <item name="rh-server" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="rh-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rh-server" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rh-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rh-server" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -572,12 +510,21 @@
       <workItem from="1568418586328" duration="4962000" />
       <workItem from="1568457441317" duration="718000" />
       <workItem from="1568477266908" duration="17923000" />
-      <workItem from="1568556725412" duration="7191000" />
+      <workItem from="1568556725412" duration="10664000" />
+      <workItem from="1568631620570" duration="147000" />
     </task>
+    <task id="LOCAL-00001" summary="salvando alteracoes">
+      <created>1568577884797</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1568577884797</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="475196000" />
+    <option name="totallyTimeSpent" value="478816000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -589,9 +536,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="4029" y="55" width="1600" height="900" extended-state="6" />
+    <frame x="4028" y="54" width="1602" height="902" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18983269" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1924067" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -602,9 +549,9 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32858837" />
-      <window_info anchor="bottom" id="Docker" order="7" weight="0.38612565" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32995495" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.34816754" />
+      <window_info active="true" anchor="bottom" id="Docker" order="7" visible="true" weight="0.38612565" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32984293" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.34816754" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="GraphQL" order="12" weight="0.32925338" />
@@ -618,14 +565,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="salvando alteracoes" />
+    <option name="LAST_COMMIT_MESSAGE" value="salvando alteracoes" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/configuracaoCheckList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/configuracao.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -782,20 +732,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/seeders/20190612170357-evento.js" />
-    <entry file="file://$PROJECT_DIR$/app/models/evento.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/evento.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="61" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -990,13 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="54" lean-forward="true" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -1251,7 +1180,7 @@
     <entry file="file://$PROJECT_DIR$/database/migrations/1-create-desligamento-contador.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
-          <caret line="27" column="18" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="18" />
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1265,14 +1194,14 @@
     <entry file="file://$PROJECT_DIR$/app/routes/ferias.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
-          <caret line="93" column="32" lean-forward="true" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
+          <caret line="93" column="32" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes/desligamento.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="124" column="34" lean-forward="true" selection-start-line="124" selection-start-column="34" selection-end-line="124" selection-end-column="34" />
+          <caret line="124" column="34" selection-start-line="124" selection-start-column="34" selection-end-line="124" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -1283,10 +1212,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/evento.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/evento.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/routes/colaborador.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="179" column="79" selection-start-line="179" selection-start-column="70" selection-end-line="179" selection-end-column="79" />
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>

@@ -3,7 +3,13 @@ const query = require('../util/query')
 const addIdEmpresa = require('../util/util').addIdEmpresa
 
 module.exports.list = async (req, res) => {
-    res.send(await Evento.findAll({...query.removeTimestamp()}))
+    let params = {where: {idEmpresa: req.authData.empresa}};
+    if (req.query.campoAtivo) params = {where: {...params.where, ...req.query}};
+    Object.keys(params.where).forEach(k => {
+        if(params.where[k] === 'true') params.where[k] = true
+    })
+    console.log(params)
+    res.send(await Evento.findAll({...params, ...query.removeTimestamp()}))
 }
 
 module.exports.findById = async (req, res) => {
