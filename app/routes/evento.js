@@ -1,4 +1,4 @@
-const {Evento} = require('../models')
+const {Evento, FechamentoFolhaItem} = require('../models')
 const query = require('../util/query')
 const addIdEmpresa = require('../util/util').addIdEmpresa
 
@@ -8,12 +8,12 @@ module.exports.list = async (req, res) => {
     Object.keys(params.where).forEach(k => {
         if(params.where[k] === 'true') params.where[k] = true
     })
-    console.log(params)
-    res.send(await Evento.findAll({...params, ...query.removeTimestamp()}))
+    const result = await Evento.findAll({...params, ...getParams})
+    res.send(result)
 }
 
 module.exports.findById = async (req, res) => {
-    const result = await Evento.findByPk(req.params.id, query.removeTimestamp())
+    const result = await Evento.findByPk(req.params.id, getParams)
     if (result) {
         res.send(result)
     } else {
@@ -48,3 +48,16 @@ module.exports.delete = async (req, res) => {
     await Evento.destroy({where: {id: req.params.id}})
     res.status(200).send()
 }
+
+const getParams = {
+    include: [
+        {
+            model: FechamentoFolhaItem,
+            as: 'fechamentoFolhaItens',
+            attributes: {exclude: ['createdAt', 'updatedAt']},
+        },
+    ],
+    attributes: {
+        exclude: ['createdAt', 'updatedAt']
+    }
+};

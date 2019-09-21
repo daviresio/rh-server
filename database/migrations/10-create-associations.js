@@ -377,6 +377,17 @@ module.exports = {
                     onUpdate: 'CASCADE',
                     onDelete: 'SET NULL'
                 })
+        }).then(() => {
+            return queryInterface.addColumn('FechamentoFolhaItem', 'FechamentoId',
+                {
+                    type: Sequelize.INTEGER,
+                    references: {
+                        model: 'FechamentoFolha',
+                        key: 'id'
+                    },
+                    onUpdate: 'CASCADE',
+                    onDelete: 'SET NULL'
+                })
         })
     },
 
@@ -413,5 +424,6 @@ module.exports = {
             .then(() => queryInterface.removeColumn('ConfiguracaoSindicato', 'ConfiguracaoSindicatoId'))
             .then(() => queryInterface.removeColumn('Minuta', 'MinutaId'))
             .then(() => queryInterface.removeColumn('Desligamento', 'DesligamentoId'))
+            .then(() => queryInterface.removeColumn('FechamentoFolhaItem', 'FechamentoId'))
     }
 };

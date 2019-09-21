@@ -172,6 +172,9 @@ module.exports = (sequelize, DataTypes) => {
         Colaborador.hasMany(models.ValorRecorrente, {as: 'valoresRecorrentes', foreignKey: 'ValorRecorrenteId'});
         Colaborador.belongsToMany(models.Beneficio, {through: 'ColaboradorBeneficio', as: 'beneficios', foreignKey: 'ColaboradorId', otherKey: 'BeneficioId'});
         Colaborador.hasOne(models.Desligamento, {as: 'desligamento', foreignKey: 'DesligamentoId'})
+        Colaborador.hasMany(models.FechamentoFolhaItem, {as: 'fechamentoFolhaItens', foreignKey: 'FechamentoColaboradorId'});
+        Colaborador.belongsToMany(models.FechamentoFolha, {through: 'FechamentoFolhaColaborador', as: 'fechamentoFolhas', foreignKey: 'FechamentoFolhaColaboradorId', otherKey: 'FechamentoFolhaId'});
+
     };
 
     return Colaborador

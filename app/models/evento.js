@@ -65,6 +65,10 @@ module.exports = (sequelize, DataTypes) => {
         tableName: 'Evento'
     })
 
+    Evento.associate = models => {
+        Evento.hasMany(models.FechamentoFolhaItem, {as: 'fechamentoFolhaItens', foreignKey: 'FechamentoEventoId'});
+    }
+
     return Evento
 }
 

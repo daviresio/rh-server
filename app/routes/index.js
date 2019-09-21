@@ -191,8 +191,10 @@ routes.post('/feriados', feriado.save);
 routes.put('/feriados', feriado.update);
 routes.delete('/feriados/:id', feriado.delete);
 
+routes.get('/fechamento-folhas/calculo/:id', fechamentoFolha.getWithCalc);
 routes.get('/fechamento-folhas/:id', fechamentoFolha.findById);
 routes.get('/fechamento-folhas', fechamentoFolha.list);
+routes.post('/fechamento-folhas/item', fechamentoFolha.saveItem);
 routes.post('/fechamento-folhas', fechamentoFolha.save);
 routes.put('/fechamento-folhas', fechamentoFolha.update);
 routes.delete('/fechamento-folhas/:id', fechamentoFolha.delete);

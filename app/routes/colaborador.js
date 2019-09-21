@@ -1,7 +1,8 @@
 const {
     Colaborador, Cargo, Departamento, CentroDeCusto, Sindicato, Endereco, Escolaridade, JornadaTrabalho, Vinculo,
     FormaPagamento, PeriodoExperiencia, CheckList, Contato, Dependente, Banco, Beneficio, CopiaDocumento,
-    ConfiguracaoCheckList, ColaboradorBeneficio, Falta, Ferias, Salario, Anotacao, ValorRecorrente, Desligamento, DesligamentoContador, Contador,
+    ConfiguracaoCheckList, ColaboradorBeneficio, Falta, Ferias, Salario, Anotacao, ValorRecorrente, Desligamento,
+    DesligamentoContador, Contador, FechamentoFolhaItem, FechamentoFolhaColaborador, FechamentoFolha,
 } = require('../models');
 
 const addIdEmpresa = require('../util/util').addIdEmpresa;
@@ -291,6 +292,16 @@ const colaboradorParams = {
             model: ValorRecorrente,
             as: 'valoresRecorrentes',
             attributes: {exclude: ['createdAt', 'updatedAt', 'ValorRecorrenteId']}
+        },
+        {
+            model: FechamentoFolhaItem,
+            as: 'fechamentoFolhaItens',
+            attributes: {exclude: ['createdAt', 'updatedAt']},
+        },
+        {
+            model: FechamentoFolha,
+            as: 'fechamentoFolhas',
+            attributes: {exclude: ['createdAt', 'updatedAt']},
         },
     ],
     attributes: {

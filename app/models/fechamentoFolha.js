@@ -22,5 +22,13 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         tableName: 'FechamentoFolha'
     })
+
+    FechamentoFolha.associate = models => {
+        FechamentoFolha.hasMany(models.FechamentoFolhaItem, {as: 'itens', foreignKey: 'FechamentoId'});
+        FechamentoFolha.belongsToMany(models.Colaborador, {through: 'FechamentoFolhaColaborador', as: 'colaboradores', foreignKey: 'FechamentoFolhaId', otherKey: 'FechamentoFolhaColaboradorId'});
+
+    }
+
     return FechamentoFolha
+
 }
