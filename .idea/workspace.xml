@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="faac65a8-d861-4f85-997a-496b8fb6643b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/fechamento-folha-colaborador.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/fechamento-folha-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/1-create-fechamento-folha-colaborador.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/1-create-fechamento-folha-item.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/colaborador.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/colaborador.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/evento.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/evento.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/fechamentoFolha.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/fechamentoFolha.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/colaborador.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/colaborador.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/evento.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/evento.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/empresa.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/empresa.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/fechamentoFolha.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/fechamentoFolha.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/formaPagamento.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/formaPagamento.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/10-create-associations.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/10-create-associations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/periodoExperiencia.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/periodoExperiencia.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/0-create-evento.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/0-create-evento.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +116,18 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@3474341c" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@481f60d3" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@481f60d3" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7df28beb" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@481f60d3" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7df28beb" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@5ea2b934" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -299,6 +303,14 @@
       <workItem from="1568995642802" duration="1914000" />
       <workItem from="1569023700931" duration="18000" />
       <workItem from="1569023731585" duration="12881000" />
+      <workItem from="1569066782973" duration="8000" />
+      <workItem from="1569080313498" duration="5996000" />
+      <workItem from="1569115621503" duration="5140000" />
+      <workItem from="1569154568083" duration="12556000" />
+      <workItem from="1569236808998" duration="281000" />
+      <workItem from="1569282970208" duration="605000" />
+      <workItem from="1569324590518" duration="1000" />
+      <workItem from="1569456187146" duration="1596000" />
     </task>
     <task id="LOCAL-00001" summary="salvando alteracoes">
       <created>1568577884797</created>

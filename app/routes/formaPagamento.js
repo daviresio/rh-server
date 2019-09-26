@@ -3,7 +3,7 @@ const query = require('../util/query')
 const addIdEmpresa = require('../util/util').addIdEmpresa
 
 module.exports.list = async (req, res) => {
-    res.send(await FormaPagamento.findAll({...query.removeTimestamp(), where: {idEmpresa: req.authData.empresa}}))
+    res.send(await FormaPagamento.findAll({...query.removeTimestamp()}))
 }
 
 module.exports.findById = async (req, res) => {
@@ -17,7 +17,7 @@ module.exports.findById = async (req, res) => {
 
 module.exports.save = async (req, res) => {
     try {
-        const result = await FormaPagamento.create(addIdEmpresa(req.body, req.authData.empresa))
+        const result = await FormaPagamento.create(req.body)
         res.send(result)
     } catch (e) {
         res.send({erro: e.errors[0].message})

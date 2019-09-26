@@ -23,6 +23,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             ...message.notNull('tipo')
         },
+        padraoSistema: {
+            type: DataTypes.STRING,
+        },
         tributarIrrf: {
             allowNull: false,
             defaultValue: false,
@@ -55,7 +58,12 @@ module.exports = (sequelize, DataTypes) => {
         },
         campoAtivo: {
             allowNull: false,
-            defaultValue: false,
+            defaultValue: true,
+            type: DataTypes.BOOLEAN,
+        },
+        campoAparece: {
+            allowNull: false,
+            defaultValue: true,
             type: DataTypes.BOOLEAN,
         },
         idEmpresa: {
@@ -86,6 +94,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: false,
         campoAtivo: false,
+        campoAparece: false,
+        padraoSistema: 'SALARIO',
         createdAt: new Date(),
     },
     {
@@ -100,6 +110,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: true,
         campoAtivo: true,
+        campoAparece: true,
+        padraoSistema: 'FERIAS',
         createdAt: new Date(),
     },
     {
@@ -114,6 +126,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: true,
         campoAtivo: true,
+        campoAparece: true,
+        padraoSistema: 'AFASTAMENTOS',
         createdAt: new Date(),
     },
     {
@@ -128,6 +142,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: true,
         campoAtivo: true,
+        campoAparece: true,
+        padraoSistema: 'CONTRIBUICAO_SINDICAL',
         createdAt: new Date(),
     },
     {
@@ -142,6 +158,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: false,
         campoAtivo: false,
+        campoAparece: false,
+        padraoSistema: 'DSR',
         createdAt: new Date(),
     },
     {
@@ -156,6 +174,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: false,
         campoAtivo: false,
+        campoAparece: false,
+        padraoSistema: 'FGTS',
         createdAt: new Date(),
     },
     {
@@ -170,6 +190,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: false,
         campoAtivo: false,
+        campoAparece: false,
+        padraoSistema: 'IRRF',
         createdAt: new Date(),
     },
     {
@@ -184,6 +206,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: false,
         campoAtivo: false,
+        campoAparece: false,
+        padraoSistema: 'INSS_PATRONAL',
         createdAt: new Date(),
     },
     {
@@ -198,6 +222,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: false,
         campoAtivo: false,
+        campoAparece: false,
+        padraoSistema: 'INSS',
         createdAt: new Date(),
     },
     {
@@ -212,6 +238,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: false,
         campoAtivo: false,
+        campoAparece: false,
+        padraoSistema: 'FALTAS',
         createdAt: new Date(),
     },
     {
@@ -226,6 +254,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: false,
         campoAtivo: false,
+        campoAparece: false,
+        padraoSistema: 'DECIMO_TERCEIRO_PARCELA_UNICA',
         createdAt: new Date(),
     },
     {
@@ -240,6 +270,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: false,
         campoAtivo: false,
+        campoAparece: false,
+        padraoSistema: 'DECIMO_TERCEIRO_PRIMEIRA_PARCELA',
         createdAt: new Date(),
     },
     {
@@ -254,6 +286,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: false,
         campoAtivo: false,
+        campoAparece: false,
+        padraoSistema: 'DECIMO_TERCEIRO_SEGUNDA_PARCELA',
         createdAt: new Date(),
     },
     {
@@ -268,6 +302,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: false,
         campoAtivo: false,
+        campoAparece: false,
+        padraoSistema: 'DECIMO_TERCEIRO_DESCONTO_ADIANTAMENTO',
         createdAt: new Date(),
     },
     {
@@ -282,6 +318,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: false,
         campoAtivo: false,
+        campoAparece: false,
+        padraoSistema: 'HORA_EXTRAORDINARIA_UM',
         createdAt: new Date(),
     },
     {
@@ -296,6 +334,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: false,
         campoAtivo: false,
+        campoAparece: false,
+        padraoSistema: 'HORA_EXTRAORDINARIA_DOIS',
         createdAt: new Date(),
     },
     {
@@ -310,6 +350,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: false,
         campoAtivo: false,
+        campoAparece: false,
+        padraoSistema: 'HORA_EXTRAORDINARIA_TRES',
         createdAt: new Date(),
     },
     {
@@ -324,6 +366,8 @@ module.exports.eventosPreDefinidos = [
         adicionarAoArquivoDeIntegracao: false,
         sobrescreverCalculoDoSistema: false,
         campoAtivo: false,
+        campoAparece: false,
+        padraoSistema: 'HORA_EXTRAORDINARIA_QUATRO',
         createdAt: new Date(),
     },
 ]

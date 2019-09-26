@@ -59,6 +59,13 @@ module.exports = {
                 defaultValue: true,
                 type: Sequelize.BOOLEAN,
             },
+            campoAparece: {
+                defaultValue: true,
+                type: Sequelize.BOOLEAN,
+            },
+            padraoSistema: {
+                type: Sequelize.STRING,
+            },
             idEmpresa: {
                 type: Sequelize.INTEGER,
             },

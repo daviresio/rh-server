@@ -195,12 +195,14 @@ routes.get('/fechamento-folhas/calculo/:id', fechamentoFolha.getWithCalc);
 routes.get('/fechamento-folhas/:id', fechamentoFolha.findById);
 routes.get('/fechamento-folhas', fechamentoFolha.list);
 routes.post('/fechamento-folhas/item', fechamentoFolha.saveItem);
+routes.put('/fechamento-folhas-itens', fechamentoFolha.updateItens);
 routes.post('/fechamento-folhas', fechamentoFolha.save);
 routes.put('/fechamento-folhas', fechamentoFolha.update);
 routes.delete('/fechamento-folhas/:id', fechamentoFolha.delete);
 
 routes.get('/empresas/:id', empresa.findById);
 routes.get('/empresas', empresa.list);
+routes.post('/empresas/troca', empresa.trocarEmpresa);
 routes.post('/empresas', empresa.save);
 routes.put('/empresas', empresa.update);
 routes.delete('/empresas/:id', empresa.delete);

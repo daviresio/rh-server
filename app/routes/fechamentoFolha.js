@@ -1,13 +1,14 @@
-const {FechamentoFolha, FechamentoFolhaItem, Colaborador, Evento, FechamentoFolhaColaborador} = require('../models')
+const {FechamentoFolha, FechamentoFolhaItem, Colaborador, Evento, FechamentoFolhaColaborador, Cargo,
+    Departamento, } = require('../models')
 const query = require('../util/query')
 const addIdEmpresa = require('../util/util').addIdEmpresa
 
 module.exports.list = async (req, res) => {
-    res.send(await FechamentoFolha.findAll({...getParams, where: {idEmpresa: req.authData.empresa}}))
+    res.send(await FechamentoFolha.findAll({where: {idEmpresa: req.authData.empresa}}))
 }
 
 module.exports.findById = async (req, res) => {
-    const result = await FechamentoFolha.findByPk(req.params.id, getParams)
+    const result = await FechamentoFolha.findByPk(req.params.id, getParams(req.params.id))
     if (result) {
         res.send(result)
     } else {
@@ -15,21 +16,36 @@ module.exports.findById = async (req, res) => {
     }
 }
 
-module.exports.save = async (req, res) => {
+module.exports.save = async (req, res, next) => {
     try {
+
         const colaboradores = await Colaborador.findAll({where: {idEmpresa: req.authData.empresa}, raw: true}).map(x => x.id)
-        console.log('***********', colaboradores)
+
         const result = await FechamentoFolha.create({...addIdEmpresa({...req.body}, req.authData.empresa), dataInicio: Date.now()})
+
         colaboradores.forEach(async c => {
             await FechamentoFolhaColaborador.create({
                 FechamentoFolhaId: result.id,
                 FechamentoFolhaColaboradorId: c,
                 idEmpresa: req.authData.empresa,
             })
+
+            const eventos = await Evento.findAll({where: {idEmpresa: req.authData.empresa}, raw: true}).map(x => x.id)
+
+            eventos.forEach( async e => {
+                const r = await FechamentoFolhaItem.create({
+                    FechamentoEventoId: e,
+                    FechamentoColaboradorId: c,
+                    valor: 0,
+                    idEmpresa: req.authData.empresa,
+                    FechamentoId: result.id,
+                }, {raw: true})
+                console.log(r)
+            })
         })
         res.send(result)
     } catch (e) {
-        res.send({erro: e.errors[0].message})
+        next(e)
     }
 }
 
@@ -59,7 +75,26 @@ module.exports.saveItem = async (req, res, next) => {
     try {
         const {body: data} = req
         data.forEach(async v => {
-            await FechamentoFolhaItem.create(addIdEmpresa(v, req.authData.empresa))
+            await FechamentoFolhaItem.update(...v, {
+                where: {
+                    id: v.id,
+                }
+            })
+        })
+        res.status(200).send()
+    } catch (e) {
+        next(e)
+    }
+}
+module.exports.updateItens = async (req, res, next) => {
+    try {
+        const {body: data} = req
+        data.forEach(async v => {
+            await FechamentoFolhaItem.update(v, {
+                where: {
+                    id: v.id,
+                }
+            })
         })
         res.status(200).send()
     } catch (e) {
@@ -69,7 +104,7 @@ module.exports.saveItem = async (req, res, next) => {
 
 module.exports.getWithCalc = async (req, res, next) => {
     try {
-    const result = await FechamentoFolha.findByPk(req.params.id, query.removeTimestamp(), getParams)
+    const result = await FechamentoFolha.findByPk(req.params.id, query.removeTimestamp(), getParams(req.params.id))
 res.send(result)
     } catch (e) {
         next(e)
@@ -77,7 +112,7 @@ res.send(result)
 }
 
 
-const getParams = {
+const getParams = fechamentoId => ({
     include: [
         {
             model: Colaborador,
@@ -88,6 +123,9 @@ const getParams = {
                     model: FechamentoFolhaItem,
                     as: 'fechamentoFolhaItens',
                     attributes: {exclude: ['createdAt', 'updatedAt']},
+                    where: {
+                        FechamentoId: fechamentoId
+                    },
                     include: [
                         {
                             model: Evento,
@@ -95,11 +133,21 @@ const getParams = {
                             attributes: {exclude: ['createdAt', 'updatedAt']}
                         },
                     ]
-                }
+                },
+                {
+                    model: Cargo,
+                    as: 'cargo',
+                    attributes: {exclude: ['createdAt', 'updatedAt']}
+                },
+                {
+                    model: Departamento,
+                    as: 'departamento',
+                    attributes: {exclude: ['createdAt', 'updatedAt']}
+                },
             ]
         },
     ],
     attributes: {
         exclude: ['createdAt', 'updatedAt']
     }
-};
+})
