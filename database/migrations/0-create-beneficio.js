@@ -20,10 +20,6 @@ module.exports = {
             cnpjOperador: {
                 type: Sequelize.STRING
             },
-            categoria: {
-                allowNull: false,
-                type: Sequelize.STRING
-            },
             descontaFaltaMesAnterior: {
                 allowNull: false,
                 defaultValue: false,
@@ -48,10 +44,6 @@ module.exports = {
                 allowNull: false,
                 defaultValue: false,
                 type: Sequelize.BOOLEAN,
-            },
-            tipoCalculoSaldo: {
-                allowNull: false,
-                type: Sequelize.STRING
             },
             custoDaEmpresaPagoPeloColaborador: {
                 allowNull: false,

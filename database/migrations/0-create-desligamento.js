@@ -9,14 +9,6 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            tipo: {
-                allowNull: false,
-                type: Sequelize.INTEGER
-            },
-            aviso: {
-                allowNull: false,
-                type: Sequelize.INTEGER
-            },
             dataAviso: {
                 type: Sequelize.DATE
             },

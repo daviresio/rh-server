@@ -53,19 +53,10 @@ module.exports = {
       nacionalidade: {
         type: Sequelize.STRING,
       },
-      corRaca: {
-        type: Sequelize.STRING,
-      },
       naturalEstado: {
         type: Sequelize.STRING,
       },
       naturalCidade: {
-        type: Sequelize.STRING,
-      },
-      sexo: {
-        type: Sequelize.STRING,
-      },
-      estadoCivil: {
         type: Sequelize.STRING,
       },
       nomeMae: {

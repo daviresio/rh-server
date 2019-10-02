@@ -13,9 +13,6 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.DATE
             },
-            tipo: {
-                type: Sequelize.STRING,
-            },
             idEmpresa: {
                 type: Sequelize.INTEGER,
             },

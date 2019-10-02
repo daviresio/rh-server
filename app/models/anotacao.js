@@ -12,10 +12,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             ...message.notNull('titulo'),
         },
-        categoria: {
-            type: DataTypes.STRING,
-            ...message.notNull('categoria'),
-        },
         anotacao: {
             type: DataTypes.STRING,
             ...message.notNull('anotacao'),
@@ -27,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Anotacao.associate = models => {
         Anotacao.belongsTo(models.Colaborador, {as: 'colaborador', foreignKey: 'AnotacaoId'})
+        Anotacao.belongsTo(models.CategoriaAnotacao, {as: 'categoria', foreignKey: 'CategoriaAnotacaoId'})
     }
     return Anotacao
 }

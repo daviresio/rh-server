@@ -12,9 +12,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.DATE,
             ...message.notNull('data')
         },
-        tipo: {
-            type: DataTypes.STRING,
-        },
         descricao: DataTypes.STRING,
         idEmpresa: {
             type: DataTypes.INTEGER,
@@ -24,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     })
     Holerite.associate = models => {
         Holerite.belongsTo(models.MesHolerite, {as: 'mes', foreignKey: 'HoleriteId'})
+        Holerite.belongsTo(models.TipoHolerite, {as: 'tipo', foreignKey: 'TipoHolerite'})
     }
     return Holerite
 }

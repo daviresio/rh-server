@@ -1,13 +1,12 @@
-const {Contato, Colaborador} = require('../models')
-const query = require('../util/query')
+const {Contato, Colaborador, RelacaoContato} = require('../models')
 const addIdEmpresa = require('../util/util').addIdEmpresa
 
 module.exports.list = async (req, res) => {
-    res.send(await Contato.findAll({...query.removeTimestamp(), include: [{model: Colaborador, as: 'colaborador'}], where: {idEmpresa: req.authData.empresa}}))
+    res.send(await Contato.findAll({...getParams, include: [{model: Colaborador, as: 'colaborador'}], where: {idEmpresa: req.authData.empresa}}))
 }
 
 module.exports.findById = async (req, res) => {
-    const result = await Contato.findByPk(req.params.id, query.removeTimestamp())
+    const result = await Contato.findByPk(req.params.id, getParams)
     if (result) {
         res.send(result)
     } else {
@@ -17,9 +16,11 @@ module.exports.findById = async (req, res) => {
 
 module.exports.save = async (req, res) => {
     try {
-        const {colaborador, ...data} = req.body
+        const {colaborador, relacao, ...data} = req.body
         const result = await Contato.create(addIdEmpresa(data, req.authData.empresa))
+        console.log(result)
         await result.setColaborador(colaborador)
+        await result.setRelacaoContato(relacao)
         res.send(result)
     } catch (e) {
         console.log(e)
@@ -50,3 +51,20 @@ module.exports.delete = async (req, res) => {
 module.exports.listByColaborador = async (req, res) => {
     res.send(await Contato.findAll({where: {ContatoId: req.params.id}, attributes: {exclude: ['ContatoId', 'createdAt', 'updatedAt']}}))
 }
+
+
+
+const getParams = {
+    include: [
+        {
+            model: RelacaoContato,
+            as: 'relacao',
+            attributes: {
+                exclude: ['createdAt', 'updatedAt'],
+            },
+        },
+    ],
+    attributes: {
+        exclude: ['createdAt', 'updatedAt']
+    }
+};

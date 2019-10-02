@@ -54,8 +54,8 @@ module.exports.userLogged = async (req, res, next) => {
     try {
         const result = await Usuario.findByPk(req.authData.usuario, {...query.removeTimestamp(), ...params}).then(v => {
             if (v === null) {
-                res.status(403).send(e);
-                return
+                res.status(403).send();
+                throw new Error('Usuario nao logado')
             }
             return v.get({plain: true})
         });

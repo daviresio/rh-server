@@ -26,10 +26,6 @@ module.exports = (sequelize, DataTypes) => {
         nomeMae: {
             type: DataTypes.STRING
         },
-        relacao: {
-            type: DataTypes.STRING,
-            ...message.notNull('relacao'),
-        },
         incluirParaFinsDeImpostoRenda: {
             defaultValue: false,
             type: DataTypes.BOOLEAN,
@@ -44,6 +40,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Dependente.associate = models => {
         Dependente.belongsTo(models.Colaborador, {as: 'colaborador', foreignKey: 'DependenteId'})
+        Dependente.belongsTo(models.RelacaoDependente, {as: 'relacao', foreignKey: 'RelacaoDependenteId'})
     }
     return Dependente
 }

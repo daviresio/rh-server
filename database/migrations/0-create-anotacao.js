@@ -13,10 +13,6 @@ module.exports = {
           allowNull: false,
           type: Sequelize.STRING
         },
-        categoria: {
-          allowNull: false,
-          type: Sequelize.STRING
-        },
         anotacao: {
           allowNull: false,
           type: Sequelize.STRING

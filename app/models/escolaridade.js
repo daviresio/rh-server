@@ -8,9 +8,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             autoIncrement: true,
         },
-        escolaridade: {
-            type: DataTypes.STRING,
-        },
         curso: {
             type: DataTypes.STRING,
         },
@@ -24,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     })
     Escolaridade.associate = models => {
         Escolaridade.hasOne(models.Colaborador, {as: 'colaborador', foreignKey: 'EscolaridadeId'})
+        Escolaridade.belongsTo(models.NivelEscolaridade, {as: 'escolaridade', foreignKey: 'NivelEscolaridadeId'})
     }
     return Escolaridade
 }

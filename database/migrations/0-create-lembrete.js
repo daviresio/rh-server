@@ -9,10 +9,6 @@ module.exports = {
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    categoria: {
-      categoria: false,
-      type: Sequelize.STRING
-    },
     titulo: {
       allowNull: false,
       type: Sequelize.STRING
@@ -25,15 +21,10 @@ module.exports = {
       defaultValue: true,
       type: Sequelize.BOOLEAN
     },
-    //TODO enviar para lista de departamentos e colaboradores
     lembreteRecorrente: {
       allowNull: false,
       defaultValue: false,
       type: Sequelize.BOOLEAN
-    },
-    periodo: {
-      allowNull: false,
-      type: Sequelize.STRING
     },
     repeteACada: {
       type: Sequelize.STRING
@@ -54,9 +45,6 @@ module.exports = {
     idEmpresa: {
       type: Sequelize.INTEGER,
     },
-   /* diasDaSemana: {
-      type: Sequelize.ARRAY(Sequelize.STRING)
-    }, */
     createdAt: {
       type: Sequelize.DATE,
       allowNull: false

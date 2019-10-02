@@ -9,11 +9,6 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             type: DataTypes.INTEGER
         },
-        categoria: {
-            categoria: false,
-            type: DataTypes.STRING,
-            ...message.notNull('categoria')
-        },
         titulo: {
             allowNull: false,
             type: DataTypes.STRING,
@@ -33,11 +28,6 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: false,
             type: DataTypes.BOOLEAN,
             ...message.notNull('lembreteRecorrente')
-        },
-        periodo: {
-            allowNull: false,
-            type: DataTypes.STRING,
-            ...message.notNull('periodo')
         },
         repeteACada: {
             type: DataTypes.STRING,
@@ -61,12 +51,14 @@ module.exports = (sequelize, DataTypes) => {
         idEmpresa: {
             type: DataTypes.INTEGER,
         },
-      /*  diasDaSemana: {
-            type: DataTypes.ARRAY(Sequelize.STRING)
-        }, */
     }, {
         tableName: 'Lembrete'
     })
+
+    Lembrete.associate = models => {
+        Lembrete.belongsTo(models.CategoriaLembrete, {as: 'categoria', foreignKey: 'CategoriaLembreteId'});
+        Lembrete.belongsTo(models.PeriodoRecorrenciaLembrete, {as: 'periodoRecorrencia', foreignKey: 'PeriodoRecorrenciaLembreteId'});
+    }
 
     return Lembrete
 }

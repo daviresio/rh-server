@@ -1,13 +1,13 @@
-const {Beneficio, Colaborador, Vinculo} = require('../models');
+const {Beneficio, Colaborador, Vinculo, CalculoSaldoBeneficio, CategoriaBeneficio} = require('../models');
 const query = require('../util/query');
 const addIdEmpresa = require('../util/util').addIdEmpresa;
 
 module.exports.list = async (req, res) => {
-    res.send(await Beneficio.findAll({...beneficioParams, where: {idEmpresa: req.authData.empresa},}))
+    res.send(await Beneficio.findAll({...getParams, where: {idEmpresa: req.authData.empresa},}))
 };
 
 module.exports.findById = async (req, res) => {
-    const result = await Beneficio.findByPk(req.params.id, {...beneficioParams});
+    const result = await Beneficio.findByPk(req.params.id, {...getParams});
     if (result) {
         res.send(result)
     } else {
@@ -17,8 +17,10 @@ module.exports.findById = async (req, res) => {
 
 module.exports.save = async (req, res) => {
     try {
-        console.log(addIdEmpresa(req.body, req.authData.empresa));
-        const result = await Beneficio.create(addIdEmpresa(req.body, req.authData.empresa));
+        const {tipoCalculoSaldo, categoria, ...data} = req.body
+        const result = await Beneficio.create(addIdEmpresa(data, req.authData.empresa));
+        await result.setCalculoSaldoBeneficio(tipoCalculoSaldo)
+        await result.setCategoriaBeneficio(categoria)
         res.send(result)
     } catch (e) {
         console.log(e);
@@ -46,7 +48,7 @@ module.exports.delete = async (req, res) => {
 };
 
 
-const beneficioParams = {
+const getParams = {
     include: [
         {
             model: Colaborador,
@@ -57,7 +59,19 @@ const beneficioParams = {
             include: [
                 {model: Vinculo, as: 'vinculo'}
             ]
-        },
+        }, {
+        model: CalculoSaldoBeneficio,
+            as: 'tipoCalculoSaldo',
+            attributes: {
+                exclude: ['createdAt', 'updatedAt'],
+            },
+        }, {
+        model: CategoriaBeneficio,
+            as: 'categoria',
+            attributes: {
+                exclude: ['createdAt', 'updatedAt'],
+            },
+        }
     ],
     attributes: {
         exclude: ['createdAt', 'updatedAt']

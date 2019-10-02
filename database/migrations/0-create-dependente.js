@@ -27,10 +27,6 @@ module.exports = {
             nomeMae: {
                 type: Sequelize.STRING
             },
-            relacao: {
-                allowNull: false,
-                type: Sequelize.STRING
-            },
             incluirParaFinsDeImpostoRenda: {
                 allowNull: false,
                 defaultValue: false,

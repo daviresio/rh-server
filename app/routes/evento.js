@@ -1,5 +1,4 @@
-const {Evento, FechamentoFolhaItem} = require('../models')
-const query = require('../util/query')
+const {Evento, FechamentoFolhaItem, TipoProvento} = require('../models')
 const addIdEmpresa = require('../util/util').addIdEmpresa
 
 module.exports.list = async (req, res) => {
@@ -21,16 +20,18 @@ module.exports.findById = async (req, res) => {
     }
 }
 
-module.exports.save = async (req, res) => {
+module.exports.save = async (req, res, next) => {
     try {
-        const result = await Evento.create(addIdEmpresa(req.body, req.authData.empresa))
+        const {tipo, ...data} = req.body
+        const result = await Evento.create(addIdEmpresa(data, req.authData.empresa))
+        await result.setTipoProvento(tipo)
         res.send(result)
     } catch (e) {
-        res.send({erro: e.errors[0].message})
+        next(e)
     }
 }
 
-module.exports.update = async (req, res) => {
+module.exports.update = async (req, res, next) => {
     try {
         await Evento.update({...req.body}, {
             where: {
@@ -40,7 +41,7 @@ module.exports.update = async (req, res) => {
         const result = await Evento.findByPk(req.body.id)
         res.send(result)
     } catch (e) {
-        res.send(e)
+        next(e)
     }
 }
 
@@ -54,6 +55,10 @@ const getParams = {
         {
             model: FechamentoFolhaItem,
             as: 'fechamentoFolhaItens',
+            attributes: {exclude: ['createdAt', 'updatedAt']},
+        }, {
+            model: TipoProvento,
+            as: 'tipo',
             attributes: {exclude: ['createdAt', 'updatedAt']},
         },
     ],

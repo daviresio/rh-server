@@ -9,14 +9,6 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             type: DataTypes.INTEGER
         },
-        tipo: {
-            allowNull: false,
-            type: DataTypes.INTEGER
-        },
-        aviso: {
-            allowNull: false,
-            type: DataTypes.INTEGER
-        },
         dataAviso: {
             type: DataTypes.DATE
         },
@@ -50,6 +42,8 @@ module.exports = (sequelize, DataTypes) => {
         Desligamento.hasMany(models.CopiaDocumento, {as: 'copiaDocumentos', foreignKey: 'CopiaDocumentoDesligamentoId'});
         Desligamento.belongsToMany(models.Contador, {through: 'DesligamentoContador', as: 'contadores', foreignKey: 'DesligamentoId', otherKey: 'ContadorId'});
         Desligamento.belongsTo(models.Colaborador, {as: 'colaborador', foreignKey: 'DesligamentoId'})
+        Desligamento.belongsTo(models.TipoAvisoPrevio, {as: 'aviso', foreignKey: 'TipoAvisoPrevioId'})
+        Desligamento.belongsTo(models.TipoDesligamento, {as: 'tipo', foreignKey: 'TipoDesligamentoId'})
     };
 
     return Desligamento

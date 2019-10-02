@@ -9,12 +9,6 @@ module.exports = {
           primaryKey: true,
           type: Sequelize.INTEGER
         },
-        motivo: {
-          type: Sequelize.STRING
-        },
-        tipo: {
-          type: Sequelize.STRING
-        },
         dataInicial: {
           type: Sequelize.DATE
         },

@@ -3,6 +3,7 @@ const {
     FormaPagamento, PeriodoExperiencia, CheckList, Contato, Dependente, Banco, Beneficio, CopiaDocumento,
     ConfiguracaoCheckList, ColaboradorBeneficio, Falta, Ferias, Salario, Anotacao, ValorRecorrente, Desligamento,
     DesligamentoContador, Contador, FechamentoFolhaItem, FechamentoFolhaColaborador, FechamentoFolha,
+    CorRaca, Sexo, EstadoCivil,
 } = require('../models');
 
 const addIdEmpresa = require('../util/util').addIdEmpresa;
@@ -25,9 +26,12 @@ module.exports.findById = async (req, res) => {
 module.exports.save = async (req, res, next) => {
     try {
         const idEmpresa = req.authData.empresa;
-        const {cargo, departamento, centroDeCusto, sindicato, checkList, jornadaTrabalho, vinculo, formaPagamento, periodoExperiencia, ...data} = req.body;
+        const {cargo, departamento, centroDeCusto, sindicato, checkList, jornadaTrabalho, vinculo, formaPagamento, periodoExperiencia, corRaca, sexo, estadoCivil, ...data} = req.body;
         colaborador = await Colaborador.create({...data, status: "ADMISSAO_PENDENTE", idEmpresa});
         if (cargo) await colaborador.setCargo(cargo);
+        if (corRaca) await colaborador.setCorRaca(corRaca);
+        if (sexo) await colaborador.setSexo(sexo);
+        if (estadoCivil) await colaborador.setEstadoCivil(estadoCivil);
         if (departamento) await colaborador.setDepartamento(departamento);
         if (centroDeCusto) await colaborador.setCentroDeCusto(centroDeCusto);
         if (sindicato) await colaborador.setSindicato(sindicato);
@@ -48,7 +52,8 @@ module.exports.update = async (req, res, next) => {
     try {
         const {
             cargo, departamento, centroDeCusto, sindicato, checkList, jornadaTrabalho, vinculo, formaPagamento,
-            endereco, escolaridade, banco, periodoExperiencia, contatos, dependentes, copiaDocumentos, ...colaborador
+            endereco, escolaridade, banco, periodoExperiencia, contatos, dependentes, copiaDocumentos,
+            corRaca, sexo, estadoCivil, ...colaborador
         } = req.body;
 
         const idEmpresa = req.authData.empresa;
@@ -64,6 +69,9 @@ module.exports.update = async (req, res, next) => {
         );
 
         if (cargo && typeof cargo === 'number') await colaboradorSaved.setCargo(cargo);
+        if (corRaca) await colaboradorSaved.setCorRaca(typeof corRaca === 'object' ? corRaca.id : corRaca);
+        if (sexo) await colaboradorSaved.setSexo(typeof sexo === 'object' ? sexo.id : sexo);
+        if (estadoCivil) await colaboradorSaved.setEstadoCivil(typeof estadoCivil === 'object' ? estadoCivil.id : estadoCivil);
         if (departamento) await colaboradorSaved.setDepartamento(typeof departamento === 'object' ? departamento.id : departamento);
         if (centroDeCusto) await colaboradorSaved.setCentroDeCusto(typeof centroDeCusto === 'object' ? centroDeCusto.id : centroDeCusto);
         if (jornadaTrabalho) await colaboradorSaved.setJornadaTrabalho(typeof jornadaTrabalho === 'object' ? jornadaTrabalho.id : jornadaTrabalho);
@@ -196,6 +204,21 @@ const colaboradorParams = {
         {
             model: Cargo,
             as: 'cargo',
+            attributes: {exclude: ['createdAt', 'updatedAt']}
+        },
+        {
+            model: CorRaca,
+            as: 'corRaca',
+            attributes: {exclude: ['createdAt', 'updatedAt']}
+        },
+        {
+            model: Sexo,
+            as: 'sexo',
+            attributes: {exclude: ['createdAt', 'updatedAt']}
+        },
+        {
+            model: EstadoCivil,
+            as: 'estadoCivil',
             attributes: {exclude: ['createdAt', 'updatedAt']}
         },
         {

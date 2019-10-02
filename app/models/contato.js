@@ -24,10 +24,6 @@ module.exports = (sequelize, DataTypes) => {
         telefoneTrabalho: {
             type: DataTypes.STRING,
         },
-        relacao: {
-            type: DataTypes.STRING,
-            ...message.notNull('relacao'),
-        },
         idEmpresa: {
             type: DataTypes.INTEGER,
         },
@@ -37,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Contato.associate = models => {
         Contato.belongsTo(models.Colaborador, {as: 'colaborador', foreignKey: 'ContatoId'})
+        Contato.belongsTo(models.RelacaoContato, {as: 'relacao', foreignKey: 'RelacaoContatoId'})
     }
     return Contato
 }

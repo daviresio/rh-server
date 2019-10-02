@@ -12,9 +12,6 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             type: DataTypes.STRING
         },
-        tipo: {
-            type: DataTypes.INTEGER
-        },
         adicional: {
             type: DataTypes.DOUBLE
         },
@@ -29,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     ConfiguracaoSindicato.associate = models => {
         ConfiguracaoSindicato.belongsTo(models.Sindicato, {as: 'sindicato', foreignKey: 'ConfiguracaoSindicatoId'})
+        ConfiguracaoSindicato.belongsTo(models.TipoAdicionalSindicato, {as: 'tipo', foreignKey: 'TipoAdicionalSindicatoId'})
     };
     return ConfiguracaoSindicato
 };

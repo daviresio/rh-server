@@ -9,7 +9,7 @@ services:
       MYSQL_ROOT_PASSWORD: "root"
       MYSQL_DATABASE: "rh"
     ports:
-      - 3308:3306
+      - 3306:3306
   queue:
     image: rabbitmq:3-management
     container_name: rabbitmq
@@ -19,7 +19,6 @@ services:
       - "5672:5672"
     volumes:
       - .:/usr/src/rabbitmq
-
   app:
     build: .
     command: bash -c "sleep 30 && ./node_modules/.bin/sequelize db:migrate && ./node_modules/.bin/sequelize db:seed:all && npm run dev"
@@ -30,4 +29,3 @@ services:
     depends_on:
       - db
       - queue
-

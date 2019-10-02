@@ -1,13 +1,12 @@
-const {Anotacao} = require('../models')
-const query = require('../util/query')
+const {Anotacao, CategoriaAnotacao} = require('../models')
 const addIdEmpresa = require('../util/util').addIdEmpresa
 
 module.exports.list = async (req, res) => {
-    res.send(await Anotacao.findAll({...query.removeTimestamp(), where: {idEmpresa: req.authData.empresa}}))
+    res.send(await Anotacao.findAll({...getParams, where: {idEmpresa: req.authData.empresa}}))
 }
 
 module.exports.findById = async (req, res) => {
-    const result = await Anotacao.findByPk(req.params.id, query.removeTimestamp())
+    const result = await Anotacao.findByPk(req.params.id, getParams)
     if (result) {
         res.send(result)
     } else {
@@ -15,15 +14,15 @@ module.exports.findById = async (req, res) => {
     }
 }
 
-module.exports.save = async (req, res) => {
+module.exports.save = async (req, res, next) => {
     try {
-        const {colaborador, ...data} = req.body
+        const {colaborador, categoria, ...data} = req.body
         const result = await Anotacao.create(addIdEmpresa(data, req.authData.empresa))
         await result.setColaborador(colaborador)
+        await result.setCategoriaAnotacao(categoria)
         res.send(result)
     } catch (e) {
-        console.log(e)
-        res.send({erro: e.errors[0].message})
+        next(e)
     }
 }
 
@@ -45,3 +44,19 @@ module.exports.delete = async (req, res) => {
     await Anotacao.destroy({where: {id: req.params.id}})
     res.status(200).send()
 }
+
+
+const getParams = {
+    include: [
+        {
+            model: CategoriaAnotacao,
+            as: 'categoria',
+            attributes: {
+                exclude: ['createdAt', 'updatedAt'],
+            },
+        }
+    ],
+    attributes: {
+        exclude: ['createdAt', 'updatedAt']
+    }
+};

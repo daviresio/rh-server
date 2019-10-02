@@ -20,9 +20,6 @@ module.exports = (sequelize, DataTypes) => {
         salario: {
             type: DataTypes.DOUBLE,
         },
-        motivo: {
-            type: DataTypes.STRING,
-        },
         justificativa: {
             type: DataTypes.STRING
         },
@@ -35,6 +32,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Salario.associate = models => {
         Salario.belongsTo(models.Colaborador, {as: 'colaborador', foreignKey: 'SalarioId'})
+        Salario.belongsTo(models.MotivoAlteracaoSalario, {as: 'motivo', foreignKey: 'MotivoAlteracaoSalarioId'})
     }
 
     return Salario

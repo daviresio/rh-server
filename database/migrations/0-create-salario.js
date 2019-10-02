@@ -20,9 +20,6 @@ module.exports = {
         salario: {
           type: Sequelize.DOUBLE,
         },
-        motivo: {
-          type: Sequelize.STRING,
-        },
         justificativa: {
           type: Sequelize.STRING
         },

@@ -38,7 +38,9 @@ const colaboradorBeneficio = require('./colaborador-beneficio');
 const configuracaoSindicato = require('./configuracao-sindicato');
 const minuta = require('./minuta');
 const desligamento = require('./desligamento');
+const relatorio = require('./relatorios');
 const auth = require('./auth');
+const defaultValues = require('./default-values')
 
 routes.get('/cargos/:id', cargo.findById);
 routes.get('/cargos', cargo.list);
@@ -277,6 +279,46 @@ routes.get('/desligamentos', desligamento.list);
 routes.post('/desligamentos', desligamento.save);
 routes.put('/desligamentos', desligamento.update);
 routes.delete('/desligamentos/:id', desligamento.delete);
+
+routes.get('/relatorios/aniversarios', relatorio.aniversario);
+routes.get('/relatorios/dados-bancarios', relatorio.dadosBancarios);
+routes.get('/relatorios/contatos', relatorio.contatos);
+routes.get('/relatorios/dependentes', relatorio.dependentes);
+routes.get('/relatorios/colaboradoes-vinculos', relatorio.colaboradoresPorVinculo);
+routes.get('/relatorios/gestores', relatorio.gestores);
+routes.get('/relatorios/tempos-casas', relatorio.tempoDeCasa);
+routes.get('/relatorios/anotacoes', relatorio.anotacoes);
+routes.get('/relatorios/atualizacoes-cargos-salarios', relatorio.atualizacaoCargosESalarios);
+routes.get('/relatorios/admissoes', relatorio.admissoes);
+routes.get('/relatorios/desligamentos', relatorio.desligamentos);
+
+
+
+routes.get('/tipos-adicionais-sindicatos', defaultValues.listTipoAdicionalSindicato);
+routes.get('/calculos-proporcionalidades', defaultValues.listCalculoProporcionalidade);
+routes.get('/calculos-saldos-beneficios', defaultValues.listCalculoSaldoBeneficio);
+routes.get('/categorias-beneficios', defaultValues.listCategoriaBeneficio);
+routes.get('/categorias-anotacoes', defaultValues.listCategoriaAnotacao);
+routes.get('/cores-racas', defaultValues.listCorRaca);
+routes.get('/sexos', defaultValues.listSexo);
+routes.get('/estados-civis', defaultValues.listEstadoCivil);
+routes.get('/motivos-alteracoes-salarios', defaultValues.listMotivoAlteracaoSalario);
+routes.get('/motivos-faltas-afastamentos', defaultValues.listMotivoFaltaAfastamento);
+routes.get('/tipos-faltas-afastamentos', defaultValues.listTipoFaltaAfastamento);
+routes.get('/categorias-lembretes', defaultValues.listCategoriaLembrete);
+routes.get('/periodos-recorrencias', defaultValues.listPeriodoRecorrenciaLembrete);
+routes.get('/relacoes-contatos', defaultValues.listRelacaoContato);
+routes.get('/relacoes-dependentes', defaultValues.listRelacaoDependente);
+routes.get('/tipos-avisos-previos', defaultValues.listTipoAvisoPrevio);
+routes.get('/tipos-desligamentos', defaultValues.listTipoDesligamento);
+routes.get('/tipos-calculos-horas-extras', defaultValues.listTipoCalculoHoraExtra);
+routes.get('/niveis-escolaridades', defaultValues.listNivelEscolaridade);
+routes.get('/tipos-holerites', defaultValues.listTipoHolerite);
+routes.get('/tipos-proventos', defaultValues.listTipoProvento);
+routes.get('/tipos-recados', defaultValues.listTipoRecado);
+routes.get('/parcelas-decimos-terceiros', defaultValues.listParcelasDecimoTerceiro);
+
+
 
 routes.post('/login', auth.login);
 

@@ -1,13 +1,12 @@
-const {Holerite} = require('../models')
-const query = require('../util/query')
+const {Holerite, TipoHolerite} = require('../models')
 const addIdEmpresa = require('../util/util').addIdEmpresa
 
 module.exports.list = async (req, res) => {
-    res.send(await Holerite.findAll({...query.removeTimestamp(), where: {idEmpresa: req.authData.empresa}}))
+    res.send(await Holerite.findAll({...getParams, where: {idEmpresa: req.authData.empresa}}))
 }
 
 module.exports.findById = async (req, res) => {
-    const result = await Holerite.findByPk(req.params.id, ...query.removeTimestamp())
+    const result = await Holerite.findByPk(req.params.id, getParams)
     if (result) {
         res.send(result)
     } else {
@@ -15,26 +14,28 @@ module.exports.findById = async (req, res) => {
     }
 }
 
-module.exports.save = async (req, res) => {
+module.exports.save = async (req, res, next) => {
     try {
-        const result = await Holerite.create(addIdEmpresa(req.body, req.authData.empresa))
+        const {tipo, ...data} = req.body
+        const result = await Holerite.create(addIdEmpresa(data, req.authData.empresa))
+        await result.setTipoHolerite(tipo)
         res.send(result)
     } catch (e) {
-        res.send({erro: e.errors[0].message})
+        next(e)
     }
 }
 
-module.exports.update = async (req, res) => {
+module.exports.update = async (req, res, next) => {
     try {
         await Holerite.update({...req.body}, {
             where: {
                 id: req.body.id
-            }, ...query.removeTimestamp()
+            }, ...getParams
         })
         const result = await Holerite.findByPk(req.body.id)
         res.send(result)
     } catch (e) {
-        res.send(e)
+        next(e)
     }
 }
 
@@ -42,3 +43,20 @@ module.exports.delete = async (req, res) => {
     await Holerite.destroy({where: {id: req.params.id}})
     res.status(200).send()
 }
+
+
+
+const getParams = {
+    include: [
+        {
+            model: TipoHolerite,
+            as: 'tipo',
+            attributes: {
+                exclude: ['createdAt', 'updatedAt'],
+            },
+        },
+    ],
+    attributes: {
+        exclude: ['createdAt', 'updatedAt']
+    }
+};

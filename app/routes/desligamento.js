@@ -1,4 +1,5 @@
-const {Desligamento, Colaborador, Contador, DesligamentoContador, CopiaDocumento, Empresa, Departamento, Cargo, Ferias, Beneficio} = require('../models');
+const {Desligamento, Colaborador, Contador, DesligamentoContador, CopiaDocumento,
+    Empresa, Departamento, Cargo, Ferias, Beneficio, TipoAvisoPrevio, TipoDesligamento} = require('../models');
 const addIdEmpresa = require('../util/util').addIdEmpresa;
 const fila = require('../../config/mqService');
 
@@ -19,10 +20,12 @@ module.exports.findById = async (req, res, next) => {
 
 module.exports.save = async (req, res, next) => {
     try {
-        const {colaborador, contadores, ...data} = req.body;
+        const {colaborador, contadores, aviso, ...data} = req.body;
 
         const result = await Desligamento.create(addIdEmpresa(
             {...data, DesligamentoId: colaborador}, req.authData.empresa));
+
+        await result.setTipoAvisoPrevio(aviso)
 
         if (contadores && contadores.length) {
             contadores.forEach(async c => {
@@ -123,6 +126,14 @@ const getParams = {
         }, {
             model: CopiaDocumento,
             as: 'copiaDocumentos',
+            attributes: {exclude: ['updatedAt', 'CopiaDocumentoDesligamentoId']}
+        }, {
+            model: TipoAvisoPrevio,
+            as: 'aviso',
+            attributes: {exclude: ['updatedAt', 'CopiaDocumentoDesligamentoId']}
+        }, {
+            model: TipoDesligamento,
+            as: 'tipo',
             attributes: {exclude: ['updatedAt', 'CopiaDocumentoDesligamentoId']}
         },
     ],

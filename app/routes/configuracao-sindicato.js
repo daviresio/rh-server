@@ -1,13 +1,12 @@
-const {ConfiguracaoSindicato, Sindicato} = require('../models');
-const query = require('../util/query');
+const {ConfiguracaoSindicato, Sindicato, TipoAdicionalSindicato} = require('../models');
 const addIdEmpresa = require('../util/util').addIdEmpresa;
 
 module.exports.list = async (req, res) => {
-    res.send(await ConfiguracaoSindicato.findAll({...query.removeTimestamp(), where: {idEmpresa: req.authData.empresa}}))
+    res.send(await ConfiguracaoSindicato.findAll({...getParams, where: {idEmpresa: req.authData.empresa}}))
 };
 
 module.exports.findById = async (req, res) => {
-    const result = await ConfiguracaoSindicato.findByPk(req.params.id, query.removeTimestamp());
+    const result = await ConfiguracaoSindicato.findByPk(req.params.id, getParams);
     if (result) {
         res.send(result)
     } else {
@@ -17,9 +16,10 @@ module.exports.findById = async (req, res) => {
 
 module.exports.save = async (req, res, next) => {
     try {
-        const {sindicato, ...data} = req.body;
+        const {sindicato, tipo, ...data} = req.body;
         const result = await ConfiguracaoSindicato.create(addIdEmpresa(data, req.authData.empresa));
         await result.setSindicato(sindicato);
+        await result.setTipoAdicionalSindicato(tipo);
         res.send(result)
     } catch (e) {
         next(e)
@@ -43,4 +43,19 @@ module.exports.update = async (req, res) => {
 module.exports.delete = async (req, res) => {
     await ConfiguracaoSindicato.destroy({where: {id: req.params.id}});
     res.status(200).send()
+};
+
+const getParams = {
+    include: [
+        {
+            model: TipoAdicionalSindicato,
+            as: 'tipo',
+            attributes: {
+                exclude: ['createdAt', 'updatedAt'],
+            },
+        }
+    ],
+    attributes: {
+        exclude: ['createdAt', 'updatedAt']
+    }
 };

@@ -19,10 +19,6 @@ module.exports = (sequelize, DataTypes) => {
         cnpjOperador: {
             type: DataTypes.STRING,
         },
-        categoria: {
-            type: DataTypes.STRING,
-            ...message.notNull('categoria')
-        },
         descontaFaltaMesAnterior: {
             allowNull: false,
             defaultValue: false,
@@ -48,10 +44,6 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: false,
             type: DataTypes.BOOLEAN,
         },
-        tipoCalculoSaldo: {
-            allowNull: false,
-            type: DataTypes.STRING
-        },
         custoDaEmpresaPagoPeloColaborador: {
             allowNull: false,
             type: DataTypes.BOOLEAN
@@ -74,6 +66,8 @@ module.exports = (sequelize, DataTypes) => {
     })
     Beneficio.associate = models => {
         Beneficio.belongsToMany(models.Colaborador, {through: 'ColaboradorBeneficio', as: 'colaboradores', foreignKey: 'BeneficioId', otherKey: 'ColaboradorId'})
+        Beneficio.belongsTo(models.CalculoSaldoBeneficio, {as: 'tipoCalculoSaldo', foreignKey: 'CalculoSaldoBeneficioId'})
+        Beneficio.belongsTo(models.CategoriaBeneficio, {as: 'categoria', foreignKey: 'CategoriaBeneficioId'})
     }
     return Beneficio
 }

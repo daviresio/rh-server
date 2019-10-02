@@ -51,19 +51,10 @@ module.exports = (sequelize, DataTypes) => {
         nacionalidade: {
             type: DataTypes.STRING,
         },
-        corRaca: {
-            type: DataTypes.STRING,
-        },
         naturalEstado: {
             type: DataTypes.STRING,
         },
         naturalCidade: {
-            type: DataTypes.STRING,
-        },
-        sexo: {
-            type: DataTypes.STRING,
-        },
-        estadoCivil: {
             type: DataTypes.STRING,
         },
         nomeMae: {
@@ -174,7 +165,9 @@ module.exports = (sequelize, DataTypes) => {
         Colaborador.hasOne(models.Desligamento, {as: 'desligamento', foreignKey: 'DesligamentoId'})
         Colaborador.hasMany(models.FechamentoFolhaItem, {as: 'fechamentoFolhaItens', foreignKey: 'FechamentoColaboradorId'});
         Colaborador.belongsToMany(models.FechamentoFolha, {through: 'FechamentoFolhaColaborador', as: 'fechamentoFolhas', foreignKey: 'FechamentoFolhaColaboradorId', otherKey: 'FechamentoFolhaId'});
-
+        Colaborador.belongsTo(models.CorRaca, {as: 'corRaca', foreignKey: 'CorRacaId'});
+        Colaborador.belongsTo(models.Sexo, {as: 'sexo', foreignKey: 'SexoId'});
+        Colaborador.belongsTo(models.EstadoCivil, {as: 'estadoCivil', foreignKey: 'EstadoCivilId'});
     };
 
     return Colaborador

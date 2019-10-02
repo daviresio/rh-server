@@ -3,7 +3,7 @@ const {Usuario} = require('../models')
 
 const SECRET_JWT_KEY = 'S3crete'
 
-const getToken = (usuario, empresa) => jwt.sign({usuario, empresa}, SECRET_JWT_KEY, {expiresIn: '7d'})
+const getToken = (usuario, empresa) => jwt.sign({usuario, empresa}, SECRET_JWT_KEY, {expiresIn: '100d'})
 
 module.exports.getToken = getToken
 

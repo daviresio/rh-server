@@ -1,1 +1,6 @@
-node_modules
+node_modules/
+k8s/
+Dockerfile
+.dockerignore
+.gitignore
+npm-debug.log

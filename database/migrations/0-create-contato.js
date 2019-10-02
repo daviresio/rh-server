@@ -25,10 +25,6 @@ module.exports = {
         telefoneTrabalho: {
           type: Sequelize.STRING
         },
-        relacao: {
-          allowNull: false,
-          type: Sequelize.STRING
-        },
         idEmpresa: {
           type: Sequelize.INTEGER,
         },

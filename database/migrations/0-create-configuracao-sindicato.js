@@ -13,9 +13,6 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.STRING
             },
-            tipo: {
-                type: Sequelize.INTEGER
-            },
             adicional: {
                 type: Sequelize.DOUBLE
             },

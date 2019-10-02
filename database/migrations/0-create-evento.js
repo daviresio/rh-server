@@ -21,10 +21,6 @@ module.exports = {
             eSocial: {
                 type: Sequelize.STRING,
             },
-            tipo: {
-                allowNull: false,
-                type: Sequelize.STRING,
-            },
             tributarIrrf: {
                 allowNull: false,
                 defaultValue: false,

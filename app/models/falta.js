@@ -9,12 +9,6 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             type: DataTypes.INTEGER
         },
-        motivo: {
-            type: DataTypes.STRING
-        },
-        tipo: {
-            type: DataTypes.STRING
-        },
         dataInicial: {
             type: DataTypes.DATE
         },
@@ -30,6 +24,8 @@ module.exports = (sequelize, DataTypes) => {
 
     Falta.associate = models => {
         Falta.belongsTo(models.Colaborador, {as: 'colaborador', foreignKey: 'FaltaId'})
+        Falta.belongsTo(models.MotivoFaltaAfastamento, {as: 'motivo', foreignKey: 'MotivoFaltaAfastamentoId'})
+        Falta.belongsTo(models.TipoFaltaAfastamento, {as: 'tipo', foreignKey: 'TipoFaltaAfastamentoId'})
     }
 
     return Falta

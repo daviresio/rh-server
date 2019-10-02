@@ -12,8 +12,6 @@ RUN apk --no-cache add --virtual native-deps \
 
 RUN npm install --quiet
 
-RUN apk add --no-cache bash
-
 COPY . .
 
 EXPOSE 4000

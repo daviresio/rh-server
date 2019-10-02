@@ -9,9 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      escolaridade: {
-        type: Sequelize.STRING,
-      },
       curso: {
         type: Sequelize.STRING,
       },
