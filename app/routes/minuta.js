@@ -17,8 +17,7 @@ module.exports.findById = async (req, res) => {
 
 module.exports.save = async (req, res, next) => {
     try {
-        const result = await Minuta.create(addIdEmpresa(req.body, req.authData.empresa));
-        await result.setEmpresa(req.authData.empresa);
+        const result = await Minuta.create(addIdEmpresa({...req.body, MinutaId: req.authData.empresa}, req.authData.empresa));
         res.send(result)
     } catch (e) {
         next(e)
@@ -26,7 +25,6 @@ module.exports.save = async (req, res, next) => {
 };
 
 module.exports.update = async (req, res, next) => {
-    console.log(req.body);
     try {
         await Minuta.update({...req.body}, {
             where: {

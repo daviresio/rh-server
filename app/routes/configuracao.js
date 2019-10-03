@@ -15,19 +15,17 @@ module.exports.findById = async (req, res) => {
     }
 }
 
-module.exports.save = async (req, res) => {
+module.exports.save = async (req, res, next) => {
     try {
-        const {folha, decimoTerceiro, ...data} = req.body
-        const result = await Configuracao.create(addIdEmpresa(data, req.authData.empresa))
-        await result.setConfiguracaoFolha(folha)
-        await result.setConfiguracaoDecimoTerceiro(decimoTerceiro)
+        const {folha: ConfiguracaoFolhaId, decimoTerceiro: ConfiguracaoDecimoTerceiroId, ...data} = req.body
+        const result = await Configuracao.create(addIdEmpresa({...data, ConfiguracaoFolhaId, ConfiguracaoDecimoTerceiroId}, req.authData.empresa))
         res.send(result)
     } catch (e) {
-        res.send({erro: e.errors[0].message})
+        next(e)
     }
 }
 
-module.exports.update = async (req, res) => {
+module.exports.update = async (req, res, next) => {
     try {
         const {folha, decimoTerceiro, ...data} = req.body
         await Configuracao.update(data, {
@@ -54,7 +52,7 @@ module.exports.update = async (req, res) => {
         }
         res.send(result)
     } catch (e) {
-        res.status(500).send(e)
+        next(e)
     }
 }
 

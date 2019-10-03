@@ -15,23 +15,17 @@ module.exports.findById = async (req, res) => {
     }
 };
 
-module.exports.save = async (req, res) => {
+module.exports.save = async (req, res, next) => {
     try {
-        const {colaborador, ferias, desligamento, ...data} = req.body;
-        const result = await CopiaDocumento.create(addIdEmpresa(
-            {...data, CopiaDocumentoFeriasId: ferias, CopiaDocumentoId: colaborador, CopiaDocumentoDesligamentoId: desligamento}, req.authData.empresa));
-
-        if (colaborador) await result.setColaborador(colaborador);
-        if (ferias) await result.setFerias(colaborador);
-
+        const {colaborador: CopiaDocumentoId, ferias: CopiaDocumentoFeriasId, desligamento: CopiaDocumentoDesligamentoId, ...data} = req.body;
+        const result = await CopiaDocumento.create(addIdEmpresa({...data, CopiaDocumentoFeriasId, CopiaDocumentoId, CopiaDocumentoDesligamentoId}, req.authData.empresa));
         res.send(result)
     } catch (e) {
-        console.log(e);
-        res.send({erro: e.errors[0].message})
+        next(e)
     }
 };
 
-module.exports.update = async (req, res) => {
+module.exports.update = async (req, res, next) => {
     try {
         await CopiaDocumento.update({...req.body}, {
             where: {
@@ -41,7 +35,7 @@ module.exports.update = async (req, res) => {
         const result = await CopiaDocumento.findByPk(req.body.id, {...getParams});
         res.send(result)
     } catch (e) {
-        res.send(e)
+        next(e)
     }
 };
 

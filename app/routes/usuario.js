@@ -17,17 +17,16 @@ module.exports.findById = async (req, res) => {
     }
 };
 
-module.exports.save = async (req, res) => {
+module.exports.save = async (req, res, next) => {
     try {
         const result = await Usuario.create(addIdEmpresa(req.body, req.authData.empresa));
         res.send(result)
     } catch (e) {
-        console.log(e);
-        res.send({erro: e.errors[0].message})
+        next(e)
     }
 };
 
-module.exports.update = async (req, res) => {
+module.exports.update = async (req, res, next) => {
     const {senha, ...data} = req.body;
     if (senha) {
         res.status(500).json({erro: 'senha nao pode ser alterada por aqui'})
@@ -41,7 +40,7 @@ module.exports.update = async (req, res) => {
         const result = await Usuario.findByPk(req.body.id);
         res.send(result)
     } catch (e) {
-        res.send(e)
+        next(e)
     }
 };
 

@@ -16,9 +16,8 @@ module.exports.findById = async (req, res) => {
 
 module.exports.save = async (req, res, next) => {
     try {
-        const {tipo, ...data} = req.body
-        const result = await Holerite.create(addIdEmpresa(data, req.authData.empresa))
-        await result.setTipoHolerite(tipo)
+        const {tipo: TipoHoleriteId, ...data} = req.body
+        const result = await Holerite.create(addIdEmpresa({...data, TipoHoleriteId}, req.authData.empresa))
         res.send(result)
     } catch (e) {
         next(e)

@@ -15,17 +15,16 @@ module.exports.findById = async (req, res) => {
     }
 }
 
-module.exports.save = async (req, res) => {
+module.exports.save = async (req, res, next) => {
     try {
         const result = await Feriado.create(addIdEmpresa(req.body, req.authData.empresa))
         res.send(result)
     } catch (e) {
-        console.log(e)
-        res.status(500).send({erro: e.errors[0].message})
+        next(e)
     }
 }
 
-module.exports.update = async (req, res) => {
+module.exports.update = async (req, res, next) => {
     try {
         await Feriado.update({...req.body}, {
             where: {
@@ -35,7 +34,7 @@ module.exports.update = async (req, res) => {
         const result = await Feriado.findByPk(req.body.id)
         res.send(result)
     } catch (e) {
-        res.send(e)
+        next(e)
     }
 }
 

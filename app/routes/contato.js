@@ -14,21 +14,17 @@ module.exports.findById = async (req, res) => {
     }
 }
 
-module.exports.save = async (req, res) => {
+module.exports.save = async (req, res, next) => {
     try {
-        const {colaborador, relacao, ...data} = req.body
-        const result = await Contato.create(addIdEmpresa(data, req.authData.empresa))
-        console.log(result)
-        await result.setColaborador(colaborador)
-        await result.setRelacaoContato(relacao)
+        const {colaborador: ContatoId, relacao: RelacaoContatoId, ...data} = req.body
+        const result = await Contato.create(addIdEmpresa({...data, ContatoId, RelacaoContatoId}, req.authData.empresa))
         res.send(result)
     } catch (e) {
-        console.log(e)
-        res.send({erro: e.errors[0].message})
+        next(e)
     }
 }
 
-module.exports.update = async (req, res) => {
+module.exports.update = async (req, res, next) => {
     console.log(req.body)
     try {
         await Contato.update({...req.body}, {
@@ -39,7 +35,7 @@ module.exports.update = async (req, res) => {
         const result = await Contato.findByPk(req.body.id)
         res.send(result)
     } catch (e) {
-        res.send(e)
+        next(e)
     }
 }
 

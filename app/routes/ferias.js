@@ -20,9 +20,8 @@ module.exports.findById = async (req, res, next) => {
 
 module.exports.save = async (req, res, next) => {
     try {
-        const {colaborador, ...data} = req.body;
-        const result = await Ferias.create(addIdEmpresa(data, req.authData.empresa));
-        await result.setColaborador(colaborador);
+        const {colaborador: FeriasId, ...data} = req.body;
+        const result = await Ferias.create(addIdEmpresa({...data, FeriasId}, req.authData.empresa));
         res.send(result)
     } catch (e) {
         next(e)

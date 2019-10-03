@@ -4,6 +4,7 @@ const {TipoAdicionalSindicato, CalculoProporcionalidade, CalculoSaldoBeneficio, 
     NivelEscolaridade, TipoRecado, TipoProvento, TipoHolerite, ParcelasDecimoTerceiro, } = require('../models')
 
 const query = require('../util/query')
+const {getCache, setCache} = require('../../config/redis')
 
 module.exports.listTipoAdicionalSindicato = async (req, res) => {
     res.send(await TipoAdicionalSindicato.findAll(query.removeTimestamp()))
@@ -30,7 +31,14 @@ module.exports.listCorRaca = async (req, res) => {
 }
 
 module.exports.listSexo = async (req, res) => {
-    res.send(await Sexo.findAll(query.removeTimestamp()))
+    const value = await getCache('sexo')
+    if(value) {
+        res.send(JSON.parse(value))
+    } else {
+        const v = await Sexo.findAll(query.removeTimestamp())
+        await setCache('sexo', JSON.stringify(v))
+        res.send(v)
+    }
 }
 
 module.exports.listEstadoCivil = async (req, res) => {

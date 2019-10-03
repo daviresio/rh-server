@@ -8,10 +8,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             autoIncrement: true,
         },
-        /*nome: {
+        nome: {
             type: DataTypes.STRING,
             ...message.notNull('nome'),
-        },*/
+        },
         conteudo: {
             type: DataTypes.STRING,
             ...message.notNull('conteudo'),

@@ -22,9 +22,8 @@ module.exports.findById = async (req, res) => {
 
 module.exports.save = async (req, res, next) => {
     try {
-        const {tipo, ...data} = req.body
-        const result = await Evento.create(addIdEmpresa(data, req.authData.empresa))
-        await result.setTipoProvento(tipo)
+        const {tipo: TipoProventoId, ...data} = req.body
+        const result = await Evento.create(addIdEmpresa({...data, TipoProventoId}, req.authData.empresa))
         res.send(result)
     } catch (e) {
         next(e)

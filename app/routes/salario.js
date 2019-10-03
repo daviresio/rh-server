@@ -16,10 +16,8 @@ module.exports.findById = async (req, res, next) => {
 
 module.exports.save = async (req, res, next) => {
     try {
-        const {colaborador, motivo, ...data} = req.body
-        const result = await Salario.create(addIdEmpresa(data, req.authData.empresa))
-        await result.setColaborador(colaborador)
-        await result.setMotivoAlteracaoSalario(motivo)
+        const {colaborador: SalarioId, motivo: MotivoAlteracaoSalarioId, ...data} = req.body
+        const result = await Salario.create(addIdEmpresa({...data, SalarioId, MotivoAlteracaoSalarioId}, req.authData.empresa))
         res.send(result)
     } catch (e) {
         next(e)

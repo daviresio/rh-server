@@ -15,20 +15,17 @@ module.exports.findById = async (req, res) => {
     }
 };
 
-module.exports.save = async (req, res) => {
+module.exports.save = async (req, res, next) => {
     try {
-        const {tipoCalculoSaldo, categoria, ...data} = req.body
-        const result = await Beneficio.create(addIdEmpresa(data, req.authData.empresa));
-        await result.setCalculoSaldoBeneficio(tipoCalculoSaldo)
-        await result.setCategoriaBeneficio(categoria)
+        const {tipoCalculoSaldo: CalculoSaldoBeneficioId, categoria: CategoriaBeneficioId, ...data} = req.body
+        const result = await Beneficio.create(addIdEmpresa({...data, CalculoSaldoBeneficioId, CategoriaBeneficioId}, req.authData.empresa));
         res.send(result)
     } catch (e) {
-        console.log(e);
-        res.status(500).send({erro: e.errors[0].message})
+        next(e)
     }
 };
 
-module.exports.update = async (req, res) => {
+module.exports.update = async (req, res, next) => {
     try {
         await Beneficio.update({...req.body}, {
             where: {
@@ -38,7 +35,7 @@ module.exports.update = async (req, res) => {
         const result = await Beneficio.findByPk(req.body.id);
         res.send(result)
     } catch (e) {
-        res.send(e)
+        next(e)
     }
 };
 

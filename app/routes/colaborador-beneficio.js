@@ -14,10 +14,9 @@ module.exports.save = async (req, res, next) => {
             }
         });
         data.forEach(async v => {
-            const result = await ColaboradorBeneficio.create(v);
-            console.log(Object.assign({}, result))
+            await ColaboradorBeneficio.create(v);
         });
-        res.send(await Colaborador.findByPk(data[0].colaborador))
+        res.send(await Colaborador.findByPk(data[0].ColaboradorId))
     } catch (e) {
         next(e)
     }

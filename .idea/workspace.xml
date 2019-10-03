@@ -2,126 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="faac65a8-d861-4f85-997a-496b8fb6643b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/models/calculo-proporcionalidade.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/calculo-saldo-beneficio.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/categoria-anotacao.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/categoria-beneficio.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/categoria-lembrete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/cor-raca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/estado-civil.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/motivo-alteracao-salario.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/motivo-falta-afastamento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/nivel-escolaridade.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/parcelas-decimo-terceiro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/periodo-recorrencia-lembrete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/relacao-contato.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/relacao-dependente.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/sexo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/tipo-adicional-sindicato.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/tipo-aviso-previo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/tipo-calculo-hora-extra.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/tipo-desligamento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/tipo-falta-afastamento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/tipo-holerite.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/tipo-provento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/tipo-recado.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/default-values.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/routes/relatorios.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-calculo-proporcionalidade.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-calculo-saldo-beneficio.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-categoria-anotacao.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-categoria-beneficio.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-categoria-lembrete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-cor-raca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-estado-civil.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-motivo-alteracao-salario.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-motivo-falta-afastamento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-nivel-escolaridade.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-parcelas-decimo-terceiro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-periodo-recorrencia-lembrete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-relacao-contato.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-relacao-dependente.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-sexo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-tipo-adicional-sindicato.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-tipo-aviso-previo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-tipo-calculo-hora-extra.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-tipo-desligamento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-tipo-falta-afastamento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-tipo-holerite.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-tipo-provento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/0-create-tipo-recado.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930162148-tipo-adicional-sindicato.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930162219-calculo-proporcionalidade.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930162228-calculo-saldo-beneficio.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930162237-categoria-anotacao.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930162244-categoria-beneficio.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930162251-cor-raca.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930162257-estado-civil.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930170222-motivo-alteracao-salario.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930170232-motivo-falta-afastamento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930170249-periodo-recorrencia-lembrete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930170304-parcelas-decimo-terceiro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930170313-relacao-contato.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930170323-relacao-dependente.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930170358-sexo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930170407-tipo-aviso-previo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930170417-tipo-calculo-hora-extra.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930170429-tipo-desligamento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930170439-nivel-escolaridade.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930170448-tipo-falta-afastamento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930170456-tipo-holerite.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930170501-categoria-lembrete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930170506-tipo-provento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/20190930170509-tipo-recado.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/redis.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/anotacao.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/anotacao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/beneficio.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/beneficio.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/colaborador.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/colaborador.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/configuracaoSindicato.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/configuracaoSindicato.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/contato.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/contato.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/dependente.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/dependente.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/desligamento.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/desligamento.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/escolaridade.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/escolaridade.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/evento.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/evento.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/falta.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/falta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/copiaDocumento.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/copiaDocumento.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/holerite.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/holerite.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/lembrete.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/lembrete.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/salario.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/salario.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/minuta.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/minuta.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/anotacao.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/anotacao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/banco.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/banco.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/beneficio.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/beneficio.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/cargo.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/cargo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/centroDeCusto.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/centroDeCusto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/checkList.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/checkList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/cobranca.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/cobranca.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/colaborador-beneficio.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/colaborador-beneficio.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/colaborador.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/colaborador.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/companhia.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/companhia.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/configuracao-sindicato.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/configuracao-sindicato.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/configuracao.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/configuracao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/contador.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/contador.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/contato.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/contato.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/copiaDocumento.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/copiaDocumento.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/default-values.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/default-values.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/departamento.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/departamento.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/dependente.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/dependente.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/desligamento.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/desligamento.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/endereco.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/endereco.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/escolaridade.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/escolaridade.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/evento.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/evento.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/falta.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/falta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/feriado.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/feriado.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/ferias.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/ferias.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/formaPagamento.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/formaPagamento.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/holerite.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/holerite.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/jornadaTrabalho.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/jornadaTrabalho.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/lembrete.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/lembrete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/minuta.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/minuta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/periodoExperiencia.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/periodoExperiencia.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/recado.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/recado.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/salario.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/salario.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/sindicato.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/sindicato.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/usuario.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/usuario.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mqService.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/mqService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/valorRecorrente.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/valorRecorrente.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/vinculo.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/vinculo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/0-create-anotacao.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/0-create-anotacao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/0-create-beneficio.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/0-create-beneficio.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/0-create-colaborador.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/0-create-colaborador.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/0-create-configuracao-sindicato.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/0-create-configuracao-sindicato.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/0-create-contato.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/0-create-contato.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/0-create-dependente.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/0-create-dependente.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/0-create-desligamento.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/0-create-desligamento.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/0-create-escolaridade.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/0-create-escolaridade.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/0-create-evento.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/0-create-evento.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/0-create-falta.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/0-create-falta.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/0-create-holerite.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/0-create-holerite.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/0-create-lembrete.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/0-create-lembrete.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/0-create-salario.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/0-create-salario.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/10-create-associations.js" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/10-create-associations.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +69,30 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="rh@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="rh@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="rh@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="rh: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="rh@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="rh: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="Beneficio: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -163,9 +115,10 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="add_unversioned_files" value="$PROJECT_DIR$/k8s/replication_lesson.yml" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/k8s/secretes.yml&#10;/home/davi/WebstormProjects/rh-server/k8s/replication_lesson.yml" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/routes" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -244,7 +197,17 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@6e28e78f" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@6e28e78f" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@d743257" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -441,7 +404,13 @@
       <workItem from="1569890484402" duration="7889000" />
       <workItem from="1569928119532" duration="54000" />
       <workItem from="1569946726856" duration="3217000" />
-      <workItem from="1569972021472" duration="8019000" />
+      <workItem from="1569972021472" duration="12455000" />
+      <workItem from="1570022855372" duration="811000" />
+      <workItem from="1570032218392" duration="2863000" />
+      <workItem from="1570037000842" duration="12000" />
+      <workItem from="1570048897113" duration="851000" />
+      <workItem from="1570050184456" duration="5000" />
+      <workItem from="1570060655462" duration="5985000" />
     </task>
     <task id="LOCAL-00001" summary="salvando alteracoes">
       <created>1568577884797</created>

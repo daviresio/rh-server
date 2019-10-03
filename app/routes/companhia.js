@@ -22,7 +22,7 @@ module.exports.findById = async (req, res) => {
     }
 };
 
-module.exports.save = async (req, res) => {
+module.exports.save = async (req, res, next) => {
 
     const {empresa, usuario} = req.body;
 
@@ -47,12 +47,11 @@ module.exports.save = async (req, res) => {
         fila.send(fila.queue.MAIL_QUEUE, usuario.email, fila.type.MAIL_MARKETING_BOAS_VINDAS, {nome: usuario.nome});
         res.json({token})
     } catch (e) {
-        console.log(e);
-        res.status(500).send({erro: e.errors[0].message})
+        next(e)
     }
 };
 
-module.exports.update = async (req, res) => {
+module.exports.update = async (req, res, next) => {
     try {
         await Companhia.update({...req.body}, {
             where: {
@@ -62,7 +61,7 @@ module.exports.update = async (req, res) => {
         const result = await Companhia.findByPk(req.body.id);
         res.send(result)
     } catch (e) {
-        res.send(e)
+        next(e)
     }
 };
 

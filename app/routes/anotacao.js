@@ -16,10 +16,8 @@ module.exports.findById = async (req, res) => {
 
 module.exports.save = async (req, res, next) => {
     try {
-        const {colaborador, categoria, ...data} = req.body
-        const result = await Anotacao.create(addIdEmpresa(data, req.authData.empresa))
-        await result.setColaborador(colaborador)
-        await result.setCategoriaAnotacao(categoria)
+        const {colaborador: AnotacaoId, categoria: CategoriaAnotacaoId, ...data} = req.body
+        const result = await Anotacao.create(addIdEmpresa({...data, AnotacaoId, CategoriaAnotacaoId}, req.authData.empresa))
         res.send(result)
     } catch (e) {
         next(e)

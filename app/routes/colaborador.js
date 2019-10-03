@@ -26,19 +26,13 @@ module.exports.findById = async (req, res) => {
 module.exports.save = async (req, res, next) => {
     try {
         const idEmpresa = req.authData.empresa;
-        const {cargo, departamento, centroDeCusto, sindicato, checkList, jornadaTrabalho, vinculo, formaPagamento, periodoExperiencia, corRaca, sexo, estadoCivil, ...data} = req.body;
-        colaborador = await Colaborador.create({...data, status: "ADMISSAO_PENDENTE", idEmpresa});
-        if (cargo) await colaborador.setCargo(cargo);
-        if (corRaca) await colaborador.setCorRaca(corRaca);
-        if (sexo) await colaborador.setSexo(sexo);
-        if (estadoCivil) await colaborador.setEstadoCivil(estadoCivil);
-        if (departamento) await colaborador.setDepartamento(departamento);
-        if (centroDeCusto) await colaborador.setCentroDeCusto(centroDeCusto);
-        if (sindicato) await colaborador.setSindicato(sindicato);
-        if (jornadaTrabalho) await colaborador.setJornadaTrabalho(jornadaTrabalho);
-        if (vinculo) await colaborador.setVinculo(vinculo);
-        if (formaPagamento) await colaborador.setFormaPagamento(formaPagamento);
-        if (periodoExperiencia) await colaborador.setPeriodoExperiencia(periodoExperiencia);
+        const {cargo: CargoId, departamento: DepartamentoId, centroDeCusto: CentroDeCustoId, sindicato: SindicatoId,
+            jornadaTrabalho: JornadaTrabalhoId, vinculo: VinculoId, formaPagamento: FormaPagamentoId, periodoExperiencia: PeriodoExperienciaId,
+            corRaca: CorRacaId, sexo: SexoId, estadoCivil: EstadoCivilId, checkList, ...data} = req.body;
+
+        colaborador = await Colaborador.create({...data, CargoId, DepartamentoId, CentroDeCustoId, SindicatoId, JornadaTrabalhoId,
+            VinculoId, FormaPagamentoId, PeriodoExperienciaId, CorRacaId, SexoId, EstadoCivilId, status: "ADMISSAO_PENDENTE", idEmpresa});
+
         await ConfiguracaoCheckList.findAll({where: {ativo: true}}).then(async result =>
             result.forEach(async v => await CheckList.create({nome: v.nome, concluido: false, CheckListId: colaborador.id, idEmpresa})));
 

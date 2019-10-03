@@ -16,17 +16,15 @@ module.exports.findById = async (req, res) => {
 
 module.exports.save = async (req, res, next) => {
     try {
-        const {sindicato, tipo, ...data} = req.body;
-        const result = await ConfiguracaoSindicato.create(addIdEmpresa(data, req.authData.empresa));
-        await result.setSindicato(sindicato);
-        await result.setTipoAdicionalSindicato(tipo);
+        const {sindicato: ConfiguracaoSindicatoId, tipo: TipoAdicionalSindicatoId, ...data} = req.body;
+        const result = await ConfiguracaoSindicato.create(addIdEmpresa({...data, ConfiguracaoSindicatoId, TipoAdicionalSindicatoId}, req.authData.empresa));
         res.send(result)
     } catch (e) {
         next(e)
     }
 };
 
-module.exports.update = async (req, res) => {
+module.exports.update = async (req, res, next) => {
     try {
         await ConfiguracaoSindicato.update({...req.body}, {
             where: {
@@ -36,7 +34,7 @@ module.exports.update = async (req, res) => {
         const result = await ConfiguracaoSindicato.findByPk(req.body.id);
         res.send(result)
     } catch (e) {
-        res.send(e)
+        next(e)
     }
 };
 

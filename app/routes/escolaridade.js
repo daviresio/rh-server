@@ -16,13 +16,12 @@ module.exports.findById = async (req, res) => {
 
 module.exports.save = async (req, res, next) => {
     try {
-        const {colaborador, escolaridade, ...data} = req.body
-        const result = await Escolaridade.create(addIdEmpresa(data, req.authData.empresa))
+        const {colaborador, escolaridade: NivelEscolaridadeId, ...data} = req.body
+        const result = await Escolaridade.create(addIdEmpresa({...data, NivelEscolaridadeId}, req.authData.empresa))
         await result.setColaborador(colaborador)
-        await result.setNivelEscolaridade(escolaridade)
         res.send(result)
     } catch (e) {
-        rnext(e)
+        next(e)
     }
 }
 

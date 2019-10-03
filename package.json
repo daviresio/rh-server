@@ -23,7 +23,9 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",
     "multi": "^0.1.3",
-    "mysql2": "^1.6.5"
+    "mysql2": "^1.6.5",
+    "redis": "^2.8.0",
+    "response-time": "^2.3.2"
   },
   "devDependencies": {
     "@types/amqplib": "^0.5.13",
@@ -33,6 +35,7 @@
     "@types/express": "^4.16.1",
     "@types/jsonwebtoken": "^8.3.2",
     "@types/morgan": "^1.7.35",
+    "@types/redis": "^2.8.14",
     "@types/sequelize": "^4.27.48",
     "nodemon": "^1.19.1",
     "sequelize": "^5.8.7",

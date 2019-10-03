@@ -15,21 +15,17 @@ module.exports.findById = async (req, res) => {
     }
 }
 
-module.exports.save = async (req, res) => {
+module.exports.save = async (req, res, next) => {
     try {
-        const {colaborador, ...data} = req.body
-        console.log(colaborador, data)
-        const result = await ValorRecorrente.create(addIdEmpresa(data, req.authData.empresa))
-        await result.setColaborador(colaborador)
+        const {colaborador: ValorRecorrenteId, ...data} = req.body
+        const result = await ValorRecorrente.create(addIdEmpresa({...data, ValorRecorrenteId}, req.authData.empresa))
         res.send(result)
     } catch (e) {
-        console.log(e)
-        res.send({erro: e.errors[0].message})
+        next(e)
     }
 }
 
-module.exports.update = async (req, res) => {
-    console.log(req.body)
+module.exports.update = async (req, res, next) => {
     try {
         await ValorRecorrente.update({...req.body}, {
             where: {
@@ -39,7 +35,7 @@ module.exports.update = async (req, res) => {
         const result = await ValorRecorrente.findByPk(req.body.id)
         res.send(result)
     } catch (e) {
-        res.send(e)
+        next(e)
     }
 }
 

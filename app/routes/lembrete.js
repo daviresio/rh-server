@@ -15,7 +15,6 @@ module.exports.findById = async (req, res) => {
 }
 
 module.exports.save = async (req, res, next) => {
-
     try {
         const result = await Lembrete.create({...addIdEmpresa(req.body, req.authData.empresa), termino: req.body.termino || req.body.inicio})
         res.send(result)

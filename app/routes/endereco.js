@@ -15,18 +15,18 @@ module.exports.findById = async (req, res) => {
     }
 }
 
-module.exports.save = async (req, res) => {
+module.exports.save = async (req, res, next) => {
     try {
         const {colaborador, ...data} = req.body
         const result = await Endereco.create(addIdEmpresa(data, req.authData.empresa))
         await result.setColaborador(colaborador)
         res.send(result)
     } catch (e) {
-        res.send({erro: e.errors[0].message})
+        next(e)
     }
 }
 
-module.exports.update = async (req, res) => {
+module.exports.update = async (req, res, next) => {
     try {
         await Endereco.update({...req.body}, {
             where: {
@@ -36,7 +36,7 @@ module.exports.update = async (req, res) => {
         const result = await Endereco.findByPk(req.body.id)
         res.send(result)
     } catch (e) {
-        res.send(e)
+        next(e)
     }
 }
 

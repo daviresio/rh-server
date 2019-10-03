@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     })
     Holerite.associate = models => {
         Holerite.belongsTo(models.MesHolerite, {as: 'mes', foreignKey: 'HoleriteId'})
-        Holerite.belongsTo(models.TipoHolerite, {as: 'tipo', foreignKey: 'TipoHolerite'})
+        Holerite.belongsTo(models.TipoHolerite, {as: 'tipo', foreignKey: 'TipoHoleriteId'})
     }
     return Holerite
 }

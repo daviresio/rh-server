@@ -8,9 +8,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             autoIncrement: true,
         },
-        /*tipo: {
+        tipo: {
             type: DataTypes.STRING,
-        },*/
+        },
         nome: {
             type: DataTypes.STRING,
             ...message.notNull('nome'),

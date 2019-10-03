@@ -16,7 +16,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             ...message.notNull('anotacao'),
         },
-
+        idEmpresa: {
+            type: DataTypes.INTEGER,
+        },
     },{
         tableName: 'Anotacao'
     })
